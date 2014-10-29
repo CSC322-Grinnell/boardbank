@@ -1,5 +1,7 @@
 Boardbank::Application.routes.draw do
-  root :to => 'home#index'
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+  #root :to => 'frontpage#index'
+  root to: 'frontpage#index'
 
   devise_for :organizations, ActiveAdmin::Devise.config
 
