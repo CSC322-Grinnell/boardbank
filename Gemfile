@@ -15,6 +15,13 @@ group :production do
   gem 'pg'
 end
 
+gem 'sunspot_rails'
+
+group :development do
+  gem 'sunspot_solr'
+end
+
+
 # debugger is useful in development mode too
 group :development, :test do
   gem 'debugger'
