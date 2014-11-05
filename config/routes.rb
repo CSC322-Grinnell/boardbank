@@ -1,4 +1,6 @@
 Boardbank::Application.routes.draw do
+  devise_for :users
+
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   #root :to => 'frontpage#index'
   root to: 'frontpage#index'
