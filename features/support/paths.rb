@@ -15,16 +15,17 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+     
+    when /^the sign up page/
+	'/users/sign_up'  
 
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
-	when /^the admin login page/i
+    when /^the login page/
+	'/users/sign_in'
+
+    when /^the admin login page/i
 	  '/admin/login'
 
-	when /^the admin dashboard/i
+    when /^the admin dashboard/i
 	  '/admin'
     else
       begin
@@ -40,4 +41,3 @@ module NavigationHelpers
 end
 
 World(NavigationHelpers)
-
