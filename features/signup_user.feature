@@ -10,16 +10,16 @@ Background:I am on the sign up page
 Scenario: Create an account
 	When I fill in "Email" with "org@example.com"
 	  And I fill in "Password" with "password"
-	  And I fill in "Comfirm Password" with "password"
-	  And I press "Sign Up"
+	  And I fill in "Password confirmation" with "password"
+	  And I press "Sign up"
 	  Then I should be on the homepage
-	    And I should see "Signed up successfully."
+	    And I should see "signed up successfully."
 
 
 Scenario: Sign up with conflicting passwords
 	When I fill in "Email" with "badOrg@example.com"
 	  And I fill in "Password" with "openSesame"
 	  And I fill in "Password" with "closedSesame"
-	  And I press "Sign Up"
-	  Then I should see "Password didn't match comfirmation."
+	  And I press "Sign up"
+	  Then I should see "Password doesn't match confirmation"
 
