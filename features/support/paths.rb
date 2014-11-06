@@ -21,7 +21,11 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+	when /^the admin login page/i
+	  '/admin/login'
 
+	when /^the admin dashboard/i
+	  '/admin'
     else
       begin
         page_name =~ /^the (.*) page$/
@@ -36,3 +40,4 @@ module NavigationHelpers
 end
 
 World(NavigationHelpers)
+
