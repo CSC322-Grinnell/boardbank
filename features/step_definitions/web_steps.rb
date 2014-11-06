@@ -252,3 +252,17 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+# For popup confirmations - need JavaScript support!
+# See http://stackoverflow.com/questions/2458632/how-to-test-a-confirm-dialog-with-cucumber
+# I can't seem to get the Firefox gem to work on the MathLAN.
+
+When /^(?:|I )confirm (?:|the )popup$/ do
+#page.driver.browser.switch_to.alert.accept
+  pending
+end
+
+When /^(?:|I )dismiss (?:|the )popup$/ do
+#page.driver.browser.switch_to.alert.dismiss
+  pending
+end
