@@ -1,4 +1,4 @@
-<h2>Sign up to the Boardbank</h2>
+<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -12,18 +12,7 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.label :First_Name %><br />
-     <%= f.text_field :firstname, autofocus: true %></div>
-
-  <div><%= f.label :Last_Name %><br />
-     <%= f.text_field :lastname, autofocus: true %></div>
-
-    <div><%= f.check_box :is_org, {}, true %> <%= f.label :is_org, "Organization" %> </div>
-    <div><%= f.check_box :is_org, {}, false %> <%= f.label :is_org, "User" %> </div>
-
-
-
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "users/shared/links" %>
