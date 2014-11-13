@@ -18,8 +18,8 @@
   <div><%= f.label :Last_Name %><br />
      <%= f.text_field :lastname, autofocus: true %></div>
 
-    <div><%= f.check_box :is_org, {}, true %> <%= f.label :is_org, "Organization" %> </div>
-    <div><%= f.check_box :is_org, {}, false %> <%= f.label :is_org, "User" %> </div>
+    <div><%= f.check_box :is_org, {}, "Organization", "User"%> <%= f.label :is_org, "Organization?" %> </div>
+
 
 
 
