@@ -1,5 +1,13 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit Profile</h2>
 
+	<h4> Welcome <%= current_user.firstname %> <%= current_user.lastname %><br /> 
+	 <% if current_user.is_org == true %>
+	You are an Organization
+	<% else %>
+	You are a User
+	<% end %>
+	</h4>
+<hr />
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
