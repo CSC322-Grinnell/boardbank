@@ -1,20 +1,16 @@
 Boardbank::Application.routes.draw do
-  devise_for :users
-
-  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
-  #root :to => 'frontpage#index'
   root to: 'frontpage#index'
 
-  devise_for :organizations, ActiveAdmin::Devise.config
-
-  devise_for :users, ActiveAdmin::Devise.config
-
   devise_for :admin_users, ActiveAdmin::Devise.config
+
+  devise_for :organizations
+
+  devise_for :users
+
   ActiveAdmin.routes(self)
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  root to: 'frontpage#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
