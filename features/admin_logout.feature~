@@ -5,7 +5,7 @@ Feature: logout as an Admin
   I want to be able to logout from BoardBank
 
 Background:
-	Given  I login as an Admin
+	Given  I am signed in as an Admin
 	And I am on the admin dashboard
 	
 Scenario: Logout

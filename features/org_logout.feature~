@@ -5,7 +5,7 @@ Feature: logout as an organization
   I want to be able to logout from BoardBank
 
 Background:
-	Given  I login as an Organization
+	Given  I am signed in as an Organization
 	And I am on the homepage
 	
 Scenario: Logout

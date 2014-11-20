@@ -5,7 +5,7 @@ Feature: logout as a User
   I want to be able to logout from BoardBank
 
 Background:
-	Given  I am signed in as a User
+	Given  I login as a User
 	And I am on the homepage
 	
 Scenario: Logout

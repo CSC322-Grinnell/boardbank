@@ -6,7 +6,7 @@
 	   user = Organization.create(email: email, password: password)
 	end
 
-	Given(/^I am signed in as a User$/) do
+	Given(/^I login as a User$/) do
 
 		steps %Q{
 		Given I am on the login page
@@ -19,7 +19,7 @@
 		        }
 	end
 
-		Given(/^I am signed in as an Organization$/) do
+		Given(/^I login as an Organization$/) do
 
 		steps %Q{
 		Given I am on the organization login page
@@ -32,7 +32,7 @@
 		        }
 	end
 
-		Given(/^I am signed in as an Admin$/) do
+		Given(/^I login as an Admin$/) do
 
 		steps %Q{
 		Given I am on the Admin login page
