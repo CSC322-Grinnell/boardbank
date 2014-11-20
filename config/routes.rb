@@ -1,5 +1,4 @@
 Boardbank::Application.routes.draw do
-  devise_for :organizations
 
   root to: 'frontpage#index'
 
