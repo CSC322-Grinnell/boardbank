@@ -32,7 +32,7 @@
 		        }
 	end
 
-		Given(/^I login as an Admin$/) do
+		Given(/^I am login as an Admin$/) do
 
 		steps %Q{
 		Given I am on the Admin login page

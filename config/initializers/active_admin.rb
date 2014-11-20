@@ -59,7 +59,6 @@ ActiveAdmin.setup do |config|
   config.authentication_method = :authenticate_admin_user!
 
 
-
   # == Current User
   #
   # Active Admin will associate actions with the current
@@ -81,7 +80,10 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   config.logout_link_path = :destroy_admin_user_session_path
+<<<<<<< HEAD
 
+=======
+>>>>>>> b1d915e073b1b75d383b8a07ff65ed383403a43a
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..

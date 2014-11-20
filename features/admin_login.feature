@@ -8,11 +8,8 @@ Background:I am on the admin login page
 	Given I am on the admin login page
  	And an admin user "admin@example.com" exists
 Scenario: Login with correct credentials
- 	When I fill in "Email" with "admin@example.com"
-  	  And I fill in "Password" with "password"
-  	  And I press "Login"
-   	 Then I should be on the admin dashboard
-	
+	When I login as an Admin
+	Then I should be on the admin dashboard
 
 Scenario: Login with incorrect credentials
 	When I fill in "Email" with "badAdmin"
