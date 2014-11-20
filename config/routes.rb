@@ -1,20 +1,18 @@
 Boardbank::Application.routes.draw do
-  devise_for :users
+  devise_for :organizations
 
-  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
-  #root :to => 'frontpage#index'
   root to: 'frontpage#index'
 
-  devise_for :organizations, ActiveAdmin::Devise.config
-
-  devise_for :users, ActiveAdmin::Devise.config
-
   devise_for :admin_users, ActiveAdmin::Devise.config
+
+  devise_for :organizations 
+
+  devise_for :users
+
   ActiveAdmin.routes(self)
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  root to: 'frontpage#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -71,4 +69,5 @@ Boardbank::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
 end
