@@ -8,7 +8,7 @@ Background:I am on the sign up page
 	Given I am on the sign up page
 
 Scenario: Create an account
-	When I fill in "Email" with "org@example.com"
+	When I fill in "Email" with "user@example.com"
 	  And I fill in "Password" with "password"
 	  And I fill in "Password confirmation" with "password"
 	  And I press "Sign up"
@@ -17,7 +17,7 @@ Scenario: Create an account
 
 
 Scenario: Sign up with conflicting passwords
-	When I fill in "Email" with "badOrg@example.com"
+	When I fill in "Email" with "badUser@example.com"
 	  And I fill in "Password" with "openSesame"
 	  And I fill in "Password" with "closedSesame"
 	  And I press "Sign up"

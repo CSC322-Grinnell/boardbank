@@ -24,9 +24,6 @@ module NavigationHelpers
     when /^the organization login page/
 	'/organizations/sign_in'
 
-    when /^the organization sign up page/
-	'/organizations/sign_up'
-
     when /^the admin login page/i
 	  '/admin/login'
 

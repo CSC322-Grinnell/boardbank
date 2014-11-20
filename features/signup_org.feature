@@ -5,7 +5,7 @@ Feature: Sign up to BoardBank as an Organization
   I want to be able to sign up with my email and create an account.
 
 Background:I am on the sign up page
-	Given I am on the sign up page
+	Given I am on the organization sign up page
 
 Scenario: Create an account
 	When I fill in "Email" with "org@example.com"
