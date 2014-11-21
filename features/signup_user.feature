@@ -11,8 +11,6 @@ Scenario: Create an account
 	When I fill in "Email" with "org@example.com"
 	  And I fill in "Password" with "password"
 	  And I fill in "Password confirmation" with "password"
-	And I fill in "First Name" with "Test"
-	And I fill in "Last Name" with "User"
 	  And I press "Sign up"
 	  Then I should be on the homepage
 	  And I should see "signed up successfully."
