@@ -4,6 +4,8 @@ ActiveAdmin.register User do
     column :current_sign_in_at
     column :last_sign_in_at
     column :sign_in_count
+    column :firstname
+    column :lastname
     default_actions
   end
 
@@ -14,6 +16,8 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :firstname
+      f.input :lastname
     end
     f.actions
   end
