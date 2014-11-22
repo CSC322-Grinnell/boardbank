@@ -32,7 +32,7 @@
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Greater Poweshiek Community Foundation</a></li>
+            <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
           </ul>
         </div>
       </div>
@@ -40,11 +40,11 @@
         <div class='span9 main'>
           <div class="jumbotron">
 
-            <% if user_signed_in? && organization_signed_in? %>
+            <% if user_signed_in? && !organization_signed_in? %>
             <h1>Welcome back!</h1>
             <br/>
             <p class="lead">
-              You have signed in! 
+              You are currently signed in! 
               <br/>
             </p>
             <%= link_to "Edit Profile", edit_user_registration_path, :method => :delete, :class => 'btn btn-large btn-success' %>
