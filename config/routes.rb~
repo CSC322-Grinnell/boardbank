@@ -12,7 +12,7 @@ Boardbank::Application.routes.draw do
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  match 'admin/organizations/:id/approve'=> 'frontpage#approve_org', as: 'approve_org'
+  match 'admin/organizations/:id/approve'=> 'organizations#approve_org', as: 'approve_org'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

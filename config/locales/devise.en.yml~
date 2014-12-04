@@ -58,10 +58,9 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-en:
-  devise:
-      registrations:
-        organization:
-          signed_up_but_not_approved: 'You have signed up successfully but your account has not been approved by your administrator yet'
-      failure:
-        not_approved: 'Your account has not been approved by your administrator yet.'
+devise:
+    registrations:
+      organization:
+        signed_up_but_not_approved: 'You have signed up successfully but your account has not been approved by your administrator yet'
+    failure:
+      not_approved: 'Your account has not been approved by your administrator yet.'
