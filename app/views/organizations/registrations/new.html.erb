@@ -45,6 +45,13 @@
     </div>
 </div>
 
+<div class="form-group">
+    <%= f.label :Contact_Name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :org_contactname, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
 
 <div class="form-group">
     <%= f.label :About, class: "col-sm-2 control-label" %>
@@ -52,6 +59,98 @@
         <%= f.text_area :orgabout,cols: 10, rows: 8, class: "form-control",autofocus: true %>
     </div>
 </div>
+
+<hr/>
+
+<div class="form-group">
+    <%= f.label :Address, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :org_address, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :City, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :org_city, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :State, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+<%= f.select :org_state, options_for_select(%w[Alabama
+Alaska
+Arizona
+Arkansas
+California
+Colorado
+Connecticut
+Delaware
+Florida
+Georgia
+Hawaii
+Idaho
+Illinois
+Indiana
+Iowa
+Kansas
+Kentucky
+Louisiana
+Maine
+Maryland
+Massachusetts
+Michigan
+Minnesota
+Mississippi
+Missouri
+Montana
+Nebraska
+Nevada
+New Hampshire
+New Jersey
+New Mexico
+New York
+North Carolina
+North Dakota
+Ohio
+Oklahoma
+Oregon
+Pennsylvania
+Rhode Island
+South Carolina
+South Dakota
+Tennessee
+Texas
+Utah
+Vermont
+Virginia
+Washington
+West Virginia
+Wisconsin
+Wyoming]), class: "form-control", autofocus: true %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Zip_Code, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :org_zipcode, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :Phone_Number, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :org_telephone, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+
+
+<hr/>
+
 
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">

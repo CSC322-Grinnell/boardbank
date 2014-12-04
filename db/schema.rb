@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20141204192911) do
+=======
+ActiveRecord::Schema.define(:version => 20141204201729) do
+>>>>>>> 8c0ea992e2b0cecf24d0df88e64f55f62a1730a5
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,7 +65,16 @@ ActiveRecord::Schema.define(:version => 20141204192911) do
     t.datetime "updated_at",                                :null => false
     t.string   "orgname"
     t.string   "orgabout"
+<<<<<<< HEAD
     t.boolean  "approved",               :default => false, :null => false
+=======
+    t.string   "org_address"
+    t.string   "org_city"
+    t.string   "org_state"
+    t.string   "org_zipcode"
+    t.string   "org_telephone"
+    t.string   "org_contactname"
+>>>>>>> 8c0ea992e2b0cecf24d0df88e64f55f62a1730a5
   end
 
   add_index "organizations", ["approved"], :name => "index_organizations_on_approved"
