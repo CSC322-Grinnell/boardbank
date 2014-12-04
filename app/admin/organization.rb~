@@ -16,6 +16,7 @@ ActiveAdmin.register Organization do
       f.input :password_confirmation  
     end                               
     f.actions                         
-  end                        
+  end     
+                       
 end   
                        

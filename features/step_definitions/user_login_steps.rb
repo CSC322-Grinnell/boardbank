@@ -3,7 +3,11 @@
 	end
 
 	Given(/^an organization exists with email: "(.*?)" and password: "(.*?)"$/) do |email, password|
-	   user = Organization.create(email: email, password: password)
+	   user = Organization.create(email: email, password: password, approved: true)
+	end
+
+	Given(/^an unapproved organization exists with email: "(.*?)" and password: "(.*?)"$/) do |email, password|
+	   user = Organization.create(email: email, password: password, approved: false)
 	end
 
 	Given(/^I login as a User$/) do
