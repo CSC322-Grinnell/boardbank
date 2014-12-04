@@ -13,7 +13,7 @@
 			  And an account exists with email: "user@example.com" and password: "password"
 			When I fill in "Email" with "user@example.com"
 				  And I fill in "Password" with "password"
-				  And I press "Log in"
+				  And I press "Sign in"
 				  Then I should be on the homepage
 				    And I should see "Signed in successfully."
 		        }
@@ -26,7 +26,7 @@
 			  And an organization exists with email: "org@example.com" and password: "password"
 			When I fill in "Email" with "org@example.com"
 				  And I fill in "Password" with "password"
-				  And I press "Log in"
+				  And I press "Sign in"
 				  Then I should be on the homepage
 				    And I should see "Signed in successfully."
 		        }
