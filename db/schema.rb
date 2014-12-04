@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141204200130) do
+ActiveRecord::Schema.define(:version => 20141204201729) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20141204200130) do
     t.string   "org_state"
     t.string   "org_zipcode"
     t.string   "org_telephone"
+    t.string   "org_contactname"
   end
 
   add_index "organizations", ["email"], :name => "index_organizations_on_email", :unique => true

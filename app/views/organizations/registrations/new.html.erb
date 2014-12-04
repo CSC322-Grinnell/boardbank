@@ -45,6 +45,13 @@
     </div>
 </div>
 
+<div class="form-group">
+    <%= f.label :Contact_Name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :org_contactname, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
 
 <div class="form-group">
     <%= f.label :About, class: "col-sm-2 control-label" %>
@@ -52,6 +59,8 @@
         <%= f.text_area :orgabout,cols: 10, rows: 8, class: "form-control",autofocus: true %>
     </div>
 </div>
+
+<hr/>
 
 <div class="form-group">
     <%= f.label :Address, class: "col-sm-2 control-label" %>
@@ -89,6 +98,7 @@
     </div>
 </div>
 
+<hr/>
 
 
 <div class="form-group">
