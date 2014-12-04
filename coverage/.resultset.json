@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/schlossb/boardbank/app/controllers/application_controller.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -23,24 +23,14 @@
         null,
         null
       ],
-      "/home/schlossb/boardbank/app/helpers/application_helper.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/schlossb/boardbank/app/models/admin_user.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/models/admin_user.rb": [
         1,
         null,
         null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/home/schlossb/boardbank/app/models/organization.rb": [
-        1,
         1,
         null,
         null,
@@ -49,7 +39,17 @@
         null,
         null
       ],
-      "/home/schlossb/boardbank/app/models/user.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/models/organization.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/bresette/Courses/CSC322/boardbank/app/models/user.rb": [
         1,
         null,
         null,
@@ -62,29 +62,29 @@
         null,
         null
       ],
-      "/home/schlossb/boardbank/app/admin/admin_user.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/admin/admin_user.rb": [
         1,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         1,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
         null,
-        0,
+        1,
         null,
         null
       ],
-      "/home/schlossb/boardbank/app/admin/user.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/admin/user.rb": [
         1,
         1,
         0,
@@ -99,27 +99,27 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
-        0,
+        1,
         null,
         null
       ],
-      "/home/schlossb/boardbank/app/admin/dashboard.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/admin/dashboard.rb": [
         1,
         null,
-        4,
+        17,
         null,
+        15,
         7,
-        3,
-        3,
-        3,
-        3,
+        7,
+        7,
+        7,
         null,
         null,
         null,
@@ -145,7 +145,7 @@
         null,
         null
       ],
-      "/home/schlossb/boardbank/app/admin/organization.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/admin/organization.rb": [
         1,
         1,
         0,
@@ -158,16 +158,16 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
         null,
-        0,
+        1,
         null,
         null
       ],
-      "/home/schlossb/boardbank/app/controllers/frontpage_controller.rb": [
+      "/home/bresette/Courses/CSC322/boardbank/app/controllers/frontpage_controller.rb": [
         1,
         null,
         1,
@@ -177,6 +177,6 @@
         null
       ]
     },
-    "timestamp": 1417666082
+    "timestamp": 1417725950
   }
 }
