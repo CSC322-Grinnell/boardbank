@@ -16,7 +16,6 @@ Scenario: Create an organization account
           And I fill in "organization_org_contactname" with "Contact Us"
           And I fill in "organization_org_address" with "1234 Five Street"
           And I fill in "organization_org_city" with "Ciudad"
-          And I fill in "organization_org_state" with "The Best State Ever"
           And I fill in "organization_org_zipcode" with "12345"
           And I fill in "organization_org_telephone" with "12345678910"
 	  And I press "Sign up"
