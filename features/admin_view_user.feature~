@@ -1,0 +1,6 @@
+Scenario: View user 
+          When I follow "Users"
+          Then I should be on the user admin page
+          And an account exists with email: "user@user.com" 
+          And I fill in "Search Email" with "user@user.com
+          
