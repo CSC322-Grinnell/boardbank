@@ -32,6 +32,16 @@ module NavigationHelpers
 
     when /^the admin dashboard/i
 	  '/admin'
+     
+    when /^the organization admin page/i
+          '/admin/organizations'
+
+    when /^the user admin page/i
+          '/admin/users'
+
+    when /^the admin user admin page/i
+          '/admin/admin_users'
+
     else
       begin
         page_name =~ /^the (.*) page$/
