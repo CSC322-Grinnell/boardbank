@@ -9,6 +9,6 @@ Background:
 	And I am on the homepage
 	
 Scenario: Logout
-	When I follow "Logout"
+	When I follow "Sign Out"
 	  Then I should see "Signed out successfully"
 	  And I should be on the homepage

@@ -1,14 +1,14 @@
-Feature: logout as an organization
+Feature: logout as a User
  
-  As a BoardBank Organization
-  so I can stop using the website
+  As a BoardBank User
+  So that I can stop using the website
   I want to be able to logout from BoardBank
 
 Background:
-	Given  I login as an Organization
+	Given  I login as a User
 	And I am on the homepage
 	
 Scenario: Logout
-	When I follow "Sign Out"
+	When I follow "Logout"
 	  Then I should see "Signed out successfully"
 	  And I should be on the homepage
