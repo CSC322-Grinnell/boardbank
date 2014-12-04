@@ -11,6 +11,8 @@ Boardbank::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+  match '/profile', :to => "profile#show"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
