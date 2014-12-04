@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/tranchri/csc322/boardbank/app/controllers/application_controller.rb": [
+      "/home/sivarama/CSC322/boardbank/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -23,24 +23,14 @@
         null,
         null
       ],
-      "/home/tranchri/csc322/boardbank/app/helpers/application_helper.rb": [
+      "/home/sivarama/CSC322/boardbank/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/tranchri/csc322/boardbank/app/models/admin_user.rb": [
+      "/home/sivarama/CSC322/boardbank/app/models/admin_user.rb": [
         1,
         null,
         null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/home/tranchri/csc322/boardbank/app/models/organization.rb": [
-        1,
         1,
         null,
         null,
@@ -49,7 +39,17 @@
         null,
         null
       ],
-      "/home/tranchri/csc322/boardbank/app/models/user.rb": [
+      "/home/sivarama/CSC322/boardbank/app/models/organization.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/sivarama/CSC322/boardbank/app/models/user.rb": [
         1,
         null,
         null,
@@ -62,7 +62,7 @@
         null,
         null
       ],
-      "/home/tranchri/csc322/boardbank/app/admin/admin_user.rb": [
+      "/home/sivarama/CSC322/boardbank/app/admin/admin_user.rb": [
         1,
         1,
         0,
@@ -75,32 +75,6 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null
-      ],
-      "/home/tranchri/csc322/boardbank/app/admin/user.rb": [
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
-        null,
-        1,
-        0,
-        0,
         0,
         0,
         0,
@@ -110,7 +84,33 @@
         null,
         null
       ],
-      "/home/tranchri/csc322/boardbank/app/admin/dashboard.rb": [
+      "/home/sivarama/CSC322/boardbank/app/admin/user.rb": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null
+      ],
+      "/home/sivarama/CSC322/boardbank/app/admin/dashboard.rb": [
         1,
         null,
         4,
@@ -145,7 +145,7 @@
         null,
         null
       ],
-      "/home/tranchri/csc322/boardbank/app/admin/organization.rb": [
+      "/home/sivarama/CSC322/boardbank/app/admin/organization.rb": [
         1,
         1,
         0,
@@ -167,7 +167,7 @@
         null,
         null
       ],
-      "/home/tranchri/csc322/boardbank/app/controllers/frontpage_controller.rb": [
+      "/home/sivarama/CSC322/boardbank/app/controllers/frontpage_controller.rb": [
         1,
         null,
         1,
@@ -177,6 +177,6 @@
         null
       ]
     },
-    "timestamp": 1416538114
+    "timestamp": 1416968029
   }
 }
