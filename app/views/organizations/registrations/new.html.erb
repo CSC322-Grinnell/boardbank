@@ -79,57 +79,57 @@
 <div class="form-group">
     <%= f.label :State, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-<%= f.select :org_state, options_for_select(%w[None
-Alabama
-Alaska
-Arizona
-Arkansas
-California
-Colorado
-Connecticut
-Delaware
-Florida
-Georgia
-Hawaii
-Idaho
-Illinois
-Indiana
-Iowa
-Kansas
-Kentucky
-Louisiana
-Maine
-Maryland
-Massachusetts
-Michigan
-Minnesota
-Mississippi
-Missouri
-Montana
-Nebraska
-Nevada
-New Hampshire
-New Jersey
-New Mexico
-New York
-North Carolina
-North Dakota
-Ohio
-Oklahoma
-Oregon
-Pennsylvania
-Rhode Island
-South Carolina
-South Dakota
-Tennessee
-Texas
-Utah
-Vermont
-Virginia
-Washington
-West Virginia
-Wisconsin
-Wyoming]), {}, class: "form-control" %>
+        <%= f.select :org_state, options_for_select(['',
+            'Alabama',
+            'Alaska',
+            'Arizona',
+            'Arkansas',
+            'California',
+            'Colorado',
+            'Connecticut',
+            'Delaware',
+            'Florida',
+            'Georgia',
+            'Hawaii',
+            'Idaho',
+            'Illinois',
+            'Indiana',
+            'Iowa',
+            'Kansas',
+            'Kentucky',
+            'Louisiana',
+            'Maine',
+            'Maryland',
+            'Massachusetts',
+            'Michigan',
+            'Minnesota',
+            'Mississippi',
+            'Missouri',
+            'Montana',
+            'Nebraska',
+            'Nevada',
+            'New Hampshire',
+            'New Jersey',
+            'New Mexico',
+            'New York',
+            'North Carolina',
+            'North Dakota',
+            'Ohio',
+            'Oklahoma',
+            'Oregon',
+            'Pennsylvania',
+            'Rhode Island',
+            'South Carolina',
+            'South Dakota',
+            'Tennessee',
+            'Texas',
+            'Utah',
+            'Vermont',
+            'Virginia',
+            'Washington',
+            'West Virginia',
+            'Wisconsin',
+            'Wyoming']), {}, class: "form-control", autofocus: true %>​
     </div>
 </div>
 
@@ -144,7 +144,7 @@ Wyoming]), {}, class: "form-control" %>
 <div class="form-group">
     <%= f.label :Phone_Number, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :org_telephone, class: "form-control",autofocus: true %>
+        <%= f.telephone_field :org_telephone, class: "form-control",autofocus: true %>
     </div>
 </div>
 
