@@ -113,6 +113,181 @@
     </div>
 </div>
 
+<hr>
+<div class="form-group">
+    <%= f.label :education, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :education, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['',
+'High School Diploma', 'Bachelors', 'Masters', 'PhD']),
+ {}, class: "form-control", autofocus: true %>​
+    </div>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :Area_of_study, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.text_field :areaofstudy, class: 'form-control'  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Have_you_completed_any_board_education_or_service_training?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.check_box :previous_experience, {}, true, class: 'form-control'  %>
+    </div>
+</div>
+
+<hr>
+<div class="form-group">
+    <%= f.label :Interest_1, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+
+        <%= f.text_field :interest_1, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['', 
+'Arts/Museum',
+'Early Childhood',
+'Literacy',
+'Animal Rights',
+'Environmental',
+'Mental Health',
+'Children/Youth',
+'Health Care',
+'Recreation',
+'Civic/Community',
+'Historical', 
+'Preservation', 
+'Senior Services',
+'Disabilities', 
+'Homeless/Emergency',
+'Substance Abuse',
+'Education',
+'Housing Development'
+]),
+ {}, class: "form-control", autofocus: true %>​
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Interest_2, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+
+        <%= f.text_field :interest_2, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['', 
+'Arts/Museum',
+'Early Childhood',
+'Literacy',
+'Animal Rights',
+'Environmental',
+'Mental Health',
+'Children/Youth',
+'Health Care',
+'Recreation',
+'Civic/Community',
+'Historical', 
+'Preservation', 
+'Senior Services',
+'Disabilities', 
+'Homeless/Emergency',
+'Substance Abuse',
+'Education',
+'Housing Development'
+]),
+ {}, class: "form-control", autofocus: true %>​
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Interest_3, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+
+        <%= f.text_field :interest_3, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['', 
+'Arts/Museum',
+'Early Childhood',
+'Literacy',
+'Animal Rights',
+'Environmental',
+'Mental Health',
+'Children/Youth',
+'Health Care',
+'Recreation',
+'Civic/Community',
+'Historical', 
+'Preservation', 
+'Senior Services',
+'Disabilities', 
+'Homeless/Emergency',
+'Substance Abuse',
+'Education',
+'Housing Development'
+]),
+ {}, class: "form-control", autofocus: true %>​
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Interest_4, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+
+        <%= f.text_field :interest_4, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['', 
+'Arts/Museum',
+'Early Childhood',
+'Literacy',
+'Animal Rights',
+'Environmental',
+'Mental Health',
+'Children/Youth',
+'Health Care',
+'Recreation',
+'Civic/Community',
+'Historical', 
+'Preservation', 
+'Senior Services',
+'Disabilities', 
+'Homeless/Emergency',
+'Substance Abuse',
+'Education',
+'Housing Development'
+]),
+ {}, class: "form-control", autofocus: true %>​
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Interest_5, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+
+        <%= f.text_field :interest_5, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['', 
+'Arts/Museum',
+'Early Childhood',
+'Literacy',
+'Animal Rights',
+'Environmental',
+'Mental Health',
+'Children/Youth',
+'Health Care',
+'Recreation',
+'Civic/Community',
+'Historical', 
+'Preservation', 
+'Senior Services',
+'Disabilities', 
+'Homeless/Emergency',
+'Substance Abuse',
+'Education',
+'Housing Development'
+]),
+ {}, class: "form-control", autofocus: true %>​
+    </div>
+</div>
+
+
+
+<hr>
 <div class="form-group">
     <%= f.label :email, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
@@ -120,7 +295,6 @@
     </div>
 </div>
 
-<hr>
 
 <div class="form-group">
     <%= f.label :New_password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
