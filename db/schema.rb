@@ -89,7 +89,11 @@ ActiveRecord::Schema.define(:version => 20141204201729) do
     t.datetime "updated_at",                             :null => false
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "is_org"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.integer  "phonenumber"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
