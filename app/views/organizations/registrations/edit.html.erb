@@ -1,4 +1,13 @@
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
 <h2>Edit Organization Profile</h2>
+</div>
+</div>
+</div>
+
+<hr>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
 <%= devise_error_messages! %>
@@ -121,7 +130,7 @@ Virginia
 Washington
 West Virginia
 Wisconsin
-Wyoming]) %>
+Wyoming]), {}, class: "form-control"%>
     </div>
 </div>
 
