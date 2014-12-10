@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
 
 def show
-  @profile = current_user
+  @profile = current_user || not_found
 end
 
  def not_found
