@@ -118,7 +118,7 @@
     <%= f.label :education, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
         <%= f.text_field :education, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['',
+                <%= f.select :education, options_for_select(['',
 'High School Diploma', 'Bachelors', 'Masters', 'PhD']),
  {}, class: "form-control", autofocus: true %>​
     </div>
@@ -140,12 +140,23 @@
 </div>
 
 <hr>
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h4>Please rate your interests from 1 (most preferable) to 5 (least preferable)</h4>
+</div>
+</div>
+</div>
+
+<br>
+
 <div class="form-group">
     <%= f.label :Interest_1, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
 
         <%= f.text_field :interest_1, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['', 
+                <%= f.select :interest_1, options_for_select(['', 
 'Arts/Museum',
 'Early Childhood',
 'Literacy',
@@ -174,7 +185,7 @@
     <div class="col-sm-6">
 
         <%= f.text_field :interest_2, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['', 
+                <%= f.select :interest_2, options_for_select(['', 
 'Arts/Museum',
 'Early Childhood',
 'Literacy',
@@ -203,7 +214,7 @@
     <div class="col-sm-6">
 
         <%= f.text_field :interest_3, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['', 
+                <%= f.select :interest_3, options_for_select(['', 
 'Arts/Museum',
 'Early Childhood',
 'Literacy',
@@ -232,7 +243,7 @@
     <div class="col-sm-6">
 
         <%= f.text_field :interest_4, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['', 
+                <%= f.select :interest_4, options_for_select(['', 
 'Arts/Museum',
 'Early Childhood',
 'Literacy',
@@ -261,7 +272,7 @@
     <div class="col-sm-6">
 
         <%= f.text_field :interest_5, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['', 
+                <%= f.select :interest_5, options_for_select(['', 
 'Arts/Museum',
 'Early Childhood',
 'Literacy',
