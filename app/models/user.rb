@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :firstname, :lastname, :address, :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :interest_1, :interest_2, :interest_3, :interest_4, :interest_5, :previous_experience, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :firstname, :lastname, :address, :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :interest_1, :interest_2, :interest_3, :interest_4, :interest_5, :previous_experience, :email, :password, :password_confirmation, :remember_me, :fundraise, :financial_contribution, :availability, :additional_comments
 
 validates_length_of :firstname, maximum: 32, message: "exceeds maximum of 32 characters"
 
