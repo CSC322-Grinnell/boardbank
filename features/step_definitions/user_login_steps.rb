@@ -47,3 +47,7 @@
  		  	 Then I should be on the admin dashboard
 		        }
 		end
+
+	Given (/^I fill in my state$/) do
+	find(:select, "user_state").first(:option, 'Alabama').select_option
+	end

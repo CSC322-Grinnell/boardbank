@@ -19,16 +19,31 @@ module NavigationHelpers
     when /^the sign up page/
 	'/users/sign_up'  
 
+    when /^the profile page/
+	 '/profile'
     when /^the login page/
 	'/users/sign_in'
     when /^the organization login page/
 	'/organizations/sign_in'
+
+    when /^the organization sign up page/
+	'/organizations/sign_up'
 
     when /^the admin login page/i
 	  '/admin/login'
 
     when /^the admin dashboard/i
 	  '/admin'
+     
+    when /^the organization admin page/i
+          '/admin/organizations'
+
+    when /^the user admin page/i
+          '/admin/users'
+
+    when /^the admin user admin page/i
+          '/admin/admin_users'
+
     else
       begin
         page_name =~ /^the (.*) page$/

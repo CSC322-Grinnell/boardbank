@@ -19,6 +19,8 @@ module NavigationHelpers
     when /^the sign up page/
 	'/users/sign_up'  
 
+    when /^the profile page/
+	 '/profile'
     when /^the login page/
 	'/users/sign_in'
     when /^the organization login page/

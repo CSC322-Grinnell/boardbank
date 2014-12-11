@@ -9,6 +9,9 @@ Background:
 	And I am on the homepage
 	
 Scenario: Logout
-	When I follow "Logout"
+	When I follow "Sign Out"
 	  Then I should see "Signed out successfully"
-	  And I should be on the homepage
+	  And I should be on the profile page
+	  And I should see "First name"
+	  And I should see "Last name"
+	  And I should see "Email"

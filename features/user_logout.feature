@@ -11,4 +11,4 @@ Background:
 Scenario: Logout
 	When I follow "Sign Out"
 	  Then I should see "Signed out successfully"
-	  And I should be on the homepage
+
