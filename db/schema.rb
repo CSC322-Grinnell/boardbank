@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141204201729) do
+ActiveRecord::Schema.define(:version => 20141211173014) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,48 +61,32 @@ ActiveRecord::Schema.define(:version => 20141204201729) do
     t.datetime "updated_at",                                :null => false
     t.string   "orgname"
     t.string   "orgabout"
-    t.boolean  "approved",               :default => false, :null => false
     t.string   "org_address"
     t.string   "org_city"
     t.string   "org_state"
     t.string   "org_zipcode"
     t.string   "org_telephone"
     t.string   "org_contactname"
+    t.boolean  "approved",               :default => false, :null => false
   end
 
   add_index "organizations", ["approved"], :name => "index_organizations_on_approved"
   add_index "organizations", ["email"], :name => "index_organizations_on_email", :unique => true
   add_index "organizations", ["reset_password_token"], :name => "index_organizations_on_reset_password_token", :unique => true
 
-  create_table "profiles", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-  end
-
-  add_index "profiles", ["email"], :name => "index_profiles_on_email", :unique => true
-  add_index "profiles", ["reset_password_token"], :name => "index_profiles_on_reset_password_token", :unique => true
-
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.integer  "sign_in_count",          :default => 0,     :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "firstname"
     t.string   "lastname"
     t.string   "address"
@@ -110,6 +94,32 @@ ActiveRecord::Schema.define(:version => 20141204201729) do
     t.string   "state"
     t.integer  "zipcode"
     t.integer  "phonenumber"
+    t.string   "education"
+    t.string   "areaofstudy"
+    t.boolean  "previous_experience",    :default => false
+    t.string   "interest_1"
+    t.string   "interest_2"
+    t.string   "interest_3"
+    t.string   "interest_4"
+    t.string   "interest_5"
+    t.boolean  "fundraise",              :default => false
+    t.boolean  "financial_contribution", :default => false
+    t.float    "availability"
+    t.string   "additional_comments"
+    t.string   "advocacy"
+    t.string   "business"
+    t.string   "communications"
+    t.string   "diversity"
+    t.string   "finance"
+    t.string   "fundraising"
+    t.string   "humanresources"
+    t.string   "information"
+    t.string   "legal"
+    t.string   "orgdevelop"
+    t.string   "outcome"
+    t.string   "projectmanagement"
+    t.string   "training"
+    t.string   "volunteer"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

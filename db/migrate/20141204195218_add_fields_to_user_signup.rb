@@ -5,6 +5,5 @@ class AddFieldsToUserSignup < ActiveRecord::Migration
   	add_column :users, :state, :string
   	add_column :users, :zipcode, :integer
     add_column :users, :phonenumber, :integer
-    remove_column :users, :is_org, :string
   end
 end
