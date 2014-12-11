@@ -30,7 +30,10 @@
 <li><a href="#">Home</a></li>
 <li><a href="#">About Us</a></li>
 <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
+<% if user_signed_in? %>
 <li><a href="/profile">Profile</a></li>
+<% else %>
+<% end %>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">

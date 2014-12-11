@@ -10,11 +10,10 @@ Boardbank::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   match '/profile', :to => "profile#show"
 
-
   match 'admin/organizations/:id/approve'=> 'frontpage#approve_org', as: 'approve_org'
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
