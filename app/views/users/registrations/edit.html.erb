@@ -469,6 +469,36 @@
     </div>
 </div>
 
+<div class="form-group">
+    <%= f.label :Would_you_be_comfortable_being_on_a_board_where_fundraising_is_required?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.check_box :fundraise, {}, true, class: 'form-control'  %>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :Would_you_be_comfortable_being_on_a_board_where_financial_contribution_is_required?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.check_box :financial_contribution, {}, true, class: 'form-control'  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :About_how_many_hours_per_month_can_you_contribute_to_board_service?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.text_field :availability, class: "form-control",autofocus: true  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Additional_Comments, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_area :additional_comments,cols: 10, rows: 8, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+
 <hr>
 
 <div class="form-group">
