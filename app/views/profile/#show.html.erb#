@@ -1,0 +1,59 @@
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+</style>
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h2>User Profile</h2>
+
+
+<% if user_signed_in? %>
+<form action="/" name="form1">
+<table class="table table-striped, table table-hover", style="width:80%">
+  <tr>
+    <th>First name</td>
+    <td><%= @current_user.firstname %></td>		
+  </tr>
+  <tr>
+    <th>Last name</td>
+    <td><%= @current_user.lastname %></td>		
+  </tr>
+   <tr>
+    <th>Address</td>
+    <td><%= @current_user.address %></td>   
+  </tr>
+   <tr>
+    <th>City</td>
+    <td><%= @current_user.city %></td>   
+  </tr>
+   <tr>
+    <th>State</td>
+    <td><%= @current_user.state %></td>   
+  </tr>
+   <tr>
+    <th>Zipcode</td>
+    <td><%= @current_user.zipcode %></td>   
+  </tr>
+  <tr>
+    <th>Email</td>
+    <td><%= @current_user.email %></td>		
+  </tr>
+
+</table>
+</form>
+<hr/>
+<%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-default' %>
+<br/>
+<%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %>
+<% else %>
+<h3> You dont have a profile :(<h3>
+
+</div>
+</div>
+</div>
+<% end %>
