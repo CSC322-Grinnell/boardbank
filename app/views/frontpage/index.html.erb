@@ -34,6 +34,10 @@
 <li><a href="/profile">Profile</a></li>
 <% else %>
 <% end %>
+<% if organization_signed_in? %>
+<li><a href="/profile">Profile</a></li>
+<% else %>
+<% end %>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
@@ -58,7 +62,7 @@
             <h1>Welcome back!</h1>
             <br/>
             <p class="lead">
-              You are currently signed in! 
+              You are currently signed in!
               <br/>
             </p>
             <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
@@ -68,7 +72,7 @@
             <h1>Welcome back!</h1>
             <br/>
             <p class="lead">
-              You have signed in! 
+              You have signed in!
               <br/>
             </p>
             <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
@@ -80,7 +84,7 @@
               This is the Greater Poweshiek Community Foundation's Boardbank website where we help match up interested users with organizations in need of board members. Please either sign in or sign up to access Boardbank.
         <br/>
         <br/>
-        Sign up as 
+        Sign up as
         <span class="row-fluid">
                 <span class="span6">
                   <%= link_to "User", new_user_registration_path, :class => "btn btn-large btn-success" %>
@@ -95,11 +99,11 @@
 <br/>
 <%= link_to "User Sign In", new_user_session_path, :class => "btn btn-large
 btn-default" %>
- or 
+ or
 <%= link_to "Organization Sign In", new_organization_session_path, :class => "btn btn-large
 btn-default" %>
             </p>
-            
+
             <% end %>
           </div>
         </div>
