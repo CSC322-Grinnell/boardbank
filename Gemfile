@@ -11,6 +11,10 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+gem 'rubocop', '~> 0.29.1'
+
+gem 'travis-lint'
+
 group :production do
   gem 'pg'
 end
