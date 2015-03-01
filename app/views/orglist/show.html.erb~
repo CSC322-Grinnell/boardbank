@@ -1,0 +1,23 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+</style>
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h2>List of Organizations</h2>
+
+<% if user_signed_in? %>
+
+<% elsif organization_signed_in? %>
+
+<% else %>
+<h3> <h3>
+
+</div>
+</div>
+</div>
+<% end %>
