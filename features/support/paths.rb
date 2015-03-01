@@ -15,26 +15,26 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-     
+
     when /^the sign up page/
-	'/users/sign_up'  
+  '/users/sign_up'
 
     when /^the profile page/
-	 '/profile'
+   '/profile'
     when /^the login page/
-	'/users/sign_in'
+  '/users/sign_in'
     when /^the organization login page/
-	'/organizations/sign_in'
+  '/organizations/sign_in'
 
     when /^the organization sign up page/
-	'/organizations/sign_up'
+  '/organizations/sign_up'
 
     when /^the admin login page/i
-	  '/admin/login'
+    '/admin/login'
 
     when /^the admin dashboard/i
-	  '/admin'
-     
+    '/admin'
+
     when /^the organization admin page/i
           '/admin/organizations'
 
@@ -43,6 +43,12 @@ module NavigationHelpers
 
     when /^the admin user admin page/i
           '/admin/admin_users'
+
+    when /^the Users page/i
+      '/users'
+
+    when /^the Organizations page/i
+      '/organizations'
 
     else
       begin

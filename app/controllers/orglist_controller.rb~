@@ -1,0 +1,5 @@
+class OrglistController < ApplicationController
+
+  def show
+  end
+end

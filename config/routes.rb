@@ -4,13 +4,17 @@ Boardbank::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :organizations 
+  devise_for :organizations
 
   devise_for :users
 
   ActiveAdmin.routes(self)
 
   match '/profile', :to => "profile#show"
+
+  match '/users', :to => "userlist#show"
+
+  match '/organizations', :to => "orglist#show"
 
   match 'admin/organizations/:id/approve'=> 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
