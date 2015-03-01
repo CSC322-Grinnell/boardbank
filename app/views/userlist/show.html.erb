@@ -1,0 +1,27 @@
+<style> table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+</style>
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h2>List of Users</h2>
+
+<% if user_signed_in? %>
+<h3> You do not have access to this area </h3>
+<% elsif organization_signed_in? %>
+
+<% @users.each do |user| %>
+<h3><%= user.email %></h3>
+<% end %>
+
+<% else %>
+
+
+</div>
+</div>
+</div>
+<% end %>
