@@ -16,6 +16,9 @@
 
 <% @users.each do |user| %>
 <h3><%= user.email %></h3>
+<% @id = user.id %>
+ <%= link_to user.email, controller: "profile", action: "show_user", id: @id %>
+
 <% end %>
 
 <% else %>

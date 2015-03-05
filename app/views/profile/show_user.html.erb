@@ -1,0 +1,23 @@
+<% # in app/views/profile/show.html.haml %>
+<h2>Profile of  <%= @user.email %>
+  <li>
+    First Name:
+    <%= @user.firstname %>
+  </li>
+  <li>
+    Last Name:
+    <%= @user.lastname %>
+  </li>
+  <li>
+    Email:
+    <%= @user.email %>
+  </li>
+</h2>
+<br/>
+
+  <% if @user == current_user %>
+     <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-default' %>
+<br/>
+<% end %>
+<%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %>
+

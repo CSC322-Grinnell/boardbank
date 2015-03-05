@@ -31,12 +31,14 @@
 <li><a href="#">About Us</a></li>
 <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
 <% if user_signed_in? %>
-<li><a href="/profile">Profile</a></li>
+<% @id = current_user.id %>
+<li><%= link_to 'Profile', controller: "profile", action: "show_user", id: @id %></li>
 <li><a href="/organizations">Organizations</a></li>
 <% else %>
 <% end %>
 <% if organization_signed_in? %>
-<li><a href="/profile">Profile</a></li>
+<% @id = current_organization.id %>
+<li><%= link_to 'Profile', controller: "profile", action: "show_org", id: @id %></li>
 <li><a href="/organizations">Organizations</a></li>
 <li><a href="/users">Users</a></li>
 <% else %>

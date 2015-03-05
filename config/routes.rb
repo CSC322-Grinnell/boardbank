@@ -10,7 +10,9 @@ Boardbank::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  match '/profile', :to => "profile#show"
+  match '/profile/user/:id', :to => "profile#show_user", as: 'user'
+
+  match '/profile/organization/:id', :to => "profile#show_org", as: 'org'
 
   match '/users', :to => "userlist#show"
 

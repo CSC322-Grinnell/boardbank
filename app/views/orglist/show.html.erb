@@ -13,6 +13,8 @@
 <% if user_signed_in? || organization_signed_in?%>
 <% @orgs.each do |org| %>
 <h3><%= org.email %></h3>
+<% @id = org.id %>
+ <%= link_to org.email, controller: "profile", action: "show_org", id: @id %>
 <% end %>
 <% else %>
 

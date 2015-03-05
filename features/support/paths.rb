@@ -21,8 +21,10 @@ module NavigationHelpers
 
     when /^the profile page/
    '/profile'
+
     when /^the login page/
   '/users/sign_in'
+
     when /^the organization login page/
   '/organizations/sign_in'
 

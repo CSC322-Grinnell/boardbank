@@ -17,8 +17,7 @@ Background:
 Scenario: View Profile
 	  When I follow "Organizations"
 	  Then I should be on the Organizations page
-	  When I follow "Animal Shelter"
-	  Then I should be on Animal Shelter's page
+	  When I follow "as@as.com"
 	  And I should see "Animal Shelter"
 	  And I should see "Rescuing stray dogs"
 	  And I should see "as@as.com"

@@ -1,0 +1,21 @@
+<% # in app/views/profile/show.html.haml %>
+<h2>Profile of  <%= @org.email %>
+  <li>
+    Name:
+    <%= @org.orgname %>
+  </li>
+  <li>
+    Email:
+    <%= @org.email %>
+  </li>
+</h2>
+<br/>
+
+
+  <% if @org == current_organization %>
+     <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-default' %>
+<br/>
+<% end %>
+<%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %>
+
+

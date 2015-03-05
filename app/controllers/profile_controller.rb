@@ -1,7 +1,11 @@
 class ProfileController < ApplicationController
 
-def show
-  @profile = current_user || current_organization || not_found
+def show_user
+  @user = User.find(params[:id])
+end
+
+def show_org
+  @org = Organization.find(params[:id])
 end
 
  def not_found
