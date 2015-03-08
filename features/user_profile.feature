@@ -10,7 +10,6 @@ Background:
 	
 Scenario: View Profile
 	When I follow "Profile"
-	  Then I should be on the profile page.
-	  And I should see "First name"
-	  And I should see "Last name"
-	  And I should see "Email"
+	  And I should see "First Name:"
+	  And I should see "Last Name:"
+	  And I should see "Email:"

@@ -6,10 +6,11 @@ Feature: Edit Profile as a User
 
 Background:
 	Given  I login as a User
-	And I am on the profile page
+	And I am on the home page
 	
-Scenario: Logout
-	When I follow "Edit Profile"
+Scenario: Edit profile
+	  When I follow "Profile"
+	  And I follow "Edit Profile"
 	   And I fill in "user_firstname" with "User"
 	   And I fill in "user_lastname" with "Joe"
 	   And I fill in "user_address" with "123 userville"

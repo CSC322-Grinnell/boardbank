@@ -19,14 +19,20 @@ module NavigationHelpers
     when /^the sign up page/
   '/users/sign_up'
 
-    when /^the profile page/
-   '/profile'
+
+    when /^the user profile page/
+      @id = current_user.id
+      '/profile/user/@id'
+
+    when /^the organization profile page/
+      @id = current_organization.id
+      '/profile/organization/@id'
 
     when /^the login page/
-  '/users/sign_in'
+      '/users/sign_in'
 
     when /^the organization login page/
-  '/organizations/sign_in'
+      '/organizations/sign_in'
 
     when /^the organization sign up page/
   '/organizations/sign_up'
