@@ -21,3 +21,9 @@ Scenario: View Profile
 	  And I should see "Animal Shelter"
 	  And I should see "Rescuing stray dogs"
 	  And I should see "as@as.com"
+
+Scenario: View Incorrect Profiles
+	  When I go to the Users page
+	  Then I should be on the Users page
+	  And I should see "You do not have access to this area"
+	  
