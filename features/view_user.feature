@@ -21,3 +21,4 @@ Scenario: View Profile
 	  And I should see "Leo"
 	  And I should see "Bucci"
 	  And I should see "leo@bucci.com"
+	  And I should not see "Lemonbottom"

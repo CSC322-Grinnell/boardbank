@@ -8,3 +8,5 @@
 
 
 User.create(firstname: 'User', lastname: 'man', email: 'user@example.com', password: 'password')
+
+Organization.create(orgname: 'Org', orgabout: 'An organization for organizations', email: 'org@example.com', password: 'password')
