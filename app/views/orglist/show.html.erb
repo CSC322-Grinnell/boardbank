@@ -4,17 +4,38 @@
 }
 
 </style>
-<div class="container">
-      <div class="row">
-        <div class="span9"><%= yield %></div>
-        <div class="span3">
-<h2>List of Organizations</h2>
 
-<% if user_signed_in? || organization_signed_in?%>
-<% @orgs.each do |org| %>
-<h3><%= org.email %></h3>
-<% @id = org.id %>
- <%= link_to org.email, controller: "profile", action: "show_org", id: @id %>
+<div class="container">
+  <div class="row">
+    <div class="span9"><%= yield %></div>
+    <div class="span3">
+      <h2>List of Organizations</h2>
+	
+	<% if user_signed_in? || organization_signed_in? %>
+
+	<ul class = "list-group">
+	<% @orgs.each do |org| %>
+	<% @id = org.id %>
+	<li href="#" class="list-group-item">
+	<span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;"> 
+<%= link_to org.orgname, controller: "profile", action: "show_org", id: @id %>  
+	</span>
+	
+	 <p class="list-group-item-text">
+	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+            <%= org.org_city %>
+
+	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+            <%= org.orgabout %>
+
+	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+            <%= org.email %>
+	  </p>
+
+	</li>
+      </ul>
+
+
 <% end %>
 <% else %>
 
