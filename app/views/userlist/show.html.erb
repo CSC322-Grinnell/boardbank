@@ -28,6 +28,7 @@ body {
       <ul class="list-group">
 	<% @users.each do |user| %>
 	<% @id = user.id %>
+	<% if @id!=1 %>
 	<% @name = user.firstname.to_s + " " + user.lastname.to_s %>
 	<li href="#" class="list-group-item"> 
 	  <span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;"> 
@@ -49,7 +50,7 @@ body {
 	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-decoration: underline; text-indent: 40px;">
 	    <%= user.interest_2 %>
 	  </p>
-
+	<% end %>
 	</li>
       </ul>
 

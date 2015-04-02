@@ -16,6 +16,7 @@
 	<ul class = "list-group">
 	<% @orgs.each do |org| %>
 	<% @id = org.id %>
+	<% if @id!=1 %>
 	<li href="#" class="list-group-item">
 	<span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;"> 
 <%= link_to org.orgname, controller: "profile", action: "show_org", id: @id %>  
@@ -31,7 +32,7 @@
 	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
             <%= org.email %>
 	  </p>
-
+	<% end %>
 	</li>
       </ul>
 
