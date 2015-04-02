@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(firstname: 'User', lastname: 'man', email: 'user@example.com', password: 'password')
+User.create(firstname: 'User', lastname: 'man', email: 'user@example.com', password: 'password', address: '123 Main Street', city: 'Grinnell', state: 'Iowa', zipcode: '50112', phonenumber: '12345678910', education: 'Bachelors', interest_1: 'Literacy', interest_2: 'Early Childhood')
 User.create(firstname: 'Aaa', lastname: 'Bbb', email: 'aaabbb@example.com', password: 'password')
 User.create(firstname: 'Bob', lastname: 'Smith', email: 'bobsmith@example.com', password: 'password')
 User.create(firstname: 'Jane', lastname: 'Doe', email: 'janedoe@example.com', password: 'password')
