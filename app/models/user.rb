@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
 #validates_length_of :firstname, maximum: 32, message: "exceeds maximum of 32 characters"
 
+# collect attributes in a hash (for each |thing| do ..) then match attribute key to the value we want (some experience, significant experience) - do this in the model to avoid if statement frenzy in the view.
 
   # attr_accessible :title, :body
 end

@@ -1,17 +1,64 @@
 <% # in app/views/profile/show.html.haml %>
-<h2>Profile of  <%= @user.email %>
+<h2>Profile of  <%= @user.firstname %> <%= @user.lastname %>
+ <ul>
   <li>
-    First Name:
-    <%= @user.firstname %>
+    Basic:
+    <ul>
+      <li> <%= @user.city %> <%=@user.state %> </li>
+      <li> <%= @user.email %> </li>
+      <li> <%= @user.phonenumber %> </li>
+    </ul>
   </li>
   <li>
-    Last Name:
-    <%= @user.lastname %>
+    Education:
+    <ul>
+      <li> <%= @user.education %> </li>
+      <li> <%= @user.areaofstudy %> </li>
+   </ul>
   </li>
   <li>
-    Email:
-    <%= @user.email %>
+    Skills:
+    <ul>
+     <li> <%= @user.advocacy %> </li>
+     <li> <%= @user.business %> </li>
+     <li> <%= @user.communications %> </li>
+     <li> <%= @user.diversity %> </li>
+     <li> <%= @user.finance %> </li>
+     <li> <%= @user.fundraising %> </li>
+     <li> <%= @user.humanresources %> </li>
+     <li> <%= @user.information %> </li>
+     <li> <%= @user.legal %> </li>
+     <li> <%= @user.orgdevelop %> </li>
+     <li> <%= @user.outcome %> </li>
+     <li> <%= @user.projectmanagement %> </li>
+     <li> <%= @user.training %> </li>
+    </ul>
   </li>
+   <li>
+    Interests:
+   <ul>
+    <li> <%= @user.interest_1 %> </li>
+    <li> <%= @user.interest_2 %> </li>
+    <li> <%= @user.interest_3 %> </li>
+    <li> <%= @user.interest_4 %> </li>
+    <li> <%= @user.interest_5 %> </li>
+   </ul>
+  </li>
+  <li>
+    Other:
+   <ul>
+    <li> <%= @user.previous_experience %> </li>
+    <li> <%= @user.volunteer %> </li>
+    <% if @user.remember_me == "true" %>
+           <li> <%= puts "Remember Me" %>
+           <% end %> </li>
+    <li> <%= @user.fundraise %> </li>
+    <li> <%= @user.financial_contribution %> </li>
+    <li> <%= @user.availability %> </li>
+    <li> <%= @user.additional_comments %> </li>
+   </ul>
+  </li>
+  </ul>
 </h2>
 <br/>
 
