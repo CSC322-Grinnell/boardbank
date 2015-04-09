@@ -1,17 +1,70 @@
 <% # in app/views/profile/show.html.haml %>
-<h2>Profile of  <%= @user.email %>
+<h2> <%= @user.firstname %> <%= @user.lastname %>
+ <ul>
   <li>
-    First Name:
-    <%= @user.firstname %>
+    Basic:
+    <ul>
+      <li> <%= @user.city %> <%=@user.state %> </li>
+      <li> <%= @user.email %> </li>
+      <li> <%= @user.phonenumber %> </li>
+    </ul>
   </li>
   <li>
-    Last Name:
-    <%= @user.lastname %>
+    Education:
+    <ul>
+      <li> <%= @user.education %> </li>
+      <li> <%= @user.areaofstudy %> </li>
+   </ul>
   </li>
   <li>
-    Email:
-    <%= @user.email %>
+    Skills:
+    <ul>
+     <li> <%= "Advocacy................................................ "+@user.advocacy %> </li>
+     <li> <%= "Business................................................. "+@user.business %> </li>
+     <li> <%= "Communications.................................... "+@user.communications %> </li>
+     <li> <%= "Diversity.................................................. "+@user.diversity %> </li>
+     <li> <%= "Finance................................................... "+@user.finance %> </li>
+     <li> <%= "Fundraising............................................. "+@user.fundraising %> </li>
+     <li> <%= "Human Resources................................. "+@user.humanresources %> </li>
+     <li> <%= "Information Technology......................... "+@user.information %> </li>
+     <li> <%= "Legal....................................................... "+@user.legal %> </li>
+     <li> <%= "Organization Development................... "+@user.orgdevelop %> </li>
+     <li> <%= "Outcome................................................. "+@user.outcome %> </li>
+     <li> <%= "Project Management............................. "+@user.projectmanagement %> </li>
+     <li> <%= "Training.................................................. "+@user.training %> </li>
+     <li> <%= "Volunteer Management.................................... "+@user.volunteer %> </li>
+    </ul>
   </li>
+   <li>
+    Interests:
+   <ul>
+    <li> <%= @user.interest_1 %> </li>
+    <li> <%= @user.interest_2 %> </li>
+    <li> <%= @user.interest_3 %> </li>
+    <li> <%= @user.interest_4 %> </li>
+    <li> <%= @user.interest_5 %> </li>
+   </ul>
+  </li>
+  <li>
+    Other:
+   <ul>
+    <% if @user.previous_experience == true %>
+           <li> <%= "Has board education or service training." %>
+           <% end %> </li>
+    <% if @user.remember_me == true %>
+           <li> <%= "Remember Me" %>
+           <% end %> </li>
+    <% if @user.fundraise == true %>
+            <li> <%= "Comfortable with a fundraising board." %>
+            <% end %> </li>
+    <% if @user.financial_contribution == true %>
+            <li> <%= "Comfortable financially contributing to board." %>
+            <% end %> </li>
+    <li> <%= "Monthly availability (in hours): "+@user.availability.to_s %> </li>
+    <li> <%= "Additional comments: "+@user.additional_comments %> </li>
+   </ul>
+  </li>
+  </ul>
 </h2>
 <br/>
 

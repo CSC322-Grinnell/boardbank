@@ -6,6 +6,10 @@
 
 </style>
 
+<ul>
+list-style-type: none;
+</ul>
+
 <div class="container">
 <div class="row">
         <div class="span9"><%= yield %></div>
@@ -38,6 +42,10 @@
    <tr>
     <th>Zipcode</td>
     <td><%= @current_org.org_zipcode %></td>
+  </tr>
+  <tr>
+    <th>Phone</td>
+    <td><%= @current_org.org_telephone %></td>
   </tr>
   <tr>
     <th>Email</td>
