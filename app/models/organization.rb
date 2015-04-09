@@ -3,7 +3,7 @@ class Organization < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :registerable
 
   # Setup accessible (or protected) attributes for your model
- attr_accessible :org_contactname, :approved, :org_address, :org_telephone, :org_city, :org_state, :org_zipcode, :orgname, :orgabout, :email, :password, :password_confirmation, :remember_me
+ attr_accessible :org_contactname, :approved, :org_address, :org_telephone, :org_city, :org_state, :org_zipcode, :orgname, :orgabout, :email, :password, :password_confirmation, :remember_me, :category1, :category2, :category3
 
 
   def active_for_authentication? 
