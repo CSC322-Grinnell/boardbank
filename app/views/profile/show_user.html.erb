@@ -1,5 +1,5 @@
 <% # in app/views/profile/show.html.haml %>
-<h2>Profile of  <%= @user.firstname %> <%= @user.lastname %>
+<h2> <%= @user.firstname %> <%= @user.lastname %>
  <ul>
   <li>
     Basic:
@@ -19,19 +19,20 @@
   <li>
     Skills:
     <ul>
-     <li> <%= @user.advocacy %> </li>
-     <li> <%= @user.business %> </li>
-     <li> <%= @user.communications %> </li>
-     <li> <%= @user.diversity %> </li>
-     <li> <%= @user.finance %> </li>
-     <li> <%= @user.fundraising %> </li>
-     <li> <%= @user.humanresources %> </li>
-     <li> <%= @user.information %> </li>
-     <li> <%= @user.legal %> </li>
-     <li> <%= @user.orgdevelop %> </li>
-     <li> <%= @user.outcome %> </li>
-     <li> <%= @user.projectmanagement %> </li>
-     <li> <%= @user.training %> </li>
+     <li> <%= "Advocacy................................................ "+@user.advocacy %> </li>
+     <li> <%= "Business................................................. "+@user.business %> </li>
+     <li> <%= "Communications.................................... "+@user.communications %> </li>
+     <li> <%= "Diversity.................................................. "+@user.diversity %> </li>
+     <li> <%= "Finance................................................... "+@user.finance %> </li>
+     <li> <%= "Fundraising............................................. "+@user.fundraising %> </li>
+     <li> <%= "Human Resources................................. "+@user.humanresources %> </li>
+     <li> <%= "Information Technology......................... "+@user.information %> </li>
+     <li> <%= "Legal....................................................... "+@user.legal %> </li>
+     <li> <%= "Organization Development................... "+@user.orgdevelop %> </li>
+     <li> <%= "Outcome................................................. "+@user.outcome %> </li>
+     <li> <%= "Project Management............................. "+@user.projectmanagement %> </li>
+     <li> <%= "Training.................................................. "+@user.training %> </li>
+     <li> <%= "Volunteer Management.................................... "+@user.volunteer %> </li>
     </ul>
   </li>
    <li>
@@ -47,15 +48,20 @@
   <li>
     Other:
    <ul>
-    <li> <%= @user.previous_experience %> </li>
-    <li> <%= @user.volunteer %> </li>
-    <% if @user.remember_me == "true" %>
-           <li> <%= puts "Remember Me" %>
+    <% if @user.previous_experience == true %>
+           <li> <%= "Has board education or service training." %>
            <% end %> </li>
-    <li> <%= @user.fundraise %> </li>
-    <li> <%= @user.financial_contribution %> </li>
-    <li> <%= @user.availability %> </li>
-    <li> <%= @user.additional_comments %> </li>
+    <% if @user.remember_me == true %>
+           <li> <%= "Remember Me" %>
+           <% end %> </li>
+    <% if @user.fundraise == true %>
+            <li> <%= "Comfortable with a fundraising board." %>
+            <% end %> </li>
+    <% if @user.financial_contribution == true %>
+            <li> <%= "Comfortable financially contributing to board." %>
+            <% end %> </li>
+    <li> <%= "Monthly availability (in hours): "+@user.availability.to_s %> </li>
+    <li> <%= "Additional comments: "+@user.additional_comments %> </li>
    </ul>
   </li>
   </ul>
