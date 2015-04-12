@@ -1,5 +1,5 @@
 <% # in app/views/profile/show.html.haml %>
-<h2> <%= @user.firstname %> <%= @user.lastname %>
+<h2> <%= @user.firstname %> <%= @user.lastname %> </h2>
  <ul>
   <li>
     Basic:
@@ -9,30 +9,31 @@
       <li> <%= @user.phonenumber %> </li>
     </ul>
   </li>
-  <li>
+ <% if @user.education != "" %>
+ <li>
     Education:
     <ul>
       <li> <%= @user.education %> </li>
       <li> <%= @user.areaofstudy %> </li>
    </ul>
-  </li>
+  <% end %> </li>
   <li>
     Skills:
     <ul>
      <li> <%= "Advocacy................................................ "+@user.advocacy %> </li>
      <li> <%= "Business................................................. "+@user.business %> </li>
-     <li> <%= "Communications.................................... "+@user.communications %> </li>
+     <li> <%= "Communications..................................... "+@user.communications %> </li>
      <li> <%= "Diversity.................................................. "+@user.diversity %> </li>
      <li> <%= "Finance................................................... "+@user.finance %> </li>
      <li> <%= "Fundraising............................................. "+@user.fundraising %> </li>
-     <li> <%= "Human Resources................................. "+@user.humanresources %> </li>
-     <li> <%= "Information Technology......................... "+@user.information %> </li>
+     <li> <%= "Human Resources.................................. "+@user.humanresources %> </li>
+     <li> <%= "Information Technology.......................... "+@user.information %> </li>
      <li> <%= "Legal....................................................... "+@user.legal %> </li>
-     <li> <%= "Organization Development................... "+@user.orgdevelop %> </li>
+     <li> <%= "Organization Development..................... "+@user.orgdevelop %> </li>
      <li> <%= "Outcome................................................. "+@user.outcome %> </li>
-     <li> <%= "Project Management............................. "+@user.projectmanagement %> </li>
-     <li> <%= "Training.................................................. "+@user.training %> </li>
-     <li> <%= "Volunteer Management.................................... "+@user.volunteer %> </li>
+     <li> <%= "Project Management............................... "+@user.projectmanagement %> </li>
+     <li> <%= "Training................................................... "+@user.training %> </li>
+     <li> <%= "Volunteer Management........................... "+@user.volunteer %> </li>
     </ul>
   </li>
    <li>
@@ -65,7 +66,6 @@
    </ul>
   </li>
   </ul>
-</h2>
 <br/>
 
   <% if @user == current_user %>

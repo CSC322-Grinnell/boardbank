@@ -25,33 +25,41 @@ body {
       <% elsif organization_signed_in? %>
 
 
+<%= form_tag users_path, :method => :get do %>
+    <% @all_interests.each do |interest| %>
+         <%= interest %>
+          <%= check_box_tag interest %>
+          <%end%>
+    <%= submit_tag 'Submit' %>
+<%end%>
+
       <ul class="list-group">
-	<% @users.each do |user| %>
-	<% @id = user.id %>
-	<% if @id!=1 %>
-	<% @name = user.firstname.to_s + " " + user.lastname.to_s %>
-	<li href="#" class="list-group-item"> 
-	  <span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;"> 
+  <% @users.each do |user| %>
+  <% @id = user.id %>
+  <% if @id!=1 %>
+  <% @name = user.firstname.to_s + " " + user.lastname.to_s %>
+  <li href="#" class="list-group-item">
+    <span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;">
 <%= link_to @name, controller: "profile", action: "show_user", id: @id %>
  </span>
-	  <p class="list-group-item-text">
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+    <p class="list-group-item-text">
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
             <%= user.email %>
 
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
             <%= user.city %>
 
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
             <%= user.education %>
 
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-decoration: underline; text-indent: 40px;">
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-decoration: underline; text-indent: 40px;">
             <%= user.interest_1 %>
 
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-decoration: underline; text-indent: 40px;">
-	    <%= user.interest_2 %>
-	  </p>
-	<% end %>
-	</li>
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-decoration: underline; text-indent: 40px;">
+      <%= user.interest_2 %>
+    </p>
+  <% end %>
+  </li>
       </ul>
 
       <% end %>
