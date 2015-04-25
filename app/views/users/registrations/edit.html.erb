@@ -1,3 +1,4 @@
+
 <div class="container">
       <div class="row">
         <div class="span9"><%= yield %></div>
@@ -95,7 +96,7 @@
             'Washington',
             'West Virginia',
             'Wisconsin',
-            'Wyoming']), {}, class: "form-control", autofocus: true %>​
+            'Wyoming']), {}, class: "form-control", autofocus: true %>
     </div>
 </div>
 
@@ -120,7 +121,7 @@
         <%= f.text_field :education, class: "form-control",autofocus: true, :readonly => true %>
                 <%= f.select :education, options_for_select(['',
 'High School Diploma', 'Bachelors', 'Masters', 'PhD']),
- {}, class: "form-control", autofocus: true %>​
+ {}, class: "form-control", autofocus: true %>
     </div>
 </div>
 
@@ -144,159 +145,23 @@
       <div class="row">
         <div class="span9"><%= yield %></div>
         <div class="span3">
-<h4>Please rate your interests from 1 (most preferable) to 5 (least preferable)</h4>
+<h4>Select your top 5 interests from the list below</h4>
 </div>
 </div>
 </div>
 
 <br>
 
+<% @interests.each do |interest| %>
+      <div class="form-group">
+        <%= label_tag 'interests', interest.name, class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+          <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id), class: 'form-control' %>
+        </div>
+      </div>
+    <% end %>
 
 
-<div class="form-group">
-    <%= f.label :Interest_1, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :interest_1, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :interest_1, options_for_select(['', 
-'Arts/Museum',
-'Early Childhood',
-'Literacy',
-'Animal Rights',
-'Environmental',
-'Mental Health',
-'Children/Youth',
-'Health Care',
-'Recreation',
-'Civic/Community',
-'Historical', 
-'Preservation', 
-'Senior Services',
-'Disabilities', 
-'Homeless/Emergency',
-'Substance Abuse',
-'Education',
-'Housing Development'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Interest_2, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :interest_2, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :interest_2, options_for_select(['', 
-'Arts/Museum',
-'Early Childhood',
-'Literacy',
-'Animal Rights',
-'Environmental',
-'Mental Health',
-'Children/Youth',
-'Health Care',
-'Recreation',
-'Civic/Community',
-'Historical', 
-'Preservation', 
-'Senior Services',
-'Disabilities', 
-'Homeless/Emergency',
-'Substance Abuse',
-'Education',
-'Housing Development'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Interest_3, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :interest_3, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :interest_3, options_for_select(['', 
-'Arts/Museum',
-'Early Childhood',
-'Literacy',
-'Animal Rights',
-'Environmental',
-'Mental Health',
-'Children/Youth',
-'Health Care',
-'Recreation',
-'Civic/Community',
-'Historical', 
-'Preservation', 
-'Senior Services',
-'Disabilities', 
-'Homeless/Emergency',
-'Substance Abuse',
-'Education',
-'Housing Development'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Interest_4, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :interest_4, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :interest_4, options_for_select(['', 
-'Arts/Museum',
-'Early Childhood',
-'Literacy',
-'Animal Rights',
-'Environmental',
-'Mental Health',
-'Children/Youth',
-'Health Care',
-'Recreation',
-'Civic/Community',
-'Historical', 
-'Preservation', 
-'Senior Services',
-'Disabilities', 
-'Homeless/Emergency',
-'Substance Abuse',
-'Education',
-'Housing Development'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Interest_5, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :interest_5, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :interest_5, options_for_select(['', 
-'Arts/Museum',
-'Early Childhood',
-'Literacy',
-'Animal Rights',
-'Environmental',
-'Mental Health',
-'Children/Youth',
-'Health Care',
-'Recreation',
-'Civic/Community',
-'Historical', 
-'Preservation', 
-'Senior Services',
-'Disabilities', 
-'Homeless/Emergency',
-'Substance Abuse',
-'Education',
-'Housing Development'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
 
 <hr>
 <div class="container">
@@ -309,188 +174,6 @@
 </div>
 
 <br>
-
-<div class="form-group">
-    <%= f.label :Advocacy_or_Governmental_Relations, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :advocacy, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :advocacy, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Business_or_Management, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :business, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :business, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Communications, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :communications, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :communications, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Diversity_issues, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :diversity, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :diversity, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Finance_and_Accounting, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :finance, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :finance, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Fundraising, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :fundraising, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :fundraising, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Human_resources, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :humanresources, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :humanresources, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Information_technology, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :information, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :information, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Legal, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :legal, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :legal, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Organization_development, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :orgdevelop, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :orgdevelop, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Outcome_measurement_or_Statistical_analysis, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :outcome, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :outcome, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Project_management, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :projectmanagement, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :projectmanagement, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Training_and_Development, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :training, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :training, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
-
-<div class="form-group">
-    <%= f.label :Volunteer_Management, class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-
-        <%= f.text_field :volunteer, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :volunteer, options_for_select(['No experience', 
-'Some experience',
-'Significant experience'
-]),
- {}, class: "form-control", autofocus: true %>​
-    </div>
-</div>
 
 <div class="form-group">
     <%= f.label :Would_you_be_comfortable_being_on_a_board_where_fundraising_is_required?, class: 'col-sm-2 control-label'  %>

@@ -12,4 +12,8 @@ end
     raise ActionController::RoutingError.new('Profile Not Found')
   end
 
+ def edit
+   @interests = Interests.all
+ end
+
 end

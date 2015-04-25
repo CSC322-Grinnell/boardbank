@@ -3,7 +3,7 @@
  <ul>
   <li>
     Basic:
-    <ul>
+1    <ul>
       <li> <%= @user.city %> <%=@user.state %> </li>
       <li> <%= @user.email %> </li>
       <li> <%= @user.phonenumber %> </li>
@@ -19,31 +19,16 @@
   <% end %> </li>
   <li>
     Skills:
-    <ul>
-     <li> <%= "Advocacy................................................ "+@user.advocacy %> </li>
-     <li> <%= "Business................................................. "+@user.business %> </li>
-     <li> <%= "Communications..................................... "+@user.communications %> </li>
-     <li> <%= "Diversity.................................................. "+@user.diversity %> </li>
-     <li> <%= "Finance................................................... "+@user.finance %> </li>
-     <li> <%= "Fundraising............................................. "+@user.fundraising %> </li>
-     <li> <%= "Human Resources.................................. "+@user.humanresources %> </li>
-     <li> <%= "Information Technology.......................... "+@user.information %> </li>
-     <li> <%= "Legal....................................................... "+@user.legal %> </li>
-     <li> <%= "Organization Development..................... "+@user.orgdevelop %> </li>
-     <li> <%= "Outcome................................................. "+@user.outcome %> </li>
-     <li> <%= "Project Management............................... "+@user.projectmanagement %> </li>
-     <li> <%= "Training................................................... "+@user.training %> </li>
-     <li> <%= "Volunteer Management........................... "+@user.volunteer %> </li>
-    </ul>
+
   </li>
    <li>
     Interests:
    <ul>
-    <li> <%= @user.interest_1 %> </li>
-    <li> <%= @user.interest_2 %> </li>
-    <li> <%= @user.interest_3 %> </li>
-    <li> <%= @user.interest_4 %> </li>
-    <li> <%= @user.interest_5 %> </li>
+<% @user.interests.each do |interest| %>
+<li>
+<%= interest.name %>
+</li>
+<% end %>
    </ul>
   </li>
   <li>
