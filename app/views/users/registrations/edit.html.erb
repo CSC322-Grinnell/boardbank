@@ -173,6 +173,24 @@
 </div>
 </div>
 
+
+<% @skills.each do |skill| %>
+<div class="form-group">
+
+  <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %> </label>
+  <%= radio_button_tag(:skill_level, 0) %>
+  <%= label_tag(skill.skill_level, "No Experience") %> </label>
+  <%= radio_button_tag(:skill_level, 1) %>
+  <%= label_tag(skill.skill_level, "Some Experience") %> </label>
+  <%= radio_button_tag(:skill_level, 2) %>
+  <%= label_tag(skill.skill_level, "Significant Experience") %> </label>
+
+ #OK LETS ASK CASSIE
+
+</div>
+<% end %>
+
+
 <br>
 
 <div class="form-group">

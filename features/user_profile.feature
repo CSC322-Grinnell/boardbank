@@ -10,6 +10,6 @@ Background:
 	
 Scenario: View Profile
 	When I follow "Profile"
-	  And I should see "First Name:"
-	  And I should see "Last Name:"
-	  And I should see "Email:"
+	  And I should see "Basic:"
+	  And I should see "Education:"
+	  And I should see "Skills:"

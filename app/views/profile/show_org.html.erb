@@ -1,18 +1,25 @@
 <% # in app/views/profile/show.html.haml %>
 <h2> <%= @org.orgname %> </h2>
-   <li>
+  <% if @org.orgabout %>
+  <li>
   About:
-  <%= @org.orgabout %>
+ <%= @org.orgabout %>
   </li>
+  <% end %>
+
+ <% if @org.org_city && @org.org_state %>
   <li>
   Location:
   <%= @org.org_city+", "+@org.org_state %>
   </li>
+  <% end %>
   <li>
   Contact:
   <br>
    Email: <%= @org.email %> <br/>
+  <% if @org.org_telephone %>
    Phone: <%= @org.org_telephone %> <br/>
+  <% end %>
   </li>
 <br/>
 

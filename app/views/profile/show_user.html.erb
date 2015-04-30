@@ -4,9 +4,9 @@
   <li>
     Basic:
 1    <ul>
-      <li> <%= @user.city %> <%=@user.state %> </li>
+      <li> <% if @user.city %><%= @user.city %> <% end %> <% if @user.state %><%=@user.state %> <% end %> </li>
       <li> <%= @user.email %> </li>
-      <li> <%= @user.phonenumber %> </li>
+      <li> <% if @user.phonenumber %> <%= @user.phonenumber %> <% end %></li>
     </ul>
   </li>
  <% if @user.education != "" %>
@@ -24,10 +24,12 @@
    <li>
     Interests:
    <ul>
+<% if @user.interests %>
 <% @user.interests.each do |interest| %>
 <li>
 <%= interest.name %>
 </li>
+<% end %>
 <% end %>
    </ul>
   </li>
@@ -46,8 +48,8 @@
     <% if @user.financial_contribution == true %>
             <li> <%= "Comfortable financially contributing to board." %>
             <% end %> </li>
-    <li> <%= "Monthly availability (in hours): "+@user.availability.to_s %> </li>
-    <li> <%= "Additional comments: "+@user.additional_comments %> </li>
+    <li> <% if @user.availability %><%= "Monthly availability (in hours): "+@user.availability.to_s %> <% end %> </li>
+    <li> <% if @user.additional_comments %> <%= "Additional comments: "+@user.additional_comments %> <% end %> </li>
    </ul>
   </li>
   </ul>

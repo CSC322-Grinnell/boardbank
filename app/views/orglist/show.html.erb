@@ -9,7 +9,7 @@
     <div class="span9"><%= yield %></div>
     <div class="span3">
       <h2>List of Organizations</h2>
-      
+
       <% if user_signed_in? || organization_signed_in? %>
 <%= form_tag organizations_path, :method => :get do %>
       <% @all_categories.each do |category| %>
@@ -21,33 +21,31 @@
 
 
       <ul class = "list-group">
-	<% @orgs.each do |org| %>
-	<% @id = org.id %>
-	<% if @id!=1 %>
-	<li href="#" class="list-group-item">
-	  <span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;"> 
-	    <%= link_to org.orgname, controller: "profile", action: "show_org", id: @id %>  
-	  </span>
-	  
-	  <p class="list-group-item-text">
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+  <% @orgs.each do |org| %>
+  <% @id = org.id %>
+
+  <li href="#" class="list-group-item">
+    <span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;">
+      <%= link_to org.orgname, controller: "profile", action: "show_org", id: @id %>
+    </span>
+
+    <p class="list-group-item-text">
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
             <%= org.org_city %>
 
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
             <%= org.orgabout %>
 
-	  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
+    <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
             <%= org.email %>
-	  </p>
-	<% end %>
-	</li>
+    </p>
+  <% end %>
+  </li>
       </ul>
 
 
       <% end %>
-      <% else %>
 
     </div>
   </div>
 </div>
-<% end %>

@@ -21,8 +21,6 @@ Scenario: Edit profile
 	   And I select "Bachelors" from "user_education"
 	   And I fill in "user_areaofstudy" with "Magic"
 	   And I check "user_previous_experience"
-	   And I select "Recreation" from "user_interest_1"
-	   And I select "Significant experience" from "user_legal"
 	   And I fill in "user_current_password" with "password"
 	   And I press "Update"
 	   Then I should see "Your account has been updated successfully."

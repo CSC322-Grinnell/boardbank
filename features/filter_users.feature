@@ -18,8 +18,8 @@ Scenario: Filter List of Users
 	  When I follow "Users"
 	  Then I should be on the Users page
 	  And I should see "List of Users"
-	  When I check the "Early Childhood" Box
-	  And I press the "Filter" button
+	  When I check "Early Childhood"
+	  And I press "Filter" 
 	  Then I should see "enuj@lemon.com"
 	  And I should not see "l0vely@nerd.com"
 	  

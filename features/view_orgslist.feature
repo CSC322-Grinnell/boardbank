@@ -19,7 +19,7 @@ Scenario: View List of Organzations
 	  When I follow "Organizations"
 	  Then I should be on the Organizations page
 	  And I should see "List of Organizations"
-	  And I should see "hm@hm.com"
-	  And I should see "as@as.com"
-	  And I should see "l0@ve.com"
-	  And I should see "mc@mc.com"
+	  And I should see "Happy Makers"
+	  And I should see "Animal Shelter"
+	  And I should see "L0vely"
+	  And I should see "Mary's Cupcakes"

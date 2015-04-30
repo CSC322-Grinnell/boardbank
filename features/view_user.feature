@@ -17,7 +17,7 @@ Background:
 Scenario: View Profile
 	  When I follow "Users"
 	  Then I should be on the Users page
-	  When I follow "leo@bucci.com"
+	  When I follow "Leo Bucci"
 	  And I should see "Leo"
 	  And I should see "Bucci"
 	  And I should see "leo@bucci.com"

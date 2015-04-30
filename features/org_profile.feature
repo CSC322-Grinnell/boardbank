@@ -10,6 +10,4 @@ Background:
 
 Scenario: View Profile
 	  When I follow "Profile"
-	  Then I should see "Name:"
 	  And I should see "Email"
-	  And I should see "About"
