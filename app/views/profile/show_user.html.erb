@@ -1,4 +1,69 @@
 <% # in app/views/profile/show.html.haml %>
+
+
+
+<html>
+<head>
+<title>Boardbank</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="container">
+<!-- Static navbar -->
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/">Boardbank</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
+<% if user_signed_in? %>
+<% @id = current_user.id %>
+<li><%= link_to 'Profile', controller: "profile", action: "show_user", id: @id %></li>
+<li><a href="/organizations">Organizations</a></li>
+<% else %>
+<% end %>
+<% if organization_signed_in? %>
+<% @id = current_organization.id %>
+<li><%= link_to 'Profile', controller: "profile", action: "show_org", id: @id %></li>
+<li><a href="/organizations">Organizations</a></li>
+<li><a href="/users">Users</a></li>
+<% else %>
+<% end %>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+
+</ul>
+
+</div><!--/.nav-collapse -->
+</nav>
+<div>
+<%if @error then %>
+<div class="alert alert-error"><%=@error%></div>
+<% end %>
+<%= yield %>
+</div>
+</div>
+
+<div id = 'content' class='container' >
+<div class= 'span9 main' >
+<div class = "jumbotron" >
+
 <h2> <%= @user.firstname %> <%= @user.lastname %> </h2>
  <ul>
   <li>
@@ -61,3 +126,6 @@
 <% end %>
 <%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %>
 
+</div>
+</div>
+</div>
