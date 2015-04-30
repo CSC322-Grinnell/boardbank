@@ -18,5 +18,6 @@ class RegistrationsController < Devise::RegistrationsController
       user.interest_ids = params[:interests]
     end
 
+
   end
 end

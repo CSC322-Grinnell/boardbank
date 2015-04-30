@@ -1,0 +1,55 @@
+<% # in app/views/profile/show.html.haml %>
+<h2> <%= @user.firstname %> <%= @user.lastname %> </h2>
+ <ul>
+  <li>
+    Basic:
+    <ul>
+      <li> <%= @user.city %> <%=@user.state %> </li>
+      <li> <%= @user.email %> </li>
+      <li> <%= @user.phonenumber %> </li>
+    </ul>
+  </li>
+ <% if @user.education != "" %>
+ <li>
+    Education:
+    <ul>
+      <li> <%= @user.education %> </li>
+      <li> <%= @user.areaofstudy %> </li>
+   </ul>
+  <% end %> </li>
+
+
+
+
+
+
+
+
+        
+    Other:
+   <ul>
+    <% if @user.previous_experience == true %>
+           <li> <%= "Has board education or service training." %>
+           <% end %> </li>
+    <% if @user.remember_me == true %>
+           <li> <%= "Remember Me" %>
+           <% end %> </li>
+    <% if @user.fundraise == true %>
+            <li> <%= "Comfortable with a fundraising board." %>
+            <% end %> </li>
+    <% if @user.financial_contribution == true %>
+            <li> <%= "Comfortable financially contributing to board." %>
+            <% end %> </li>
+    <li> <%= "Monthly availability (in hours): "+@user.availability.to_s %> </li>
+    <li> <%= "Additional comments: "+@user.additional_comments %> </li>
+   </ul>
+  </li>
+  </ul>
+<br/>
+
+  <% if @user == current_user %>
+     <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-default' %>
+<br/>
+<% end %>
+<%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %>
+

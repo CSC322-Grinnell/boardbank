@@ -156,7 +156,7 @@
       <div class="form-group">
         <%= label_tag 'interests', interest.name, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-          <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id), class: 'form-control' %>
+                 <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id), {class: 'form-control', id: "interest-#{interest.id}"} %>
         </div>
       </div>
     <% end %>
@@ -178,14 +178,12 @@
 <div class="form-group">
 
   <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %> </label>
-  <%= radio_button_tag(:skill_level, 0) %>
+  <%= radio_button_tag(skill.name+:skill_level.to_s, 0) %>
   <%= label_tag(skill.skill_level, "No Experience") %> </label>
-  <%= radio_button_tag(:skill_level, 1) %>
+  <%= radio_button_tag(skill.name+:skill_level.to_s, 1) %>
   <%= label_tag(skill.skill_level, "Some Experience") %> </label>
-  <%= radio_button_tag(:skill_level, 2) %>
+  <%= radio_button_tag(skill.name+:skill_level.to_s, 2) %>
   <%= label_tag(skill.skill_level, "Significant Experience") %> </label>
-
- #OK LETS ASK CASSIE
 
 </div>
 <% end %>
