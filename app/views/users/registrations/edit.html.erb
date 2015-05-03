@@ -174,20 +174,27 @@
 </div>
 
 
-<% @skills.each do |skill| %>
-<div class="form-group">
+<% @skills.each do |skill|
+  if @user_skills.key?(skill.id)
+    user_skill = @user_skills[skill.id]
+  else
+    user_skill = resource.user_skills.new(skill_id: skill.id)
+  end
+%>
+  <%= f.fields_for :user_skills, user_skill do |skill_fields| %>
 
-  <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %> </label>
-  <%= radio_button_tag(skill.name+:skill_level.to_s, 0) %>
-  <%= label_tag(skill.skill_level, "No Experience") %> </label>
-  <%= radio_button_tag(skill.name+:skill_level.to_s, 1) %>
-  <%= label_tag(skill.skill_level, "Some Experience") %> </label>
-  <%= radio_button_tag(skill.name+:skill_level.to_s, 2) %>
-  <%= label_tag(skill.skill_level, "Significant Experience") %> </label>
-
-</div>
+  <div class="form-group">
+    <%= skill_fields.hidden_field :skill_id %>
+    <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %>
+    <%= skill_fields.radio_button :experience_level, 'No Experience' %>
+    <%= skill_fields.label :no_experience, 'No Experience' %>
+    <%= skill_fields.radio_button :experience_level, 'Some Experience' %>
+    <%= skill_fields.label :some_experience, 'Some Experience' %>
+    <%= skill_fields.radio_button :experience_level, 'Significant Experience' %>
+    <%= skill_fields.label :significant_experience, 'Significant Experience' %>
+  </div>
+  <% end %>
 <% end %>
-
 
 <br>
 
