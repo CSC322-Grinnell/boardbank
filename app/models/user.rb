@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
   has_many :interests, through: :user_interest
 
   accepts_nested_attributes_for :user_skills
+
+
 end

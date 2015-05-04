@@ -72,10 +72,12 @@ body {
 
 <h2>List of Users</h2>
 
+
+
 <%= form_tag users_path, :method => :get do %>
   <% @interests.each do |interest| %>
   <%= interest.name %>
-          <%= check_box_tag 'interests[]', interest.id, false %>
+          <%= check_box_tag 'interests[]', interest.id, false, {class: 'form-control', id: "interest-#{interest.id}"} %>
   <% end %>
     <%= submit_tag 'Filter' %>
  <%end%>

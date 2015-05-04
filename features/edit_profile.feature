@@ -20,6 +20,7 @@ Scenario: Edit profile
 	   And I fill in "user_phonenumber" with "555-555-5555"
 	   And I select "Bachelors" from "user_education"
 	   And I fill in "user_areaofstudy" with "Magic"
+	   And I check "interest two"
 	   And I check "user_previous_experience"
 	   And I fill in "user_current_password" with "password"
 	   And I press "Update"

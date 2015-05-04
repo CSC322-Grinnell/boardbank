@@ -68,7 +68,7 @@
  <ul>
   <li>
     Basic:
-1    <ul>
+    <ul>
       <li> <% if @user.city %><%= @user.city %> <% end %> <% if @user.state %><%=@user.state %> <% end %> </li>
       <li> <%= @user.email %> </li>
       <li> <% if @user.phonenumber %> <%= @user.phonenumber %> <% end %></li>
@@ -84,6 +84,17 @@
   <% end %> </li>
   <li>
     Skills:
+<ul>
+<% if @user.skills %>
+<% @user.skills.each do |skill| %>
+
+<li>
+<%= skill.name %>
+
+<% end %>
+<% end %>
+</li>
+</ul>
 
   </li>
    <li>

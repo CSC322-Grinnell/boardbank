@@ -18,7 +18,7 @@ Scenario: Filter List of Users
 	  When I follow "Users"
 	  Then I should be on the Users page
 	  And I should see "List of Users"
-	  When I check "Early Childhood"
+	  When I check "interest-2"
 	  And I press "Filter" 
 	  Then I should see "enuj@lemon.com"
 	  And I should not see "l0vely@nerd.com"
