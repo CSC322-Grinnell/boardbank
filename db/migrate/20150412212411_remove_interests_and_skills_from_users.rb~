@@ -9,7 +9,7 @@ class RemoveInterestsAndSkillsFromUsers < ActiveRecord::Migration
       t.remove :communications
       t.remove :diversity
       t.remove :finance
-      t.remove :fundraising:
+      t.remove :fundraising
       t.remove :humanresources
       t.remove :information
       t.remove :legal
