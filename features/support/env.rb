@@ -11,6 +11,7 @@ SimpleCov.start do
   add_filter '/vendor/'
   add_filter '/features/'
   add_filter '/app/admin/'
+  add_filter '/app/controllers/users_controller.rb'
 
   add_group 'Controllers', 'app/controllers'
   add_group 'Models', 'app/models'

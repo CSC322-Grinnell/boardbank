@@ -156,7 +156,7 @@
       <div class="form-group">
         <%= label_tag 'interests', interest.name, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-                 <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id), {class: 'form-control', id: "interest-#{interest.id}"} %>
+                 <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id), {class: 'form-control', id: "interest_#{interest.id}"} %>
         </div>
       </div>
     <% end %>
