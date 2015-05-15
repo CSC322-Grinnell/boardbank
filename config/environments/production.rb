@@ -65,10 +65,8 @@ Boardbank::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-
-%w(stylesheets javascripts fonts images).each do |sub|
-  config.assets.paths << ::Bootstrap::Rails::Engine.root.join('assets', sub)
-end
-config.assets.precompile << %r(bootstrap/glyphicons-halflings-regular\.(?:eot|svg|ttf|woff)$)
-
+  %w(stylesheets javascripts fonts images).each do |sub|
+    config.assets.paths << ::Bootstrap::Rails::Engine.root.join('assets', sub)
+  end
+  config.assets.precompile << %r{bootstrap/glyphicons-halflings-regular\.(?:eot|svg|ttf|woff)$}
 end

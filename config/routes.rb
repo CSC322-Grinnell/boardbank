@@ -1,24 +1,23 @@
 Boardbank::Application.routes.draw do
-
   root to: 'frontpage#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :organizations
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   ActiveAdmin.routes(self)
 
-  match '/profile/user/:id', :to => "profile#show_user", as: 'user'
+  match '/profile/user/:id', to: 'profile#show_user', as: 'user'
 
-  match '/profile/organization/:id', :to => "profile#show_org", as: 'org'
+  match '/profile/organization/:id', to: 'profile#show_org', as: 'org'
 
-  match '/users', :to => "userlist#show"
+  match '/users', to: 'userlist#show'
 
-  match '/organizations', :to => "orglist#show"
+  match '/organizations', to: 'orglist#show'
 
-  match 'admin/organizations/:id/approve'=> 'frontpage#approve_org', as: 'approve_org'
+  match 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
   # The priority is based upon order of creation:
@@ -77,5 +76,4 @@ Boardbank::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-
 end

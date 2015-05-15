@@ -18,11 +18,10 @@
 # * http://elabs.se/blog/15-you-re-cuking-it-wrong
 #
 
-
 require 'uri'
 require 'cgi'
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
 
 module WithinHelpers
   def with_scope(locator)
@@ -58,11 +57,11 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
-  fill_in(field, :with => value)
+  fill_in(field, with: value)
 end
 
 When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
-  fill_in(field, :with => value)
+  fill_in(field, with: value)
 end
 
 # Use this to fill in an entire form with data from a table. Example:
@@ -78,15 +77,15 @@ end
 #
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
+    When %(I fill in "#{name}" with "#{value}")
   end
 end
 
 When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
-  select(value, :from => field)
+  select(value, from: field)
 end
 
- When(/^I check interest_"(.*?)"$/) do |arg1|
+When(/^I check interest_"(.*?)"$/) do |_arg1|
   check(field)
 end
 
@@ -114,9 +113,9 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should
-    page.should have_xpath('//*', :text => regexp)
+    page.should have_xpath('//*', text: regexp)
   else
-    assert page.has_xpath?('//*', :text => regexp)
+    assert page.has_xpath?('//*', text: regexp)
   end
 end
 
@@ -132,9 +131,9 @@ Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should
-    page.should have_no_xpath('//*', :text => regexp)
+    page.should have_no_xpath('//*', text: regexp)
   else
-    assert page.has_no_xpath?('//*', :text => regexp)
+    assert page.has_no_xpath?('//*', text: regexp)
   end
 end
 
@@ -240,7 +239,7 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair{|k,v| expected_params[k] = v.split(',')}
+  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(',') }
 
   if actual_params.respond_to? :should
     actual_params.should == expected_params
@@ -258,11 +257,11 @@ end
 # I can't seem to get the Firefox gem to work on the MathLAN.
 
 When /^(?:|I )confirm (?:|the )popup$/ do
-#page.driver.browser.switch_to.alert.accept
+  # page.driver.browser.switch_to.alert.accept
   pending
 end
 
 When /^(?:|I )dismiss (?:|the )popup$/ do
-#page.driver.browser.switch_to.alert.dismiss
+  # page.driver.browser.switch_to.alert.dismiss
   pending
 end

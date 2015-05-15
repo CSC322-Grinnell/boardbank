@@ -25,7 +25,6 @@ group :development do
   gem 'sunspot_solr'
 end
 
-
 # debugger is useful in development mode too
 group :development, :test do
   gem 'debugger'
@@ -35,7 +34,7 @@ end
 group :test do
   gem 'rspec-rails', '2.14'
   gem 'simplecov'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels' # basic imperative step defs
   gem 'database_cleaner' # required by Cucumber
   gem 'autotest-rails'
@@ -43,13 +42,11 @@ group :test do
   gem 'metric_fu'        # collect code metrics
 end
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

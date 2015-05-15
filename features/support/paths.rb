@@ -17,8 +17,7 @@ module NavigationHelpers
       '/'
 
     when /^the sign up page/
-  '/users/sign_up'
-
+      '/users/sign_up'
 
     when /^the user profile page/
       @id = current_user.id
@@ -35,22 +34,22 @@ module NavigationHelpers
       '/organizations/sign_in'
 
     when /^the organization sign up page/
-  '/organizations/sign_up'
+      '/organizations/sign_up'
 
     when /^the admin login page/i
-    '/admin/login'
+      '/admin/login'
 
     when /^the admin dashboard/i
-    '/admin'
+      '/admin'
 
     when /^the organization admin page/i
-          '/admin/organizations'
+      '/admin/organizations'
 
     when /^the user admin page/i
-          '/admin/users'
+      '/admin/users'
 
     when /^the admin user admin page/i
-          '/admin/admin_users'
+      '/admin/admin_users'
 
     when /^the Users page/i
       '/users'
@@ -61,10 +60,10 @@ module NavigationHelpers
     else
       begin
         page_name =~ /^the (.*) page$/
-        path_components = $1.split(/\s+/)
-        self.send(path_components.push('path').join('_').to_sym)
+        path_components = Regexp.last_match(1).split(/\s+/)
+        send(path_components.push('path').join('_').to_sym)
       rescue NoMethodError, ArgumentError
-        raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
+        raise "Can't find mapping from \"#{page_name}\" to a path.\n" \
           "Now, go and add a mapping in #{__FILE__}"
       end
     end

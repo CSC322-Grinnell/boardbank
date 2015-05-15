@@ -1,10 +1,10 @@
 class RemoveInterestFromUser < ActiveRecord::Migration
   def up
-    #remove_column :users, :interest_1
-    #remove_column :users, :interest_2
-    #remove_column :users, :interest_3
-    #remove_column :users, :interest_4
-    #remove_column :users, :interest_5
+    # remove_column :users, :interest_1
+    # remove_column :users, :interest_2
+    # remove_column :users, :interest_3
+    # remove_column :users, :interest_4
+    # remove_column :users, :interest_5
     remove_column :users, :advocacy
     remove_column :users, :business
     remove_column :users, :communications

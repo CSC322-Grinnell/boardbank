@@ -10,6 +10,5 @@ class CreateUserSkills < ActiveRecord::Migration
 
       t.timestamps
     end
-
   end
 end
