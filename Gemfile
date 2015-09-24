@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org/'
 
 gem 'rails', '3.2.18'
 
@@ -27,7 +27,7 @@ end
 
 # debugger is useful in development mode too
 group :development, :test do
-  gem 'debugger'
+  gem 'pry-byebug'
   gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
 end
 # setup Cucumber, RSpec, autotest support
