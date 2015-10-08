@@ -1,2 +1,0 @@
-When /^(?:|I )fill in "Password" with "([^"]*)"$/ do |field, value|
-  fill_in(field, :with => value)
