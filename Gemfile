@@ -25,6 +25,14 @@ group :development do
   gem 'sunspot_solr'
 end
 
+#Elastic Search
+#gem 'elasticsearch-model'#, git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+#gem 'elasticsearch-rails'#, git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+#gem 'bonsai-elasticsearch-rails'
+
+#Searchkick
+gem 'searchkick'
+
 # debugger is useful in development mode too
 group :development, :test do
   gem 'pry-byebug'
