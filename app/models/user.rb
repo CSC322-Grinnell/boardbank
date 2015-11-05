@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   searchkick
 
-
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -22,4 +22,11 @@ class User < ActiveRecord::Base
   
   #Searchkick
   #User.reindex
+  
+  #Testing searchkick to see if it works
+  #products = User.search "Bob"
+  #products.each do |product|
+  #  puts product.name
+  #end
+  
 end
