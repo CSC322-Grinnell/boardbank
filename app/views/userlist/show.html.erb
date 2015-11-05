@@ -70,10 +70,19 @@ body {
 
 </style>
 
+<%= form_tag search_users_path, method: :get do%>
+  <%= label_tag("Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h2>List of Users</h2>
 
 
 
+
+<% 
+=begin %>
 <%= form_tag users_path, :method => :get do %>
   <% @interests.each do |interest| %>
   <%= interest.name %>
@@ -81,7 +90,11 @@ body {
   <% end %>
     <%= submit_tag 'Filter' %>
  <%end%>
-</form>
+</form> 
+<% end %>
+<% 
+=end %>
+
 <br>
 <br>
 
@@ -95,25 +108,26 @@ body {
 
 
       <ul class="list-group">
+          
+<% if @users.empty?%>
+  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;"> 
+        User Not Found
+  </p>
+  
+<% else %>
   <% @users.each do |user| %>
   <% @id = user.id %>
   <% @name = user.firstname.to_s + " " + user.lastname.to_s %>
   <li href="#" class="list-group-item">
 <%= link_to @name, controller: "profile", action: "show_user", id: @id %>
-
-
-
-            <%= user.email %>
-
-
-            <%= user.city %>
-
-
-            <%= user.education %>
+        <%= user.email %>
+        <%= user.city %>
+        <%= user.education %>
 
   </li>
       </ul>
 
+      <% end %>
       <% end %>
       <% else %>
     </div>

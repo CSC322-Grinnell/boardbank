@@ -68,7 +68,7 @@
 
 </style>
 
-<%= form_tag search_path, method: :get do%>
+<%= form_tag search_orgs_path, method: :get do%>
   <%= label_tag("Search for:") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
@@ -84,6 +84,13 @@
       <% if user_signed_in? || organization_signed_in? %>
 
       <ul class = "list-group">
+        
+  <% if @orgs.empty?%>
+  <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;"> 
+        Organization Not Found
+        </p>
+  <% else %>
+  
   <% @orgs.each do |org| %>
   <% @id = org.id %>
 
@@ -108,7 +115,7 @@
 
 
       <% end %>
-
+      <%end %>
     </div>
   </div>
 </div>

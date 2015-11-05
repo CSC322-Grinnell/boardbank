@@ -81,5 +81,8 @@ Boardbank::Application.routes.draw do
   #Testing searchkick through a stackoverflow suggestion:
   #http://stackoverflow.com/questions/15459668/rails-search-form-submit-to-show-method
   #routes.rb
-  get 'search', :to => 'orglist#show'
+  get 'search_orgs', :to => 'orglist#show'
+  
+  get 'search_users', :to => 'userlist#show'
+  
 end
