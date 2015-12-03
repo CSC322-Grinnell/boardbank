@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  
+  searchkick
+
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,4 +19,14 @@ class User < ActiveRecord::Base
   has_many :interests, through: :user_interest
 
   accepts_nested_attributes_for :user_skills
+  
+  #Searchkick
+  #User.reindex
+  
+  #Testing searchkick to see if it works
+  #products = User.search "Bob"
+  #products.each do |product|
+  #  puts product.name
+  #end
+  
 end

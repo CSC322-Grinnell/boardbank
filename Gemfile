@@ -25,6 +25,17 @@ group :development do
   gem 'sunspot_solr'
 end
 
+#Elastic Search
+#gem 'elasticsearch-model'#, git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+#gem 'elasticsearch-rails'#, git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+#gem 'bonsai-elasticsearch-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
+
+#Searchkick
+gem 'searchkick'
+
 # debugger is useful in development mode too
 group :development, :test do
   gem 'pry-byebug'
@@ -57,6 +68,7 @@ end
 gem 'jquery-rails', '~> 2.3.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'test-unit'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

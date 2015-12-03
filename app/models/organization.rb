@@ -1,4 +1,8 @@
 class Organization < ActiveRecord::Base
+  
+  searchkick
+  
+  
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :registerable
 
@@ -16,4 +20,7 @@ class Organization < ActiveRecord::Base
       super # Use whatever other message
     end
   end
+  
+  #Searchkick
+  #Organization.reindex
 end
