@@ -55,6 +55,7 @@ GEM
       ZenTest (~> 4.5)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
+    bonsai-elasticsearch-rails (0.0.4)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     bourbon (4.0.2)
@@ -122,6 +123,11 @@ GEM
       elasticsearch-transport (= 1.0.14)
     elasticsearch-api (1.0.14)
       multi_json
+    elasticsearch-model (0.1.8)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.8)
     elasticsearch-transport (1.0.14)
       faraday
       multi_json
@@ -363,11 +369,14 @@ DEPENDENCIES
   activeadmin
   autoprefixer-rails
   autotest-rails
+  bonsai-elasticsearch-rails
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 3.2.1)
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
+  elasticsearch-model
+  elasticsearch-rails
   factory_girl_rails
   jasmine-rails
   jquery-rails (~> 2.3.0)

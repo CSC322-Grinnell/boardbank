@@ -4,7 +4,7 @@ class OrglistController < ApplicationController
   
   def show
     
-    @orgs = Organization.search params[:q] if params[:q].present? 
+    @orgs = Organization.search params[:q] if params[:q].present?  
     @orgs = Organization.all if !(params[:q]).present?
     #@orgs ||= Organization.search "Happy"
     @categories = ['']
