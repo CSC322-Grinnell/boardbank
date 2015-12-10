@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   
+  include Elasticsearch::Model
   searchkick
+  
 
   
   # Include default devise modules. Others available are:
