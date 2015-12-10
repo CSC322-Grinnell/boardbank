@@ -31,7 +31,6 @@ end
 #gem 'bonsai-elasticsearch-rails'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'bonsai-elasticsearch-rails'
 
 #Searchkick
 gem 'searchkick'

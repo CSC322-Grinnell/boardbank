@@ -3,8 +3,7 @@
       <title>Boardbank</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- Bootstrap -->
-      <link rel="stylesheet" type="text/css" href="theme.css">
-      
+
       <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,52 +56,9 @@
             <%= yield %>
          </div>
       </div>
-      
            <header class="cd-header">
-	<h1>Content Filter</h1>
 </header>
  
-<main class="cd-main-content">
-	<div class="cd-tab-filter-wrapper">
-		<div class="cd-tab-filter">
-			<ul class="cd-filters">
-				<li class="placeholder"> 
-					<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
-				</li> 
-				<li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
-				<li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Color 1</a></li>
-				<li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Color 2</a></li>
-			</ul> <!-- cd-filters -->
-		</div> <!-- cd-tab-filter -->
-	</div> <!-- cd-tab-filter-wrapper -->
- 
-	<section class="cd-gallery">
-		<ul>
-			<li class="mix color-1 check1 radio2 option3"><img src="img/img-1.jpg" alt="Image 1"></li>
-			<li class="mix color-2 check2 radio2 option2"><img src="img/img-2.jpg" alt="Image 2"></li>
-			<li><!-- ... --></li>
-			<li class="gap"></li>
-		</ul>
-		<div class="cd-fail-message">No results found</div>
-	</section> <!-- cd-gallery -->
- 
-	<div class="cd-filter">
-		<form>
-			<div class="cd-filter-block">
-				<h4>Block title</h4>
-				
-				<div class="cd-filter-content">
-					<!-- filter content -->
-				</div> <!-- cd-filter-content -->
-			</div> <!-- cd-filter-block -->
-		</form>
- 
-		<a href="#0" class="cd-close">Close</a>
-	</div> <!-- cd-filter -->
- 
-	<a href="#0" class="cd-filter-trigger">Filters</a>
-</main> <!-- cd-main-content -->
-
 
 
       <div id = 'content' class='container' >
@@ -113,6 +69,7 @@
                   border-collapse: collapse;
                   }
                </style>
+               
                <div class="col-sm-3 col-md-3">
                   <%= form_tag search_orgs_path, class: 'navbar-form', method: :get do%>
                   <div class="input-group">
@@ -126,11 +83,7 @@
                   </div>
                   <% end %>
                </div>
-               <%= form_tag search_orgs_path, method: :get do%>
-               <%= label_tag("Search for:") %>
-               <%= text_field_tag(:q, params[:q]) %>
-               <%= submit_tag("Search") %>
-               <% end %>
+      
                <div class="container">
                   <div class="row">
                      <div class="span9"><%= yield %></div>

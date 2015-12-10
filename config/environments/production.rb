@@ -19,6 +19,9 @@ Boardbank::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  
+  # For elastic search - treat with caution
+  Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_URL']
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
