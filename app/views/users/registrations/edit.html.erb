@@ -152,6 +152,8 @@
 
 <br>
 
+<%
+=begin%>
 <% @interests.each do |interest| %>
       <div class="form-group">
         <%= label_tag 'interests', interest.name, class: 'col-sm-2 control-label'  %>
@@ -160,7 +162,8 @@
         </div>
       </div>
     <% end %>
-
+<%
+=end %>
 
 
 <hr>
