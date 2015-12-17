@@ -1,0 +1,85 @@
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    background: #387b2b;
+    border-color: #387b2b;
+    position: fixed;
+    width: 70%;
+    float: left;
+    margin-left: 10%;
+    z-index: 1;
+}
+
+.navbar-inverse {
+    background: #387b2b;
+    border-color: #387b2b;
+    position: fixed;
+    width: 83.3%;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #FFF;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #FFF;
+}
+
+body {
+    background: #FFF;
+}
+
+input.btn.btn-success {
+    border-radius: 25px;
+    background: #387b2b;
+    border-color: #black;
+    margin: 5px;
+}
+
+#q {
+    padding: 10px;
+    width: 200%;
+}
+
+.input-group {
+    float: right;
+}
+
+.list-group-item {
+    position: relative;
+}
+
+form.navbar-form {
+    left: 60%;
+    position: relative;
+    width: 10%;
+}
+
+div.col-sm-3.col-md-3 {
+    float: right;
+}
+
+group>.form-control, .navbar-form .input-group>.form-control {
+    width: 50%;
+    left: -10%;
+}
+
+.groupedsearch {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.list-group-item:last-child {
+    margin-top: 5%;
+}
+
+.jumbotron {
+    bottom: 0;
+	top: 20%;
+	overflow-y: scroll;
+	position: absolute;
+	margin-right: 8%;
+	width: 83.4%;
+}

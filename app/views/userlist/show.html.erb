@@ -4,9 +4,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- Bootstrap -->
       <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <%= stylesheet_link_tag 'overhead'%>
    </head>
    <body>
-      <div class="container">
+      <div class="container" style="color:green;">
          <!-- Static navbar -->
          <nav class="navbar navbar-inverse" role="navigation">
             <div class="navbar-header">
@@ -18,7 +19,7 @@
                </button>
                <a class="navbar-brand" href="/">Boardbank</a>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse"  >
                <ul class="nav navbar-nav">
                   <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
                   <% if user_signed_in? %>
@@ -56,15 +57,20 @@
                      border-collapse: collapse;
                      }
                   </style>
-                  <%= form_tag search_users_path, method: :get do%>
-                  <%= label_tag("Search for:") %>
-                  <%= text_field_tag(:q, params[:q]) %>
-                  <%= submit_tag("Search") %>
-                  <% end %>
-                  <h2>List of Users</h2>
                   
-                  <br>
-                  <br>
+                  <div class="col-sm-3 col-md-3">
+                  <%= form_tag search_users_path, class: 'navbar-form', method: :get do%>
+                  <div class="input-group">
+                     <%= text_field_tag :q, params[:q], size: 300, placeholder: "Search", class: "form-control"%>
+                     <%= submit_tag 'Search', class: 'btn btn-success' %>
+                  </div>
+                  
+                  <% end %>
+               </div>
+               
+                  
+                  <h2 class="listof">List of Users</h2>
+                
                   <% if user_signed_in? %>
                   <h3> You do not have access to this area </h3>
                   <% elsif organization_signed_in? %>

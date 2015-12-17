@@ -74,12 +74,8 @@
                   <%= form_tag search_orgs_path, class: 'navbar-form', method: :get do%>
                   <div class="input-group">
                      <%= text_field_tag :q, params[:q], size: 300, placeholder: "Search", class: "form-control"%>
-                  </div>
+                  
                   <%= submit_tag 'Search', class: 'btn btn-success' %>
-                  <div class="input-group-btn">
-                     <%= button_tag(type: "submit", class: "btn btn-default") do %>
-                     <i class="glyphicon glyphicon-search"></i>
-                     <% end %>
                   </div>
                   <% end %>
                </div>
@@ -99,7 +95,7 @@
                            <% @orgs.each do |org| %>
                            <% @id = org.id %>
                            <li href="#" class="list-group-item">
-                              <span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;text-transform:uppercase;letter-spacing:1px;line-height:4px;">
+                              <span style="font-family:Georgia;font-size:30px;font-style:normal;font-weight:bold;letter-spacing:1px;line-height:4px;">
                               <%= link_to org.orgname, controller: "profile", action: "show_org", id: @id %>
                               </span>
                               <p class="list-group-item-text">
@@ -108,7 +104,7 @@
                               <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
                                  <%= org.orgabout %>
                               <p style="font: 14pt/10pt Garamond, Georgia, serif; text-indent: 40px;">
-                                 <%= org.email %>
+                                 <%= "Email: " + org.email %>
                               </p>
                               <% end %>
                            </li>
