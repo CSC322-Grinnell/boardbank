@@ -9,15 +9,15 @@ Boardbank::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  match '/profile/user/:id', to: 'profile#show_user', as: 'user'
+  get '/profile/user/:id', to: 'profile#show_user', as: 'user'
 
-  match '/profile/organization/:id', to: 'profile#show_org', as: 'org'
+  get '/profile/organization/:id', to: 'profile#show_org', as: 'org'
 
-  match '/users', to: 'userlist#show'
+  get '/users', to: 'userlist#show'
 
-  match '/organizations', to: 'orglist#show'
+  get '/organizations', to: 'orglist#show'
 
-  match 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
+  get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
   # The priority is based upon order of creation:
