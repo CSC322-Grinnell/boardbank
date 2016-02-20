@@ -1,5 +1,5 @@
 Boardbank::Application.routes.draw do
-  root to: 'frontpage#index'
+  root 'frontpage#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
