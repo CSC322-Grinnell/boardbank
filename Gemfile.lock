@@ -406,6 +406,3 @@ DEPENDENCIES
   sqlite3
   test-unit
   travis-lint
-
-BUNDLED WITH
-   1.11.2
