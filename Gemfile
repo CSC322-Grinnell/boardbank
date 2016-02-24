@@ -2,7 +2,6 @@ source 'https://rubygems.org/'
 
 gem 'rails', '4.2.5.1'
 
-gem 'activeresource' # https://github.com/rails/activeresource
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'devise'
 gem 'protected_attributes'
