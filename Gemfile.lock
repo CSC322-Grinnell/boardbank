@@ -427,7 +427,10 @@ DEPENDENCIES
   sqlite3
   test-unit
   travis-lint
+<<<<<<< HEAD
   uglifier
 
 BUNDLED WITH
    1.11.2
+=======
+>>>>>>> b9187c70b4bd22c326a20c0a53a65f6fecf6a6b0
