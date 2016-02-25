@@ -14,50 +14,6 @@
 <![endif]-->
 </head>
 <body>
-  <div class="container">
-    <!-- Static navbar -->
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Boardbank</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
-          <% if user_signed_in? %>
-          <% @id = current_user.id %>
-          <li><%= link_to 'Profile', controller: "profile", action: "show_user", id: @id %></li>
-          <li><a href="/organizations">Organizations</a></li>
-          <% else %>
-          <% end %>
-          <% if organization_signed_in? %>
-          <% @id = current_organization.id %>
-          <li><%= link_to 'Profile', controller: "profile", action: "show_org", id: @id %></li>
-          <li><a href="/organizations">Organizations</a></li>
-          <li><a href="/users">Users</a></li>
-          <% else %>
-          <% end %>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-
-        </ul>
-
-      </div><!--/.nav-collapse -->
-    </nav>
-    <div>
-      <%if @error then %>
-      <div class="alert alert-error"><%=@error%></div>
-      <% end %>
-      <%= yield %>
-    </div>
-  </div>
-
   <div id = 'content' class='container' >
     <div class= 'span9 main' >
       <div class = "jumbotron" >
