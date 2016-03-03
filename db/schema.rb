@@ -16,20 +16,16 @@ ActiveRecord::Schema.define(version: 20150425215320) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "resource_id",   limit: 255, null: false
     t.string   "resource_type", limit: 255, null: false
-
     t.integer  "author_id"
     t.string   "author_type",   limit: 255
     t.text     "body"
-
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "namespace",     limit: 255
-
   end
 
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "admin_users", force: :cascade do |t|
@@ -45,7 +41,6 @@ ActiveRecord::Schema.define(version: 20150425215320) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
-
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
@@ -79,13 +74,11 @@ ActiveRecord::Schema.define(version: 20150425215320) do
     t.string   "org_zipcode",            limit: 255
     t.string   "org_telephone",          limit: 255
     t.string   "org_contactname",        limit: 255
-
   end
 
   add_index "organizations", ["approved"], name: "index_organizations_on_approved"
   add_index "organizations", ["email"], name: "index_organizations_on_email", unique: true
   add_index "organizations", ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true
-
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -135,7 +128,6 @@ ActiveRecord::Schema.define(version: 20150425215320) do
     t.boolean  "previous_experience",                default: false
     t.boolean  "fundraise",                          default: false
     t.boolean  "financial_contribution",             default: false
-
     t.float    "availability"
     t.string   "additional_comments",    limit: 255
   end
