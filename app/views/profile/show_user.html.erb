@@ -1,140 +1,92 @@
-<% # in app/views/profile/show.html.haml %>
-
-<html>
-<head>
-  <title>Boardbank</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap -->
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-<![endif]-->
-</head>
-<body>
-  <div class="container">
-    <!-- Static navbar -->
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Boardbank</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
-          <% if user_signed_in? %>
-          <% @id = current_user.id %>
-          <li><%= link_to 'Profile', controller: "profile", action: "show_user", id: @id %></li>
-          <li><a href="/organizations">Organizations</a></li>
+<div id = 'content' class='container' >
+  <div class= 'span9 main' >
+    <div class = "col-md-8 col-md-offset-2" >
+      <h2> 
+        <% if @user.firstname != nil %>
+         <%= @user.firstname %>
+        <% else %>
+          FIRSTNAME
+        <% end %>
+        <% if @user.lastname != nil %>
+         <%= @user.lastname %>
+        <% else %>
+          LASTNAME
+        <% end %>
+      </h2>
+      <br/>
+      <ul class="list-group">
+        <h4>Basic:</h4>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
+          <% if @user.city %><%= @user.city + ", "%> <% end %>
+          <% if @user.state %><%=@user.state %> <% end %>
+        </li>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
+          <% if @user.phonenumber %> <%= @user.phonenumber %> <% end %>
+        </li>
+      </ul>
+      <br/>
+      <ul class="list-group">
+        <h4>Education:</h4>
+        <% if @user.education %>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;
+            <%= @user.education %>
+          </li>
+          <% if @user.areaofstudy %>
+            <li class="list-group-item">Specialization: <%= @user.areaofstudy %></li>
           <% else %>
+            <li class="list-group-item">Specialization: Not Listed.</li>
           <% end %>
-          <% if organization_signed_in? %>
-          <% @id = current_organization.id %>
-          <li><%= link_to 'Profile', controller: "profile", action: "show_org", id: @id %></li>
-          <li><a href="/organizations">Organizations</a></li>
-          <li><a href="/users">Users</a></li>
-          <% else %>
-          <% end %>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-
-        </ul>
-
-      </div><!--/.nav-collapse -->
-    </nav>
-    <div>
-      <%if @error then %>
-      <div class="alert alert-error"><%=@error%></div>
-      <% end %>
-      <%= yield %>
+        <% else %>
+          <li class="list-group-item">None Listed</li>
+        <% end %>
+      </ul>
+      <br/>
+      <ul class="list-group">
+        <h4>Skills:</h4>
+        <% if @user.skills %>
+          <li class="list-group-item"><%= @user.skills %></li>
+          <!-- <% @user.skills.each do |skill| %>
+            <li class="list-group-item"><%= skill.name %></li>
+          <% end %> -->
+        <% else %>
+          <li class="list-group-item">None Listed</li>
+        <% end %>
+      </ul>
+      <br/>
+      <ul class="list-group">
+        <h4>Other:</h4>
+        <% if @user.previous_experience %>
+          <li class="list-group-item">Has board education or service training.</li>
+        <% end %>
+        <% if @user.remember_me %>
+          <li class="list-group-item">Remember me.</li>
+        <% end %> 
+        <% if @user.fundraise %>
+          <li class="list-group-item">Comfortable with a fundraising board.</li>
+        <% end %> 
+        <% if @user.financial_contribution %>
+          <li class="list-group-item">Comfortable financially contributing to board.</li>
+        <% end %>
+        <% if @user.availability %>
+          <li class="list-group-item"><%= "Monthly availability (in hours): "+@user.availability.to_s %></li>
+        <% end %>
+        <% if @user.additional_comments %>
+          <li class="list-group-item"><%= "Additional comments: "+@user.additional_comments %></li>
+        <% end %>  
+        <% if !@user.previous_experience && !@user.remember_me && !@user.fundraise && 
+              !@user.financial_contribution && !@user.availability && !@user.additional_comments %>
+          <li class="list-group-item">None Listed.</li>
+        <% end %>
+      </ul>
+      <br/>
+    <% if @user == current_user %>
+      <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-danger' %>
+      <br/>
+    <% end %>
+    <!-- <%= link_to "Home", root_path, :method => :get, :class => 'btn btn-success' %> -->
     </div>
   </div>
-
-  <div id = 'content' class='container' >
-    <div class= 'span9 main' >
-      <div class = "jumbotron" >
-
-        <h2> <%= @user.firstname %> <%= @user.lastname %> </h2>
-        <ul>
-          <li>
-            Basic:
-            <ul>
-              <li> <% if @user.city %><%= @user.city %> <% end %> <% if @user.state %><%=@user.state %> <% end %> </li>
-              <li> <%= @user.email %> </li>
-              <li> <% if @user.phonenumber %> <%= @user.phonenumber %> <% end %></li>
-            </ul>
-          </li>
-          <% if @user.education != "" %>
-          <li>
-            Education:
-            <ul>
-              <li> <%= @user.education %> </li>
-              <li> <%= @user.areaofstudy %> </li>
-            </ul>
-            <% end %> </li>
-            <li>
-              Skills:
-              <ul>
-                <% if @user.skills %>
-                <% @user.skills.each do |skill| %>
-
-                <li>
-                  <%= skill.name %>
-
-                  <% end %>
-                  <% end %>
-                </li>
-              </ul>
-
-            </li>
-            <li>
-              Interests:
-              <ul>
-                <% if @user.interests %>
-                <% @user.interests.each do |interest| %>
-                <li>
-                  <%= interest.name %>
-                </li>
-                <% end %>
-                <% end %>
-              </ul>
-            </li>
-            <li>
-              Other:
-              <ul>
-                <% if @user.previous_experience == true %>
-                <li> <%= "Has board education or service training." %>
-                 <% end %> </li>
-                 <% if @user.remember_me == true %>
-                 <li> <%= "Remember Me" %>
-                   <% end %> </li>
-                   <% if @user.fundraise == true %>
-                   <li> <%= "Comfortable with a fundraising board." %>
-                    <% end %> </li>
-                    <% if @user.financial_contribution == true %>
-                    <li> <%= "Comfortable financially contributing to board." %>
-                      <% end %> </li>
-                      <li> <% if @user.availability %><%= "Monthly availability (in hours): "+@user.availability.to_s %> <% end %> </li>
-                      <li> <% if @user.additional_comments %> <%= "Additional comments: "+@user.additional_comments %> <% end %> </li>
-                    </ul>
-                  </li>
-                </ul>
-                <br/>
-
-                <% if @user == current_user %>
-                <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-default' %>
-                <br/>
-                <% end %>
-                <%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %>
-
-              </div>
-            </div>
-          </div>
+</div>

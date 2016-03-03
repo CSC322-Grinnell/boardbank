@@ -9,16 +9,16 @@
 
 
 <body>
-<p class="navbar-text pull-right">
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-<%= yield %>
-
-</body>
-</html>
+  <p class="navbar-text pull-right">
+  <%= render 'layouts/header' %>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <div class="container">
+    <%= yield %>
+  </div>
+  </body>
+  </html>
