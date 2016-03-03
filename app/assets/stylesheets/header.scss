@@ -1,0 +1,29 @@
+// Contains style for page header.
+
+.page-header {
+  width: 100%;
+}
+
+.navbar-inverse {
+  background: #387b2b;
+  border-color: #387b2b;
+  border-radius: 0px !important;
+  position: fixed;
+  width: 100%;
+  float: left;
+  z-index: 1;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+  color: #FFF;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #FFF;
+  text-decoration: none;
+}

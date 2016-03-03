@@ -1,45 +1,53 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Boardbank</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap -->
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <div id = 'content' class='container' >
-    <div class= 'span9 main' >
-      <div class = "jumbotron" >
-
-        <h2> <%= @org.orgname %> </h2>
-        <% if @org.orgabout %>
-        <li>
-          About:
+<div id = 'content' class='container' >
+  <div class= 'span9 main' >
+    <div class = "col-md-8 col-md-offset-2" >
+      <h2> 
+        <% if @org.orgname %>
+          <%= @org.orgname %> 
+        <% else %>
+          Name not provided.
+        <% end %>
+      </h2>
+      <br/>
+      <ul class="list-group">
+        <h4>About:</h4>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;
           <%= @org.orgabout %>
         </li>
-        <% end %>
-
-        <% if @org.org_city && @org.org_state %>
-        <li>
-          Location:
-          <%= @org.org_city+", "+@org.org_state %>
-        </li>
-        <% end %>
-        <li>
-          Contact:
-          <br>
-          Email: <%= @org.email %> <br/>
-          <% if @org.org_telephone %>
-          Phone: <%= @org.org_telephone %> <br/>
+      </ul>
+      <ul class="list-group">
+        <h4>Location:</h4>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
+          <% if @org.org_city && @org.org_state %>
+            <%= @org.org_city+", "+@org.org_state %>
+          <% else %>
+            Not provided.
           <% end %>
         </li>
+      </ul>
+      <ul class="list-group">
+        <h4>Contact:</h4>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
+          <%= @org.email %>
+        </li>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
+          <% if @org.org_telephone %>
+            <%= @org.org_telephone %>
+          <% else %>
+            Not provided.
+          <% end %>
+        </li>
+      </ul>
+      <br/>
+      <% if @org == current_organization %>
+        <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-danger' %>
         <br/>
-        <% if @org == current_organization %>
-        <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-default' %>
-        <br/>
-        <% end %>
-        <%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %>
-      </div>
+      <% end %>
+      <!-- <%= link_to "Home", root_path, :method => :get, :class => 'btn btn-default' %> -->
     </div>
   </div>
+</div>
