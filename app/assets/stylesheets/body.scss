@@ -1,7 +1,16 @@
-/* PAGE BODY */
+// Contains style for general page body elements.
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
 
 body {
     background: #FFF;
+}
+
+.btn-success {
+    background-color: #387b2b !important;
 }
 
 input.btn.btn-success {
@@ -54,9 +63,10 @@ group>.form-control, .navbar-form .input-group>.form-control {
 }
 
 .jumbotron {
-    bottom: 0;
-	top: 10%;
-	overflow-y: hidden;
-	position: absolute;
-	width: 78.3%;
+  bottom: 0;
+  top: 10%;
+  overflow-y: scroll;
+  position: absolute;
+  width: 78.3%;
+  background-color: #FFF;
 }

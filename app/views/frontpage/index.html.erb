@@ -1,122 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Boardbank</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap -->
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-<![endif]-->
-<%= stylesheet_link_tag 'overhead'%>
-</head>
-<body>
-  <div class="container">
-    <!-- Static navbar -->
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Boardbank</a>
+<div id='content' class='container'>
+  <div class='span9 main'>
+    <div class="col-md-8 col-md-offset-2">
+
+      <% if user_signed_in? && !organization_signed_in? %>
+      <div class="page-header">
+        <h1 style="font-size:4em">Welcome back!</h1>
       </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
-          <% if user_signed_in? %>
-          <% @id = current_user.id %>
-          <li><%= link_to 'Profile', controller: "profile", action: "show_user", id: @id %></li>
-          <li><a href="/organizations">Organizations</a></li>
-          <% else %>
-          <% end %>
-          <% if organization_signed_in? %>
-          <% @id = current_organization.id %>
-          <li><%= link_to 'Profile', controller: "profile", action: "show_org", id: @id %></li>
-          <li><a href="/organizations">Organizations</a></li>
-          <li><a href="/users">Users</a></li>
-          <% else %>
-          <% end %>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-
-        </ul>
-
-      </div><!--/.nav-collapse -->
-    </nav>
-    <div>
-      <%if @error then %>
-      <div class="alert alert-error"><%=@error%></div>
-      <% end %>
-      <%= yield %>
-    </div>
-  </div>
-
-  <div id='content' class='container'>
-    <div class='span9 main'>
-      <div class="jumbotron">
-
-        <% if user_signed_in? && !organization_signed_in? %>
-        <h1>Welcome back!</h1>
+      <br/>
+      <p class="lead">
+        You are currently signed in!
         <br/>
-        <p class="lead">
-          You are currently signed in!
-          <br/>
-        </p>
-        <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
-        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
-
-        <% elsif organization_signed_in? %>
-        <h1>Welcome back!</h1>
+      </p>
+      <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
+      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      <% elsif organization_signed_in? %>
+      <h1>Welcome back!</h1>
+      <br/>
+      <p class="lead">
+        You have signed in!
         <br/>
-        <p class="lead">
-          You have signed in!
-          <br/>
-        </p>
-        <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
-        <%= link_to "Sign Out", destroy_organization_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
-        <% else %>
-        <h1>Welcome!</h1>
+      </p>
+      <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
+      <%= link_to "Sign Out", destroy_organization_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      <% else %>
+      <h1>Welcome!</h1>
+      <br/>
+      <p class="lead">
+        This is the Greater Poweshiek Community Foundation's Boardbank website where we help match up interested users with organizations in need of board members. Please either sign in or sign up to access Boardbank.
         <br/>
-        <p class="lead">
-          This is the Greater Poweshiek Community Foundation's Boardbank website where we help match up interested users with organizations in need of board members. Please either sign in or sign up to access Boardbank.
-          <br/>
-          <br/>
-          Sign up as
-          <span class="row-fluid">
-            <span class="span6">
-              <%= link_to "User", new_user_registration_path, :class => "btn btn-large btn-success" %>
-              or
-              <%= link_to "Organization", new_organization_registration_path, :class => "btn btn-large btn-success" %>
+        <br/>
+        Sign up as
+        <span class="row-fluid">
+          <span class="span6">
+            <%= link_to "User", new_user_registration_path, :class => "btn btn-large btn-success" %>
+            or
+            <%= link_to "Organization", new_organization_registration_path, :class => "btn btn-large btn-success" %>
 
-            </span>
           </span>
-          <br/>
-          <hr/>
-          <br/>
-          <%= link_to "User Sign In", new_user_session_path, :class => "btn btn-large
-          btn-default" %>
-          or
-          <%= link_to "Organization Sign In", new_organization_session_path, :class => "btn btn-large
-          btn-default" %>
-        </p>
-
-        <% end %>
+        </span>
+        <br/>
+        <hr/>
+        <br/>
+        <%= link_to "User Sign In", new_user_session_path, :class => "btn btn-large
+        btn-default" %>
+        or
+        <%= link_to "Organization Sign In", new_organization_session_path, :class => "btn btn-large
+        btn-default" %>
+      </p>
+      <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/vendor/jquery-1.9.1.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
