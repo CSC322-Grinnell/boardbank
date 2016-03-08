@@ -13,14 +13,14 @@
         <% @id = current_user.id %>
         <li><%= link_to 'Profile', controller: "profile", action: "show_user", id: @id %></li>
         <li><a href="/organizations">Organizations</a></li>
-        <% else %>
+        
         <% end %>
         <% if organization_signed_in? %>
         <% @id = current_organization.id %>
         <li><%= link_to 'Profile', controller: "profile", action: "show_org", id: @id %></li>
         <li><a href="/organizations">Organizations</a></li>
         <li><a href="/users">Users</a></li>
-        <% else %>
+        
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->
