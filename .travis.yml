@@ -1,10 +1,10 @@
 language: ruby
 rvm:
   - "2.2.1"
-env: 
-  - DB=sqlite
-  - DB=mysql
-  - DB=postgresql
+services:
+  - elasticsearch
+before_script:
+  - sleep 10
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
