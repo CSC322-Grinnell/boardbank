@@ -1,20 +1,15 @@
 <div id = 'content' class='container' >
    <div class= 'span9 main' >
-      <div class = "col-md-8 col-md-offset-2" >
+      <div class="col-md-8 col-md-offset-2">
          <div class="row">
             <div class="col-md-12">
-             <div class="input-group">
-               <input type="text" class="form-control" placeholder="Search for...">
-               <span class="input-group-btn">
-                 <button class="btn btn-success" type="button">Go!</button>
-               </span>
-             </div>
-           </div>
-            <div class="col-md-2 col-md-10">
-               <%= form_tag search_orgs_path, class: 'navbar-form', method: :get do%>
-               <div class="input-group">
-                  <%= text_field_tag :q, params[:q], size: 300, placeholder: "Search", class: "form-control"%>
-                  <%= submit_tag 'Search', class: 'btn btn-success' %>
+               <%= form_tag search_orgs_path, method: :get do%>
+               <div class="input-group">    
+                  <%= text_field_tag(:q, params[:q], class: 'form-control') %>
+                  <span class="input-group-btn">
+                  <%= button_tag(type: 'submit', class: "btn btn-success") do %> Go!
+                  <% end %>
+                  </span>
                </div>
                <% end %>
             </div>
