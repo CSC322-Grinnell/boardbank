@@ -12,10 +12,15 @@
   <p class="navbar-text pull-right">
   <%= render 'layouts/header' %>
   <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+    @message <%= notice %>
+    <script type="text/javascript">
+      toastr.success('<%= notice %>', 'Success!')
+    </script>
   <% end %>
   <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
+    <script type="text/javascript">
+      toastr.error('<%= alert %>', 'Error!')
+    </script>
   <% end %>
   <div class="container">
     <%= yield %>
