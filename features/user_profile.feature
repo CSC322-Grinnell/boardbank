@@ -13,3 +13,8 @@ Scenario: View Profile
 	  And I should see "Basic:"
 	  And I should see "Education:"
 	  And I should see "Skills:"
+	  And I should see "user@exam.com"
+Scenario: Attempt to view another user's profile
+	When I attempt to view another user's profile
+		And I should see "user@exam.com"
+
