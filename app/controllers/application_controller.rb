@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    redirect_to current_user
+    #render :json => {"ErrorType" => "Record Not Found", "message" => e.message}
+  end
   #  protected
 
   #  def configure_devise_permitted_parameters
