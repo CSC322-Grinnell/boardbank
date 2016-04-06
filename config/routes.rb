@@ -1,4 +1,5 @@
 Boardbank::Application.routes.draw do
+
   root 'frontpage#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -9,13 +10,10 @@ Boardbank::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  get '/profile/user/:id', to: 'profile#show_user', as: 'user'
-
-  get '/profile/organization/:id', to: 'profile#show_org', as: 'org'
-
-  get '/users', to: 'userlist#show'
-
-  get '/organizations', to: 'orglist#show'
+  get '/profile/user/:id'         => 'profile#show_user', as: 'user'
+  get '/profile/organization/:id' => 'profile#show_org', as: 'org'
+  get '/users'                    => 'userlist#show'
+  get '/organizations'            => 'orglist#show'
 
   get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
