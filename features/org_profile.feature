@@ -8,6 +8,6 @@ Background:
 	Given I login as an Organization
 	And I am on the homepage
 
-Scenario: View Profile
+Scenario: View Org Profile
 	  When I follow "Profile"
 	  And I should see "Email"
