@@ -4,7 +4,7 @@ Boardbank::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :organizations
+  devise_for :organizations, controllers: { registrations: 'orgreg' }
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
@@ -74,13 +74,13 @@ Boardbank::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  
-  
+
+
   #Testing searchkick through a stackoverflow suggestion:
   #http://stackoverflow.com/questions/15459668/rails-search-form-submit-to-show-method
   #routes.rb
   get 'search_orgs', :to => 'orglist#show'
-  
+
   get 'search_users', :to => 'userlist#show'
-  
+
 end
