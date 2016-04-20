@@ -178,10 +178,10 @@
 
 
 <% @skills.each do |skill|
-  if @user_skills.key?(skill.id)
-    user_skill = @user_skills[skill.id]
+ if @user.skills.include?(Skill.find(skill.id))    
+    user_skill = @user.user_skills[skill.id]
   else
-    user_skill = resource.user_skills.new(skill_id: skill.id)
+    user_skill = resource.user_skills.new(skill_id: skill.id, experience_level: "No Experience")
   end
 %>
   <%= f.fields_for :user_skills, user_skill do |skill_fields| %>

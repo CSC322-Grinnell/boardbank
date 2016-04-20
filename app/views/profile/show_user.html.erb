@@ -46,8 +46,7 @@
       <br/>
       <ul class="list-group">
         <h4>Skills:</h4>
-        <% if @user_skills %>
-          <li class="list-group-item"><%= @user.skills %></li>
+        <% if !@user.skills.empty? %>
           <% @user.skills.each do |skill| %>
             <li class="list-group-item"><%= skill.name %></li>
           <% end %> 
