@@ -3,7 +3,11 @@ class ProfileController < ApplicationController
   def show_user
     @user = User.find(params[:id])
     unless @user == current_user
-      redirect_to current_user
+      if current_user.nil?
+        redirect_to :root
+      else
+        redirect_to current_user
+      end
     end
   end
 

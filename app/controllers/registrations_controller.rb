@@ -15,8 +15,18 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    super do |user|
-      user.interest_ids = params[:interests]
+
+    user_params = params.require(:user).permit(:firstname, :lastname, :address, 
+ :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability, :additional_comments, :password, 
+ :password_confirmation)
+    if user_params[:password].empty? and user_params[:password_confirmation].empty?
+      user_params.extract!(:password, :password_confirmation)
+    end
+    if @user.update_attributes!(user_params)
+      sign_in(@user, :bypass => true)
+      redirect_to @user
+    else
+      redirect_to :root
     end
   end
 end
