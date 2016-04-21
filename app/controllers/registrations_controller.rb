@@ -30,7 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
     skill_params.each do |num, skill|
       if skill.has_key?("experience_level")
           skill_to_update = @user.user_skills.find_or_create_by(skill_id: skill[:skill_id])
-          skill_to_update.update(experience_level:skill[:experience_level])
+          skill_to_update.update!(experience_level:skill[:experience_level])
       end  
     end
 

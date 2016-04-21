@@ -181,7 +181,7 @@
  if @user.skills.include?(Skill.find(skill.id))    
     user_skill = @user.user_skills[skill.id]
   else
-    user_skill = resource.user_skills.new(skill_id: skill.id, experience_level: "No Experience")
+    user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: "None")
   end
 %>
   <%= f.fields_for :user_skills, user_skill do |skill_fields| %>
@@ -189,7 +189,7 @@
   <div class="form-group">
     <%= skill_fields.hidden_field :skill_id %>
     <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %>
-    <%= skill_fields.radio_button :experience_level, 'None', checked: true %>
+    <%= skill_fields.radio_button :experience_level, 'None'%>
     <%= skill_fields.label :no_experience, 'None' %>
     <%= skill_fields.radio_button :experience_level, 'Some' %>
     <%= skill_fields.label :some_experience, 'Some' %>
