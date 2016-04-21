@@ -8,8 +8,12 @@ Background:
 	Given  I login as a User
 	And I am on the homepage
 	
-Scenario: View Profile
+Scenario: View User Profile
 	When I follow "Profile"
 	  And I should see "Basic:"
 	  And I should see "Education:"
 	  And I should see "Skills:"
+	  And I should see "FIRSTNAME LASTNAME"
+Scenario: Attempt to view another user's profile
+	When I attempt to view another user's profile
+		And I should see "FIRSTNAME LASTNAME"

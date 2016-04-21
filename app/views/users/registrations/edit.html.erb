@@ -189,12 +189,12 @@
   <div class="form-group">
     <%= skill_fields.hidden_field :skill_id %>
     <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %>
-    <%= skill_fields.radio_button :experience_level, 'No Experience' %>
-    <%= skill_fields.label :no_experience, 'No Experience' %>
-    <%= skill_fields.radio_button :experience_level, 'Some Experience' %>
-    <%= skill_fields.label :some_experience, 'Some Experience' %>
-    <%= skill_fields.radio_button :experience_level, 'Significant Experience' %>
-    <%= skill_fields.label :significant_experience, 'Significant Experience' %>
+    <%= skill_fields.radio_button :experience_level, 'None', checked: true %>
+    <%= skill_fields.label :no_experience, 'None' %>
+    <%= skill_fields.radio_button :experience_level, 'Some' %>
+    <%= skill_fields.label :some_experience, 'Some' %>
+    <%= skill_fields.radio_button :experience_level, 'Significant' %>
+    <%= skill_fields.label :significant_experience, 'Significant' %>
   </div>
   <% end %>
 <% end %>

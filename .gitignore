@@ -32,3 +32,6 @@ solr/data
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+#ignore Mac DS_Store files
+.DS_Store
