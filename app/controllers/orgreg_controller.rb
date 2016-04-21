@@ -15,6 +15,12 @@ class OrgregController < Devise::RegistrationsController
   end
 
   def update
-    super
+    org_params = params.require(:organization).permit(:orgname, :orgabout, :org_address, :org_city, :org_state, :org_zipcode, :org_telephone, :org_contactname)
+    if @organization.update_attributes(org_params)
+      #handle successful update
+      redirect_to :root
+    else
+      redirect_to @organization
+    end
   end
 end
