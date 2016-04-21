@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class OrganizationsController < ApplicationController
 
   def edit
     #@interests = Interest.all
