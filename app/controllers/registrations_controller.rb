@@ -15,8 +15,30 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    super do |user|
-      user.interest_ids = params[:interests]
+    #missing: financial contribution, fundraise, previous experience bc they automatically get entered as something weird
+    user_params = params.require(:user).permit(:firstname, :lastname, :address, 
+ :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability, :additional_comments, :password, 
+ :password_confirmation, :user_skills_attributes)
+    #passwords not allowed to be updated as blank
+    
+    if user_params[:password].empty? and user_params[:password_confirmation].empty?
+      user_params.extract!(:password, :password_confirmation)
+    end
+
+    skill_params = params.require(:user)[:user_skills_attributes]
+    skill_params.each do |num, skill|
+      if skill.has_key?("experience_level")
+          skill_to_update = @user.user_skills.find_or_create_by(skill_id: skill[:skill_id])
+          skill_to_update.update!(experience_level:skill[:experience_level])
+      end  
+    end
+
+    if @user.update_attributes!(user_params)
+      sign_in(@user, :bypass => true)
+
+      redirect_to @user
+    else
+      redirect_to :root
     end
   end
 end
