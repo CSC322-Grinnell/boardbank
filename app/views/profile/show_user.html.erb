@@ -46,9 +46,11 @@
       <br/>
       <ul class="list-group">
         <h4>Skills:</h4>
-        <% if !@user.skills.empty? %>
-          <% @user.skills.each do |skill| %>
-            <li class="list-group-item"><%= skill.name %></li>
+        <% if !@user.user_skills.empty? %>
+          <%  @user.user_skills.each do |user_skill| %>
+          <% unless user_skill.experience_level=='None' %>
+            <li class="list-group-item"><%= Skill.all.find(user_skill.id).name %></li>
+            <%end %>
           <% end %> 
         <% else %>
           <li class="list-group-item">None Listed</li>

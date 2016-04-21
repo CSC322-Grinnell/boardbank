@@ -177,9 +177,11 @@
 </div>
 
 
-<% @skills.each do |skill|
- if @user.skills.include?(Skill.find(skill.id))    
-    user_skill = @user.user_skills[skill.id]
+<% debugger
+    @skills.each do |skill|
+
+ if @user_skills.has_key?(skill.id)    
+    user_skill = @user_skills[skill.id]
   else
     user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: "None")
   end
