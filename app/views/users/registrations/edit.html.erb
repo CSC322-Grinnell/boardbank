@@ -177,8 +177,7 @@
 </div>
 
 
-<% debugger
-    @skills.each do |skill|
+<% @skills.each do |skill|
 
  if @user_skills.has_key?(skill.id)    
     user_skill = @user_skills[skill.id]
