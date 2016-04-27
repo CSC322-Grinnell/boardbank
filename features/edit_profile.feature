@@ -7,7 +7,7 @@ Feature: Edit Profile as a User
 Background:
 	Given  I login as a User
 	And I am on the home page
-@wip	
+	
 Scenario: Edit profile
 	  When I follow "Profile"
 	  And I follow "Edit Profile"
@@ -20,9 +20,8 @@ Scenario: Edit profile
 	   And I fill in "user_phonenumber" with "555-555-5555"
 	   And I select "Bachelors" from "user_education"
 	   And I fill in "user_areaofstudy" with "Magic"
-	   And I check "interest_2"
 	   And I check "user_previous_experience"
 	   And I fill in "user_current_password" with "password"
 	   And I press "Update"
 	   Then I should see "Your account has been updated successfully."
-		And I should be on the homepage
+		And I should be on the user profile page

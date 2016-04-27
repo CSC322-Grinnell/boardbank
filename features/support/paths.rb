@@ -20,12 +20,10 @@ module NavigationHelpers
       '/users/sign_up'
 
     when /^the user profile page/
-      @id = current_user.id
-      '/profile/user/@id'
+      user_path
 
     when /^the organization profile page/
-      @id = current_organization.id
-      '/profile/organization/@id'
+      org_path
 
     when /^the login page/
       '/users/sign_in'

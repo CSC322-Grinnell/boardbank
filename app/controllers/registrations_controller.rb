@@ -28,13 +28,16 @@ class RegistrationsController < Devise::RegistrationsController
       sign_in(@user, :bypass => true)
       #only update skills if user update went through => password supplied was correct
       skill_params = params.require(:user)[:user_skills_attributes]
-      skill_params.each do |num, skill|
-        if skill.has_key?("experience_level")
-            skill_to_update = @user.user_skills.find_or_create_by(skill_id: skill[:skill_id])
-            skill_to_update.update!(experience_level:skill[:experience_level])
-        end  
+      if skill_params 
+        skill_params.each do |num, skill|
+          if skill.has_key?("experience_level")
+              skill_to_update = @user.user_skills.find_or_create_by(skill_id: skill[:skill_id])
+              skill_to_update.update!(experience_level:skill[:experience_level])
+          end  
+        end
       end
       redirect_to @user
+      flash[:notice] = "Your account has been updated successfully."
     else
       redirect_to :root
     end
