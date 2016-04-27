@@ -15,18 +15,16 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    #missing: financial contribution, fundraise, previous experience bc they automatically get entered as something weird
     user_params = params.require(:user).permit(:firstname, :lastname, :address, 
  :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability, 
- :additional_comments, :password, :password_confirmation)
-    
+ :additional_comments, :password, :password_confirmation, :financial_contribution, :fundraise, :previous_experience)
     #passwords not allowed to be updated as blank
     if user_params[:password].empty? and user_params[:password_confirmation].empty?
       user_params.extract!(:password, :password_confirmation)
     end
  
 
-    if @user.update_attributes!(user_params)
+    if @user.update(user_params)
       sign_in(@user, :bypass => true)
       #only update skills if user update went through => password supplied was correct
       skill_params = params.require(:user)[:user_skills_attributes]
