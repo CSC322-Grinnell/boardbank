@@ -182,7 +182,7 @@
  if @user_skills.has_key?(skill.id)    
     user_skill = @user_skills[skill.id]
   else
-    user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: "None")
+    user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: UserSkill::NO_EXPERIENCE)
   end
 %>
   <%= f.fields_for :user_skills, user_skill do |skill_fields| %>

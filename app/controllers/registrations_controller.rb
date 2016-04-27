@@ -21,7 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
  :additional_comments, :password, :password_confirmation)
     
     #passwords not allowed to be updated as blank
-    debugger
     if user_params[:password].empty? and user_params[:password_confirmation].empty?
       user_params.extract!(:password, :password_confirmation)
     end
@@ -31,12 +30,12 @@ class RegistrationsController < Devise::RegistrationsController
       sign_in(@user, :bypass => true)
       #only update skills if user update went through => password supplied was correct
       skill_params = params.require(:user)[:user_skills_attributes]
-    skill_params.each do |num, skill|
-      if skill.has_key?("experience_level")
-          skill_to_update = @user.user_skills.find_or_create_by(skill_id: skill[:skill_id])
-          skill_to_update.update!(experience_level:skill[:experience_level])
-      end  
-    end
+      skill_params.each do |num, skill|
+        if skill.has_key?("experience_level")
+            skill_to_update = @user.user_skills.find_or_create_by(skill_id: skill[:skill_id])
+            skill_to_update.update!(experience_level:skill[:experience_level])
+        end  
+      end
       redirect_to @user
     else
       redirect_to :root
