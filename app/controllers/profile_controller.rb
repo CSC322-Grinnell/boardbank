@@ -2,6 +2,7 @@ class ProfileController < ApplicationController
 
   def show_user
     @user = User.find(params[:id])
+    @skills = Skill.all
     unless @user == current_user
       if current_user.nil?
         redirect_to :root

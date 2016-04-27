@@ -53,8 +53,8 @@
         <h4>Skills:</h4>
         <% if !@user.user_skills.empty? %>
           <%  @user.user_skills.each do |user_skill| %>
-          <% unless user_skill.experience_level=='None' %>
-            <li class="list-group-item"><%= Skill.all.find(user_skill.id).name %></li>
+          <% unless user_skill.experience_level== UserSkill::NO_EXPERIENCE %>
+            <li class="list-group-item"><%= @skills.find(user_skill.id).name %></li>
             <%end %>
           <% end %> 
         <% else %>
