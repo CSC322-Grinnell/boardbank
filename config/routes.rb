@@ -10,11 +10,10 @@ Boardbank::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  get '/profile/user/:id'         => 'profile#show_user', as: 'user'
+  get '/profile/user/'         => 'profile#show_user', as: 'user'
   get '/profile/organization/:id' => 'profile#show_org', as: 'org'
   get '/users'                    => 'userlist#show'
   get '/organizations'            => 'orglist#show'
-
   get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
