@@ -22,7 +22,17 @@ class OrganizationsController < Devise::RegistrationsController
   #creates a new organization - saves to the database
   def create
     byebug
-    super
+    @organization = Organization.new(params[:organization])
+
+    respond_to do |format|
+      if @organization.save
+        format.html { redirect_to :root, notice: 'Organizaiton was successfully created.' }
+        format.json { render json: @organization, status: :created, location: @organization }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @organization.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   #updates the edits from the edit profile page
@@ -50,8 +60,15 @@ class OrganizationsController < Devise::RegistrationsController
 
   #deletes organization's profile
   def destroy
-    byebug
     super
+  end
+
+  def list
+    @orgs = Organization.search params[:q] if params[:q].present?
+    @orgs = Organization.all if !(params[:q]).present?
+    #@orgs ||= Organization.search "Happy"
+    @categories = ['']
+    @all_categories = ['Arts/Musuem', 'Early Childhood', 'Literacy', 'Animal Rights', 'Environmental', 'Mental Health', 'Children/Youth', 'Health Care', 'Recreation', 'Civic/Community', 'Historical', 'Preservation', 'Senior Services', 'Disabilities', 'Homeless/Emergency', 'Substance Abuse', 'Education', 'Housing Development']
   end
 
 end

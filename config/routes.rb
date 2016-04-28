@@ -10,12 +10,18 @@ Boardbank::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  get '/profile/user/'         => 'profile#show_user', as: 'user'
+  #organization related routes
   devise_scope :organization do
     get '/profile/organization/:id' => 'organizations#show', as: 'org'
   end
+  devise_scope :organization do
+    get '/organizations'            => 'organizations#list'
+  end
+
+  #user realted routes
+  get '/profile/user/'         => 'profile#show_user', as: 'user'
   get '/users'                    => 'userlist#show'
-  get '/organizations'            => 'orglist#show'
+
   get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
