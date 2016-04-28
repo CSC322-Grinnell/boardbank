@@ -5,8 +5,8 @@ class OrganizationsController < Devise::RegistrationsController
   end
 
   def show
-    @organization = Organization.find(params[:id])
-    unless @organization == current_organization
+    @org = Organization.find(params[:id])
+    unless @org == current_organization
       redirect_to '/'
     end
   end
