@@ -14,11 +14,13 @@
   <% if notice %>
     @message <%= notice %>
     <script type="text/javascript">
+      toastr.options.timeOut = 500;
       toastr.success('<%= notice %>', 'Success!')
     </script>
   <% end %>
   <% if alert %>
     <script type="text/javascript">
+      toastr.options.timeOut = 1500;
       toastr.error('<%= alert %>', 'Error!')
     </script>
   <% end %>

@@ -8,20 +8,28 @@
       </div>
       <br/>
       <p class="lead">
-        You are currently signed in!
+        This should be a feed of information from organizations or users the account has interest in or contact with.
         <br/>
       </p>
-      <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      
+      <% if false %>
+        <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
+        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      <% end %>
+      
       <% elsif organization_signed_in? %>
       <h1>Welcome back!</h1>
       <br/>
       <p class="lead">
-        You have signed in!
+        This should be a feed of information from organizations or users the account has interest in or contact with.
         <br/>
       </p>
-      <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
-      <%= link_to "Sign Out", destroy_organization_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      
+      <% if false %>
+        <%= link_to "Edit Profile", edit_organization_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
+        <%= link_to "Sign Out", destroy_organization_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      <% end %>
+        
       <% else %>
       <h1>Welcome!</h1>
       <br/>
