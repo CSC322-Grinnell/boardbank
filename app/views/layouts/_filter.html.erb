@@ -1,0 +1,39 @@
+<script>
+   $(document).ready(function(){
+      $("div#filter").hide();
+      $("button#filter-button").click(function(){
+          $("div#filter").toggle();
+      });
+   });
+</script>
+<div class="row filter-box">
+    <button type="button" id="filter-button" class="btn btn-default filter-button" aria-label="Left Align">
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    </button>
+    <div id="filter" class="filter">
+        <div class="row">
+            <div class="col-md-12 filter-options">
+                <% if organization_signed_in? && !user_signed_in? %>
+                    <% Skill.all.each_with_index do |skill, index| %>
+                        <% if index == 1 %>
+                            <div class="checkbox col-md-6 top-padding">
+                               <label><input type="checkbox" value=""><%= skill.name %></label>
+                            </div>
+                        <% else %>
+                            <div class="checkbox col-md-6">
+                               <label><input type="checkbox" value=""><%= skill.name %></label>
+                            </div>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="right-align">
+                <button type="button" class="btn btn-default apply-filter" aria-label="Right Align">
+                    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

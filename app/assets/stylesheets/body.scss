@@ -1,8 +1,14 @@
 // Contains style for general page body elements.
 
+div.hidden {
+    display: none;
+}
+
 .container {
   padding-top: 50px;
   padding-bottom: 25px;
+  position: relative;
+  z-index: 2;
 }
 
 body {
