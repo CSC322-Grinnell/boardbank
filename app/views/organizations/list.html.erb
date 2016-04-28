@@ -29,7 +29,7 @@
                         <% @orgs.each do |org| %>
                         <% @id = org.id %>
                            <!-- What the fuck are they doing here? -->
-                          
+
                            <a href=<%="profile/organization/#{@id}"%> class="list-group-item">
                               <h3 class="list-group-item-heading">
                                  <% if org.orgname %><%= org.orgname %><% else %>Name or organization not provided.<% end %>
