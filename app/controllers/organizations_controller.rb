@@ -21,7 +21,6 @@ class OrganizationsController < Devise::RegistrationsController
 
   #creates a new organization - saves to the database
   def create
-    byebug
     @organization = Organization.new(params[:organization])
 
     respond_to do |format|

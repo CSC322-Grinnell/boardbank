@@ -6,7 +6,7 @@ Boardbank::Application.routes.draw do
 
   devise_for :organizations, controllers: { registrations: 'organizations' }
 
-  devise_for :users, controlålers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   ActiveAdmin.routes(self)
 
