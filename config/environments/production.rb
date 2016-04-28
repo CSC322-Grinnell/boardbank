@@ -19,7 +19,7 @@ Boardbank::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
-  
+
   # For elastic search - treat with caution
   Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_URL']
 
@@ -34,7 +34,7 @@ Boardbank::Application.configure do
   # config.force_ssl = true
 
   # See everything in the log (default is :info)
-  # config.log_level = :debug
+  config.log_level = :info
 
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]
