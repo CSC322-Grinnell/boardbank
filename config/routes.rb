@@ -4,14 +4,16 @@ Boardbank::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :organizations, controllers: { registrations: 'orgreg' }
+  devise_for :organizations, controllers: { registrations: 'organizations' }
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
   ActiveAdmin.routes(self)
 
   get '/profile/user/'         => 'profile#show_user', as: 'user'
-  get '/profile/organization/:id' => 'profile#show_org', as: 'org'
+  devise_scope :organization do
+    get '/profile/organization/:id' => 'organizations#show', as: 'org'
+  end
   get '/users'                    => 'userlist#show'
   get '/organizations'            => 'orglist#show'
   get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'

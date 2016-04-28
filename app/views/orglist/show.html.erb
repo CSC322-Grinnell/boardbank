@@ -4,7 +4,7 @@
          <div class="row">
             <div class="col-md-12">
                <%= form_tag search_orgs_path, method: :get do%>
-               <div class="input-group">    
+               <div class="input-group">
                   <%= text_field_tag(:q, params[:q], class: 'form-control') %>
                   <span class="input-group-btn">
                   <%= button_tag(type: 'submit', class: "btn btn-success") do %> Go!
@@ -28,8 +28,7 @@
                         <% @orgs.each do |org| %>
                         <% @id = org.id %>
                            <!-- What the fuck are they doing here? -->
-                           <!-- <%= link_to org.orgname, controller: "profile", action: "show_org", id: @id %> -->
-                           
+                          
                            <a href=<%="profile/organization/#{@id}"%> class="list-group-item">
                               <h3 class="list-group-item-heading">
                                  <% if org.orgname %><%= org.orgname %><% else %>Name or organization not provided.<% end %>

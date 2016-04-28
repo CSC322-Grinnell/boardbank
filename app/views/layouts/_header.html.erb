@@ -6,7 +6,7 @@
       <ul class="nav navbar-nav">
         <!-- Put left align elements here! -->
       </ul>
-      
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
         <% if user_signed_in? %>
@@ -17,7 +17,7 @@
         <% end %>
         <% if organization_signed_in? %>
         <% @id = current_organization.id %>
-        <li><%= link_to 'Profile', controller: "profile", action: "show_org", id: @id %></li>
+        <li><%= link_to 'Profile', controller: "organizations", action: "show", id: @id %></li>
         <li><a href="/organizations">Organizations</a></li>
         <li><a href="/users">Users</a></li>
         <% else %>
