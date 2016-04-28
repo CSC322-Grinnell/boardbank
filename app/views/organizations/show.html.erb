@@ -13,7 +13,11 @@
         <h4>About:</h4>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;
-          <%= @org.orgabout %>
+          <% if @org.orgabout %>
+            <%= @org.orgabout %>
+          <% else %>
+            About not provided.
+          <% end %>
         </li>
       </ul>
       <ul class="list-group">
