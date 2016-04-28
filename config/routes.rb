@@ -6,15 +6,13 @@ Boardbank::Application.routes.draw do
 
   devise_for :organizations, controllers: { registrations: 'organizations' }
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controlålers: { registrations: 'registrations' }
 
   ActiveAdmin.routes(self)
 
   #organization related routes
   devise_scope :organization do
     get '/profile/organization/:id' => 'organizations#show', as: 'org'
-  end
-  devise_scope :organization do
     get '/organizations'            => 'organizations#list'
   end
 
