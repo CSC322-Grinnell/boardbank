@@ -4,7 +4,7 @@ Boardbank::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  devise_for :organizations, controllers: { registrations: 'orgreg' }
+  devise_for :organizations, controllers: { registrations: 'organizations' }
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
