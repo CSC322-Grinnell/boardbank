@@ -11,7 +11,9 @@ Boardbank::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   get '/profile/user/:id'         => 'profile#show_user', as: 'user'
-  get '/profile/organization/:id' => 'profile#show_org', as: 'org'
+  devise_scope :organization do
+    get '/profile/organization/:id' => 'organizations#show', as: 'org'
+  end
   get '/users'                    => 'userlist#show'
   get '/organizations'            => 'orglist#show'
 
