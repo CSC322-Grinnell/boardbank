@@ -22,8 +22,13 @@ class RegistrationsController < Devise::RegistrationsController
     if user_params[:password].empty? and user_params[:password_confirmation].empty?
       user_params.extract!(:password, :password_confirmation)
     end
- 
 
+    if user_params[:state].empty?
+      user_params.extract!(:state)
+    end
+    if user_params[:education].empty?
+      user_params.extract!(:education)
+    end
     if @user.update(user_params)
       sign_in(@user, :bypass => true)
       #only update skills if user update went through => password supplied was correct
