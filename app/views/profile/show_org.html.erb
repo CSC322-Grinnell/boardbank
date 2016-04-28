@@ -1,9 +1,9 @@
 <div id = 'content' class='container' >
   <div class= 'span9 main' >
     <div class = "col-md-8 col-md-offset-2" >
-      <h2> 
+      <h2>
         <% if @org.orgname %>
-          <%= @org.orgname %> 
+          <%= @org.orgname %>
         <% else %>
           Name not provided.
         <% end %>
@@ -20,15 +20,22 @@
         <h4>Location:</h4>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
-          <% if @org.org_city && @org.org_state %>
-            <%= @org.org_city+", "+@org.org_state %>
-          <% else %>
+          <% if @org.org_city.blank? && @org.org_state.blank? %>
             Not provided.
+          <% else %>
+            <%= @org.org_city+", "+@org.org_state %>
           <% end %>
         </li>
       </ul>
       <ul class="list-group">
         <h4>Contact:</h4>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+          <% if @org.org_contactname %>
+            <%= @org.org_contactname %>
+          <% else %>
+            Contact name not provided.
+          <% end %>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
           <%= @org.email %>

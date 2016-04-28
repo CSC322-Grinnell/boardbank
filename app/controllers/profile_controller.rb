@@ -7,6 +7,9 @@ class ProfileController < ApplicationController
 
   def show_org
     @org = Organization.find(params[:id])
+    unless @org == current_organization
+      redirect_to '/'
+    end
   end
 
   def not_found

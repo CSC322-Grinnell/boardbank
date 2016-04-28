@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from ActiveRecord::RecordNotFound do |e|
-    redirect_to current_user
+    if current_user
+      redirect_to current_user
+    else
+      redirect_to '/' # placeholder before i can figure out the org thing
+    end
     #render :json => {"ErrorType" => "Record Not Found", "message" => e.message}
   end
   #  protected
