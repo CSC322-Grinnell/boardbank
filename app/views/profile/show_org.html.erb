@@ -43,7 +43,7 @@
         <li class="list-group-item">
           <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
           <% if @org.org_telephone %>
-            <%= @org.org_telephone %>
+            <%= number_to_phone(@org.org_telephone, area_code: true) %>
           <% else %>
             Not provided.
           <% end %>
