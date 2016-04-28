@@ -6,9 +6,10 @@ class OrganizationsController < Devise::RegistrationsController
 
   def show
     @org = Organization.find(params[:id])
-    unless @org == current_organization
-      redirect_to '/'
-    end
+    #crap, I just realized you should be able to view other org's profiles
+    #unless @org == current_organization
+    #  redirect_to '/'
+    #end
   end
 
   def new
