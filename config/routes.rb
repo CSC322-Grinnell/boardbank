@@ -14,11 +14,16 @@ Boardbank::Application.routes.draw do
   devise_scope :organization do
     get '/profile/organization/:id' => 'organizations#show', as: 'org'
     get '/organizations'            => 'organizations#list'
+    get 'search_orgs', :to          => 'organizations#list'
   end
 
   #user realted routes
   get '/profile/user/'         => 'profile#show_user', as: 'user'
   get '/users'                    => 'userlist#show'
+  #Testing searchkick through a stackoverflow suggestion:
+  #http://stackoverflow.com/questions/15459668/rails-search-form-submit-to-show-method
+  #routes.rb
+  get 'search_users', :to => 'userlist#show'
 
   get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
@@ -79,13 +84,5 @@ Boardbank::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-
-
-  #Testing searchkick through a stackoverflow suggestion:
-  #http://stackoverflow.com/questions/15459668/rails-search-form-submit-to-show-method
-  #routes.rb
-  get 'search_orgs', :to => 'orglist#show'
-
-  get 'search_users', :to => 'userlist#show'
 
 end

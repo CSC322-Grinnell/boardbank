@@ -7,7 +7,7 @@
                <div class="input-group">
                   <%= text_field_tag(:q, params[:q], class: 'form-control') %>
                   <span class="input-group-btn">
-                  <%= button_tag(type: 'submit', class: "btn btn-success") do %> Go!
+                  <%= button_tag(type: 'submit', class: "btn btn-success") do %> Search
                   <% end %>
                   </span>
                </div>
@@ -28,7 +28,6 @@
                      <% else %>
                         <% @orgs.each do |org| %>
                         <% @id = org.id %>
-                           <!-- What the fuck are they doing here? -->
 
                            <a href=<%="profile/organization/#{@id}"%> class="list-group-item">
                               <h3 class="list-group-item-heading">

@@ -9,16 +9,6 @@ class OrganizationsController < Devise::RegistrationsController
     @org = Organization.find(params[:id])
   end
 
-  #creates a new organization - sign up page
-  def new
-    super
-  end
-
-  #edit profile page
-  def edit
-    super
-  end
-
   #creates a new organization - saves to the database
   def create
     @organization = Organization.new(params[:organization])
@@ -55,11 +45,6 @@ class OrganizationsController < Devise::RegistrationsController
     else
       redirect_to @organization
     end
-  end
-
-  #deletes organization's profile
-  def destroy
-    super
   end
 
   def list
