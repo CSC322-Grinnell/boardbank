@@ -22,9 +22,14 @@
           <% if @user.state %><%=@user.state %> <% end %>
         </li>
         <li class="list-group-item">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
+          <% if @user.email %> <%= @user.email %> <% end %>
+        </li>
+        <li class="list-group-item">
           <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
           <% if @user.phonenumber %> <%= @user.phonenumber %> <% end %>
         </li>
+        
       </ul>
       <br/>
       <ul class="list-group">
@@ -46,10 +51,11 @@
       <br/>
       <ul class="list-group">
         <h4>Skills:</h4>
-        <% if @user_skills %>
-          <li class="list-group-item"><%= @user.skills %></li>
-          <% @user.skills.each do |skill| %>
-            <li class="list-group-item"><%= skill.name %></li>
+        <% if !@user.user_skills.empty? %>
+          <%  @user.user_skills.each do |user_skill| %>
+          <% unless user_skill.experience_level== UserSkill::NO_EXPERIENCE %>
+            <li class="list-group-item"><%= @skills.find(user_skill.id).name %></li>
+            <%end %>
           <% end %> 
         <% else %>
           <li class="list-group-item">None Listed</li>

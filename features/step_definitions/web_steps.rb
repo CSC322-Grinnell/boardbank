@@ -85,7 +85,7 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
   select(value, from: field)
 end
 
-When(/^I check interest_"(.*?)"$/) do |_arg1|
+When /^(?:|I )check "([^"]*)"$/ do |field|
   check(field)
 end
 

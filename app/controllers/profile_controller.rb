@@ -1,10 +1,8 @@
 class ProfileController < ApplicationController
 
   def show_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to current_user
-    end
+    @user = current_user 
+    @skills = Skill.all
   end
 
   def show_org
