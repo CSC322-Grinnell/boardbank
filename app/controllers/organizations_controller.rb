@@ -13,6 +13,7 @@ class OrganizationsController < Devise::RegistrationsController
   end
 
   def new
+    super
   end
 
   def edit
@@ -45,6 +46,7 @@ class OrganizationsController < Devise::RegistrationsController
   end
 
   def destroy
+    super
   end
 
 end
