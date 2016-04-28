@@ -4,21 +4,29 @@
   <title>Boardbank</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
 
 
 <body>
-<p class="navbar-text pull-right">
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-<%= yield %>
-
-</body>
-</html>
+  <p class="navbar-text pull-right">
+  <%= render 'layouts/header' %>
+  <% if notice %>
+    @message <%= notice %>
+    <script type="text/javascript">
+      toastr.options.timeOut = 500;
+      toastr.success('<%= notice %>', 'Success!')
+    </script>
+  <% end %>
+  <% if alert %>
+    <script type="text/javascript">
+      toastr.options.timeOut = 1500;
+      toastr.error('<%= alert %>', 'Error!')
+    </script>
+  <% end %>
+  <div class="container">
+    <%= yield %>
+  </div>
+  </body>
+  </html>

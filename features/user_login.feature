@@ -6,7 +6,7 @@ Feature: login as a User
 
 Background:I am on the Sign In page
 	Given I am on the login page
-	  And an account exists with email: "user@example.com" and password: "password"
+	  And an account exists with email: "user@exam.com" and password: "password"
 Scenario: Login with correct credentials
 	Given I login as a User
 	  Then I should be on the homepage

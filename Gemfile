@@ -47,6 +47,8 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'toastr-rails'
+gem 'font-awesome-rails'
 
 gem 'autoprefixer-rails'
 gem 'test-unit'

@@ -13,7 +13,7 @@ ActiveAdmin.register_page 'Dashboard' do
       org.approved = true
     end
 
-    @organization = Organization.find_all_by_approved(false)
+    @organization = Organization.where(approved: false)
     columns do
       column do
         panel 'Unapproved Organizations' do

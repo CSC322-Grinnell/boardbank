@@ -1,0 +1,58 @@
+<div id = 'content' class='container' >
+   <div class= 'span9 main' >
+      <div class="col-md-8 col-md-offset-2">
+         <div class="row">
+            <div class="col-md-12">
+               <%= form_tag search_orgs_path, method: :get do%>
+               <div class="input-group">
+                  <%= text_field_tag(:q, params[:q], class: 'form-control') %>
+                  <span class="input-group-btn">
+                  <%= button_tag(type: 'submit', class: "btn btn-success") do %> Go!
+                  <% end %>
+                  </span>
+               </div>
+               <% end %>
+            </div>
+         </div>
+         <%= render 'layouts/filter' %>
+         <div class="row">
+            <div class="span9"><%= yield %></div>
+            <div class="span3">
+               <h2>List of Organizations</h2>
+               <% if user_signed_in? || organization_signed_in? %>
+                  <div class="list-group">
+                     <% if @orgs.empty?%>
+                       <a href="#" class="list-group-item active">
+                         <h4 class="list-group-item-heading">Organizations Not Found.</h4>
+                       </a>
+                     <% else %>
+                        <% @orgs.each do |org| %>
+                        <% @id = org.id %>
+                           <!-- What the fuck are they doing here? -->
+
+                           <a href=<%="profile/organization/#{@id}"%> class="list-group-item">
+                              <h3 class="list-group-item-heading">
+                                 <% if org.orgname %><%= org.orgname %><% else %>Name or organization not provided.<% end %>
+                              </h3>
+                               <p class="list-group-item-text">
+                                 <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
+                                 <% if org.org_city %><%= org.org_city %><% else %>City not provided.<% end %>
+                              </p>
+                               <p class="list-group-item-text">
+                                 <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;
+                                 <% if org.orgabout %><%= org.orgabout %><% else %>Info not provided.<% end %>
+                              </p>
+                               <p class="list-group-item-text">
+                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
+                                 <% if org.email %><%= org.email %><% else %>Email not provided.<% end %>
+                              </p>
+                           <% end %>
+                        </a>
+                     <% end %>
+                  </div>
+               <%end %>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

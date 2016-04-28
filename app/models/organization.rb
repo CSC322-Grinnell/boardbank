@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  
+
   include Elasticsearch::Model
   searchkick
   

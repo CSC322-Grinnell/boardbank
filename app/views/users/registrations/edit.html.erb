@@ -136,7 +136,7 @@
 <div class="form-group">
     <%= f.label :Have_you_completed_any_board_education_or_service_training?, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.check_box :previous_experience, {}, true, class: 'form-control'  %>
+        <%= f.check_box :previous_experience%>
     </div>
 </div>
 
@@ -178,10 +178,11 @@
 
 
 <% @skills.each do |skill|
-  if @user_skills.key?(skill.id)
+
+ if @user_skills.has_key?(skill.id)    
     user_skill = @user_skills[skill.id]
   else
-    user_skill = resource.user_skills.new(skill_id: skill.id)
+    user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: UserSkill::NO_EXPERIENCE)
   end
 %>
   <%= f.fields_for :user_skills, user_skill do |skill_fields| %>
@@ -189,12 +190,12 @@
   <div class="form-group">
     <%= skill_fields.hidden_field :skill_id %>
     <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %>
-    <%= skill_fields.radio_button :experience_level, 'No Experience' %>
-    <%= skill_fields.label :no_experience, 'No Experience' %>
-    <%= skill_fields.radio_button :experience_level, 'Some Experience' %>
-    <%= skill_fields.label :some_experience, 'Some Experience' %>
-    <%= skill_fields.radio_button :experience_level, 'Significant Experience' %>
-    <%= skill_fields.label :significant_experience, 'Significant Experience' %>
+    <%= skill_fields.radio_button :experience_level, UserSkill::NO_EXPERIENCE %>
+    <%= skill_fields.label :no_experience, UserSkill::NO_EXPERIENCE %>
+    <%= skill_fields.radio_button :experience_level, UserSkill::SOME_EXPERIENCE %>
+    <%= skill_fields.label :some_experience, UserSkill::SOME_EXPERIENCE %>
+    <%= skill_fields.radio_button :experience_level, UserSkill::SIGNIFICANT_EXPERIENCE %>
+    <%= skill_fields.label :significant_experience, UserSkill::SIGNIFICANT_EXPERIENCE %>
   </div>
   <% end %>
 <% end %>
@@ -204,7 +205,7 @@
 <div class="form-group">
     <%= f.label :Would_you_be_comfortable_being_on_a_board_where_fundraising_is_required?, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.check_box :fundraise, {}, true, class: 'form-control'  %>
+        <%= f.check_box :fundraise%>
     </div>
 </div>
 
@@ -212,7 +213,7 @@
 <div class="form-group">
     <%= f.label :Would_you_be_comfortable_being_on_a_board_where_financial_contribution_is_required?, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.check_box :financial_contribution, {}, true, class: 'form-control'  %>
+        <%= f.check_box :financial_contribution%>
     </div>
 </div>
 
@@ -275,7 +276,7 @@
 
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">
-        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= f.submit :Update, class: "btn btn-default" %>
     </div>
 </div>
 

@@ -1,0 +1,23 @@
+.filter-box {
+    padding: 15px;
+    .filter {
+        background-color: #eee;
+        border-radius: 5px;
+        .row {
+            padding-left: 15px;
+            .right-align {
+                float: right;
+            }
+        }
+        .apply-filter {
+            margin-right: 15px;
+        }
+        .filter-checkbox {
+            width: 50%;
+        }
+        .top-padding {
+            margin-top: 10px;
+        }
+    }
+}
+
