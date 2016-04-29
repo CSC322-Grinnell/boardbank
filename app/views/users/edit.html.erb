@@ -1,6 +1,294 @@
-<h1>Editing user</h1>
 
-<%= render 'form' %>
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h2>Edit User Profile</h2>
+</div>
+</div>
+</div>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<hr>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+<%= devise_error_messages! %>
+
+<div class="form-group">
+    <%= f.label :First_Name, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.text_field :firstname, autofocus: true, class: 'form-control'  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Last_Name, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.text_field :lastname, autofocus: true, class: 'form-control'  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Address, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :address, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :City, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :city, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :State, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :state, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['',
+            'Alabama',
+            'Alaska',
+            'Arizona',
+            'Arkansas',
+            'California',
+            'Colorado',
+            'Connecticut',
+            'Delaware',
+            'Florida',
+            'Georgia',
+            'Hawaii',
+            'Idaho',
+            'Illinois',
+            'Indiana',
+            'Iowa',
+            'Kansas',
+            'Kentucky',
+            'Louisiana',
+            'Maine',
+            'Maryland',
+            'Massachusetts',
+            'Michigan',
+            'Minnesota',
+            'Mississippi',
+            'Missouri',
+            'Montana',
+            'Nebraska',
+            'Nevada',
+            'New Hampshire',
+            'New Jersey',
+            'New Mexico',
+            'New York',
+            'North Carolina',
+            'North Dakota',
+            'Ohio',
+            'Oklahoma',
+            'Oregon',
+            'Pennsylvania',
+            'Rhode Island',
+            'South Carolina',
+            'South Dakota',
+            'Tennessee',
+            'Texas',
+            'Utah',
+            'Vermont',
+            'Virginia',
+            'Washington',
+            'West Virginia',
+            'Wisconsin',
+            'Wyoming']), {}, class: "form-control", autofocus: true %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Zip_Code, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :zipcode, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Phone_Number, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.telephone_field :phonenumber, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+<hr>
+<div class="form-group">
+    <%= f.label :education, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_field :education, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :education, options_for_select(['',
+'High School Diploma', 'Bachelors', 'Masters', 'PhD']),
+ {}, class: "form-control", autofocus: true %>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :Area_of_study, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.text_field :areaofstudy, class: 'form-control'  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Have_you_completed_any_board_education_or_service_training?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.check_box :previous_experience%>
+    </div>
+</div>
+
+<hr>
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h4>Select your top 5 interests from the list below</h4>
+</div>
+</div>
+</div>
+
+<br>
+
+<%
+=begin%>
+<% @interests.each do |interest| %>
+      <div class="form-group">
+        <%= label_tag 'interests', interest.name, class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+                 <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id), {class: 'form-control', id: "interest_#{interest.id}"} %>
+        </div>
+      </div>
+    <% end %>
+<%
+=end %>
+
+
+<hr>
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h4>Please select your experience level for each of the following skills</h4>
+</div>
+</div>
+</div>
+
+
+<% @skills.each do |skill|
+
+ if @user_skills.has_key?(skill.id)
+    user_skill = @user_skills[skill.id]
+  else
+    user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: UserSkill::NO_EXPERIENCE)
+  end
+%>
+  <%= f.fields_for :user_skills, user_skill do |skill_fields| %>
+
+  <div class="form-group">
+    <%= skill_fields.hidden_field :skill_id %>
+    <%= label_tag 'skills', skill.name, class: 'col-sm-2 control-label' %>
+    <%= skill_fields.radio_button :experience_level, UserSkill::NO_EXPERIENCE %>
+    <%= skill_fields.label :no_experience, UserSkill::NO_EXPERIENCE %>
+    <%= skill_fields.radio_button :experience_level, UserSkill::SOME_EXPERIENCE %>
+    <%= skill_fields.label :some_experience, UserSkill::SOME_EXPERIENCE %>
+    <%= skill_fields.radio_button :experience_level, UserSkill::SIGNIFICANT_EXPERIENCE %>
+    <%= skill_fields.label :significant_experience, UserSkill::SIGNIFICANT_EXPERIENCE %>
+  </div>
+  <% end %>
+<% end %>
+
+<br>
+
+<div class="form-group">
+    <%= f.label :Would_you_be_comfortable_being_on_a_board_where_fundraising_is_required?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.check_box :fundraise%>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :Would_you_be_comfortable_being_on_a_board_where_financial_contribution_is_required?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.check_box :financial_contribution%>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :About_how_many_hours_per_month_can_you_contribute_to_board_service?, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.text_field :availability, class: "form-control",autofocus: true  %>
+    </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :Additional_Comments, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+        <%= f.text_area :additional_comments,cols: 10, rows: 8, class: "form-control",autofocus: true %>
+    </div>
+</div>
+
+
+<hr>
+
+<div class="form-group">
+    <%= f.label :email, class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-6">
+        <%= f.email_field :email, class: 'form-control'  %>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :New_password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
+    <div class="col-sm-6">
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
+    </div>
+</div>
+
+
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h3>Confirm changes?</h3>
+</div>
+</div>
+</div>
+<hr />
+<div class="form-group">
+    <%= f.label :current_password, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+        <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit :Update, class: "btn btn-default" %>
+    </div>
+</div>
+
+
+<% end %>
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-6">
+    <p>Unhappy?
+      <%= button_to "Cancel my account", registration_path(resource_name),
+          data: { confirm: "Are you sure?" }, method: :delete, class: 'btn
+          btn-danger' %> </p>
+    <%= link_to "Back", :back %>
+  </div>
+</div>

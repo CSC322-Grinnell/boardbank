@@ -6,7 +6,7 @@ Boardbank::Application.routes.draw do
 
   devise_for :organizations, controllers: { registrations: 'organizations' }
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'users' }
 
   ActiveAdmin.routes(self)
 
@@ -17,8 +17,11 @@ Boardbank::Application.routes.draw do
     get 'search_orgs', :to          => 'organizations#list'
   end
 
+  devise_scope :user do
+    get '/profile/user/:id'         => 'users#show', as: 'user'
+  end
   #user realted routes
-  get '/profile/user/:id'         => 'users#show', as: 'user'
+
   get '/users'                    => 'userlist#show'
   #Testing searchkick through a stackoverflow suggestion:
   #http://stackoverflow.com/questions/15459668/rails-search-form-submit-to-show-method
