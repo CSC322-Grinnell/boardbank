@@ -18,7 +18,7 @@ Boardbank::Application.routes.draw do
   end
 
   #user realted routes
-  get '/profile/user/'         => 'profile#show_user', as: 'user'
+  get '/profile/user/:id'         => 'users#show', as: 'user'
   get '/users'                    => 'userlist#show'
   #Testing searchkick through a stackoverflow suggestion:
   #http://stackoverflow.com/questions/15459668/rails-search-form-submit-to-show-method

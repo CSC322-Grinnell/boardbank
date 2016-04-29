@@ -1,5 +1,102 @@
-<p id="notice"><%= notice %></p>
+<div id = 'content' class='container' >
+  <div class= 'span9 main' >
+    <div class = "col-md-8 col-md-offset-2" >
+      <h2>
+        <% if @user.firstname != nil %>
+         <%= @user.firstname %>
+        <% else %>
+          FIRSTNAME
+        <% end %>
+        <% if @user.lastname != nil %>
+         <%= @user.lastname %>
+        <% else %>
+          LASTNAME
+        <% end %>
+      </h2>
+      <br/>
+      <ul class="list-group">
+        <h4>Basic:</h4>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
+          <% if @user.city %><%= @user.city + ", "%> <% end %>
+          <% if @user.state %><%=@user.state %> <% end %>
+        </li>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
+          <% if @user.email %> <%= @user.email %> <% end %>
+        </li>
+        <li class="list-group-item">
+          <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
+          <% if @user.phonenumber %>
+            <%= number_to_phone(@user.phonenumber, area_code: true) %>
+          <% else %>
+            None provided.
+          <% end %>
+        </li>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      </ul>
+      <br/>
+      <ul class="list-group">
+        <h4>Education:</h4>
+        <% if @user.education %>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;
+            <%= @user.education %>
+          </li>
+          <% if @user.areaofstudy %>
+            <li class="list-group-item">Specialization: <%= @user.areaofstudy %></li>
+          <% else %>
+            <li class="list-group-item">Specialization: Not Listed.</li>
+          <% end %>
+        <% else %>
+          <li class="list-group-item">None Listed</li>
+        <% end %>
+      </ul>
+      <br/>
+      <ul class="list-group">
+        <h4>Skills:</h4>
+        <% if !@user.user_skills.empty? %>
+          <%  @user.user_skills.each do |user_skill| %>
+          <% unless user_skill.experience_level== UserSkill::NO_EXPERIENCE %>
+            <li class="list-group-item"><%= @skills.find(user_skill.id).name %></li>
+            <%end %>
+          <% end %>
+        <% else %>
+          <li class="list-group-item">None Listed</li>
+        <% end %>
+      </ul>
+      <br/>
+      <ul class="list-group">
+        <h4>Other:</h4>
+        <% if @user.previous_experience %>
+          <li class="list-group-item">Has board education or service training.</li>
+        <% end %>
+        <% if @user.remember_me %>
+          <li class="list-group-item">Remember me.</li>
+        <% end %>
+        <% if @user.fundraise %>
+          <li class="list-group-item">Comfortable with a fundraising board.</li>
+        <% end %>
+        <% if @user.financial_contribution %>
+          <li class="list-group-item">Comfortable financially contributing to board.</li>
+        <% end %>
+        <% if @user.availability %>
+          <li class="list-group-item"><%= "Monthly availability (in hours): "+@user.availability.to_s %></li>
+        <% end %>
+        <% if @user.additional_comments %>
+          <li class="list-group-item"><%= "Additional comments: "+@user.additional_comments %></li>
+        <% end %>
+        <% if !@user.previous_experience && !@user.remember_me && !@user.fundraise &&
+              !@user.financial_contribution && !@user.availability && !@user.additional_comments %>
+          <li class="list-group-item">None Listed.</li>
+        <% end %>
+      </ul>
+      <br/>
+    <% if @user == current_user %>
+      <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-danger' %>
+      <br/>
+    <% end %>
+    <!-- <%= link_to "Home", root_path, :method => :get, :class => 'btn btn-success' %> -->
+    </div>
+  </div>
+</div>

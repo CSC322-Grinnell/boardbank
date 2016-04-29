@@ -72,6 +72,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def list
+    @users = User.search params[:q] if params[:q].present?
+    @users = User.all if !(params[:q]).present?
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
