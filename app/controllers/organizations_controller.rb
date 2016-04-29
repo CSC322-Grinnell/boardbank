@@ -41,7 +41,6 @@ class OrganizationsController < Devise::RegistrationsController
     #otherwise update the attributes
     if @organization.update_attributes(org_params)
       #handle successful update
-      byebug
       redirect_to org_path(@organization.id)
       flash[:notice] = "Your account has been updated successfully."
     else
