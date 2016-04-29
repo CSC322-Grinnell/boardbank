@@ -43,11 +43,15 @@
             <span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;
             <%= @user.education %>
           </li>
-          <% if @user.areaofstudy %>
-            <li class="list-group-item">Specialization: <%= @user.areaofstudy %></li>
-          <% else %>
-            <li class="list-group-item">Specialization: Not Listed.</li>
-          <% end %>
+
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>&nbsp; Specialization:
+            <% if @user.areaofstudy %>
+              <%= @user.areaofstudy %>
+            <% else %>
+              Not Listed.
+            <% end %>
+          </li>
         <% else %>
           <li class="list-group-item">None Listed</li>
         <% end %>
