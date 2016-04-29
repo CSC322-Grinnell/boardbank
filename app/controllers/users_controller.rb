@@ -17,6 +17,7 @@ class UsersController < Devise::RegistrationsController
   def show
     @user = User.find(params[:id])
     @interests = Interest.all
+    @skills = SKill.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
