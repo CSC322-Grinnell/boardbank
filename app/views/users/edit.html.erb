@@ -45,8 +45,7 @@
 <div class="form-group">
     <%= f.label :State, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :state, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['',
+      <%= f.select :state, options_for_select(['',
             'Alabama',
             'Alaska',
             'Arizona',
@@ -96,7 +95,7 @@
             'Washington',
             'West Virginia',
             'Wisconsin',
-            'Wyoming']), {}, class: "form-control", autofocus: true %>
+            'Wyoming'], @user.state), {}, class: "form-control", autofocus: true %>
     </div>
 </div>
 
@@ -118,9 +117,8 @@
 <div class="form-group">
     <%= f.label :education, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :education, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :education, options_for_select(['',
-'High School Diploma', 'Bachelors', 'Masters', 'PhD']),
+      <%= f.select :education, options_for_select(['',
+'High School Diploma', 'Bachelors', 'Masters', 'PhD'], @user.education),
  {}, class: "form-control", autofocus: true %>
     </div>
 </div>
