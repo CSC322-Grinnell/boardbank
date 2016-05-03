@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425215320) do
+ActiveRecord::Schema.define(version: 20160503031148) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "resource_id",   null: false
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 20150425215320) do
   add_index "user_skills", ["user_id"], name: "index_user_skills_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                            default: "",    null: false
+    t.string   "encrypted_password",               default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                    default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -128,12 +128,12 @@ ActiveRecord::Schema.define(version: 20150425215320) do
     t.string   "city"
     t.string   "state"
     t.integer  "zipcode"
-    t.integer  "phonenumber"
+    t.integer  "phonenumber",            limit: 8
     t.string   "education"
     t.string   "areaofstudy"
-    t.boolean  "previous_experience",    default: false
-    t.boolean  "fundraise",              default: false
-    t.boolean  "financial_contribution", default: false
+    t.boolean  "previous_experience",              default: false
+    t.boolean  "fundraise",                        default: false
+    t.boolean  "financial_contribution",           default: false
     t.float    "availability"
     t.string   "additional_comments"
   end
