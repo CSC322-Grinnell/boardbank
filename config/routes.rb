@@ -19,7 +19,7 @@ Boardbank::Application.routes.draw do
 
   #user realted routes
   devise_scope :user do
-    get '/profile/user/:id'         => 'users#show', as: 'user'
+    get '/profile/user(/:id)'         => 'users#show', as: 'user'
     get '/users'                    => 'users#list'
     get 'search_users', :to         => 'users#list'
   end
