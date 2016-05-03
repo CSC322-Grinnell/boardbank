@@ -95,7 +95,7 @@ class UsersController < Devise::RegistrationsController
           end
         end
       end
-      redirect_to @user #user_path
+      redirect_to user_path
       flash[:notice] = "Your account has been updated successfully."
     else
       redirect_to :root
