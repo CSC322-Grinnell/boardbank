@@ -1,3 +1,6 @@
+<!---
+  this file seems to be doing nothing. It's just a duplicate of the org edit page.
+--->
 <div class="container">
       <div class="row">
         <div class="span9"><%= yield %></div>
@@ -51,7 +54,9 @@
 <div class="form-group">
     <%= f.label :State, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :org_state, autofocus: true, class: 'form-control', :readonly => true  %>
+      <!--- someone dry out this goddamn list of states. We can make a separate
+        list of US states and call it us_states or something instead of listing
+        everything here --->
         <%= f.select :org_state, options_for_select(['',
             'Alabama',
             'Alaska',
@@ -102,7 +107,7 @@
             'Washington',
             'West Virginia',
             'Wisconsin',
-            'Wyoming']), {}, class: "form-control", autofocus: true %>​
+            'Wyoming'], @organization.org_state), {}, class: "form-control", autofocus: true %>​
     </div>
 </div>
 
