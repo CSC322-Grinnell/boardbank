@@ -1,9 +1,5 @@
 class OrganizationsController < Devise::RegistrationsController
 
-  def index
-    @organizations = Organization.all
-  end
-
   #shows organization's profile page
   def show
     @org = Organization.find(params[:id])
@@ -12,15 +8,10 @@ class OrganizationsController < Devise::RegistrationsController
   #creates a new organization - saves to the database
   def create
     @organization = Organization.new(params[:organization])
-
-    respond_to do |format|
-      if @organization.save
-        format.html { redirect_to :root, notice: 'Organizaiton was successfully created.' }
-        format.json { render json: @organization, status: :created, location: @organization }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @organization.errors, status: :unprocessable_entity }
-      end
+    if @organization.save
+      redirect_to :root, notice: 'Organizaiton was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
@@ -48,10 +39,9 @@ class OrganizationsController < Devise::RegistrationsController
     end
   end
 
-  def list
+  def index
     @orgs = Organization.search params[:q] if params[:q].present?
     @orgs = Organization.all if !(params[:q]).present?
-    #@orgs ||= Organization.search "Happy"
     @categories = ['']
     @all_categories = ['Arts/Musuem', 'Early Childhood', 'Literacy', 'Animal Rights', 'Environmental', 'Mental Health', 'Children/Youth', 'Health Care', 'Recreation', 'Civic/Community', 'Historical', 'Preservation', 'Senior Services', 'Disabilities', 'Homeless/Emergency', 'Substance Abuse', 'Education', 'Housing Development']
   end
