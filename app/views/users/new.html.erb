@@ -47,7 +47,7 @@
 <div class="form-group">
     <%= f.label :State, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-      <%= subregion_select(:user, :state, Carmen::Country.coded('US'), {}, class: "form-control", autofocus: true) %>
+      <%= subregion_select(:user, :state, Carmen::Country.coded('US'), {include_blank: true}, class: "form-control", autofocus: true) %>
     </div>
 </div>
 
