@@ -82,6 +82,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carmen (1.0.2)
+      activesupport (>= 3.0.0)
+    carmen-rails (1.0.1)
+      carmen (~> 1.0.0)
+      rails
     chronic (0.10.2)
     churn (0.0.35)
       chronic (>= 0.2.3)
@@ -408,6 +413,7 @@ DEPENDENCIES
   autoprefixer-rails
   autotest-rails
   bootstrap-sass
+  carmen-rails
   coffee-rails
   cucumber-rails
   cucumber-rails-training-wheels

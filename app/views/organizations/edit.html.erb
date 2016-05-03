@@ -51,60 +51,7 @@
 <div class="form-group">
     <%= f.label :State, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-      <!--- someone dry out this goddamn list of states. We can make a separate
-        list of US states and call it us_states or something instead of listing
-        everything here --->
-        <%= f.select :org_state, options_for_select(['',
-            'Alabama',
-            'Alaska',
-            'Arizona',
-            'Arkansas',
-            'California',
-            'Colorado',
-            'Connecticut',
-            'Delaware',
-            'Florida',
-            'Georgia',
-            'Hawaii',
-            'Idaho',
-            'Illinois',
-            'Indiana',
-            'Iowa',
-            'Kansas',
-            'Kentucky',
-            'Louisiana',
-            'Maine',
-            'Maryland',
-            'Massachusetts',
-            'Michigan',
-            'Minnesota',
-            'Mississippi',
-            'Missouri',
-            'Montana',
-            'Nebraska',
-            'Nevada',
-            'New Hampshire',
-            'New Jersey',
-            'New Mexico',
-            'New York',
-            'North Carolina',
-            'North Dakota',
-            'Ohio',
-            'Oklahoma',
-            'Oregon',
-            'Pennsylvania',
-            'Rhode Island',
-            'South Carolina',
-            'South Dakota',
-            'Tennessee',
-            'Texas',
-            'Utah',
-            'Vermont',
-            'Virginia',
-            'Washington',
-            'West Virginia',
-            'Wisconsin',
-            'Wyoming'], @organization.org_state), {}, class: "form-control", autofocus: true %>​
+      <%= subregion_select(:organization, :org_state, Carmen::Country.coded('US'), {}, class: "form-control", autofocus: true) %>
     </div>
 </div>
 
