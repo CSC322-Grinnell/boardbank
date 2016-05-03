@@ -20,8 +20,8 @@ Boardbank::Application.routes.draw do
   #user realted routes
   devise_scope :user do
     get '/profile/user/:id'         => 'users#show', as: 'user'
-    get '/users'                    => 'users#list'
-    get 'search_users', :to         => 'users#list'
+    get '/users'                    => 'users#index'
+    get 'search_users', :to         => 'users#index'
   end
 
   get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'

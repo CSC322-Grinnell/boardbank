@@ -17,7 +17,7 @@ class UsersController < Devise::RegistrationsController
   def show
     @user = User.find(params[:id])
     @interests = Interest.all
-    @skills = Skill.all 
+    @skills = Skill.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -94,7 +94,7 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
-  def list
+  def index
     @users = User.search params[:q] if params[:q].present?
     @users = User.all if !(params[:q]).present?
   end
