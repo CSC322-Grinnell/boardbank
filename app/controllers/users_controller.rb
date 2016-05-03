@@ -15,12 +15,12 @@ class UsersController < Devise::RegistrationsController
   # GET /users/1
   # GET /users/1.json
   def show
-    
+
     @interests = Interest.all
-    @skills = Skill.all 
-    
+    @skills = Skill.all
+
     #only show profile for the current user if user is logged in
-    if current_user 
+    if current_user
       @user = current_user
     else
       @user = User.find(params[:id])
@@ -102,7 +102,7 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
-  def list
+  def index
     @users = User.search params[:q] if params[:q].present?
     @users = User.all if !(params[:q]).present?
   end
