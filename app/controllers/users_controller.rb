@@ -54,16 +54,14 @@ class UsersController < Devise::RegistrationsController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    if @user.save
+      sign_in(:user, @user)
+      redirect_to user_path, notice: 'You have successfully signed up as a prospective board member'
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    else
+      render action: 'new'
     end
+    
   end
 
   # PUT /users/1

@@ -9,7 +9,7 @@ class OrganizationsController < Devise::RegistrationsController
   def create
     @organization = Organization.new(params[:organization])
     if @organization.save
-      redirect_to :root, notice: 'Organizaiton was successfully created.'
+      redirect_to :root, notice: 'You have signed up successfully but your account has not been approved.'
     else
       render action: 'new'
     end

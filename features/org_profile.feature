@@ -10,4 +10,4 @@ Background:
 
 Scenario: View Org Profile
 	  When I follow "Profile"
-	  And I should see "Email"
+	  And I should see "org@example.com"

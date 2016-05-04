@@ -28,5 +28,5 @@ Scenario: Sign up with conflicting passwords
 	  And I fill in "Password" with "openSesame"
 	  And I fill in "Password" with "closedSesame"
 	  And I press "Sign up"
-	  Then I should see "Password doesn't match confirmation"
+	  Then I should see "Password confirmation doesn't match"
 

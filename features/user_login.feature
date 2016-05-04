@@ -17,5 +17,5 @@ Scenario: Login with incorrect credentials
 	When I fill in "Email" with "badUser"
 	  And I fill in "Password" with "openSesame"
 	  And I press "Sign in"
-	  Then I should see "Invalid email or password."
+	  Then I should be on the login page.
 
