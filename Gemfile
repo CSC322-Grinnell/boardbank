@@ -52,3 +52,6 @@ gem 'font-awesome-rails'
 
 gem 'autoprefixer-rails'
 gem 'test-unit'
+
+# for the list of U.S. States
+gem 'carmen-rails'

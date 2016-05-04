@@ -45,58 +45,7 @@
 <div class="form-group">
     <%= f.label :State, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :state, class: "form-control",autofocus: true, :readonly => true %>
-                <%= f.select :state, options_for_select(['',
-            'Alabama',
-            'Alaska',
-            'Arizona',
-            'Arkansas',
-            'California',
-            'Colorado',
-            'Connecticut',
-            'Delaware',
-            'Florida',
-            'Georgia',
-            'Hawaii',
-            'Idaho',
-            'Illinois',
-            'Indiana',
-            'Iowa',
-            'Kansas',
-            'Kentucky',
-            'Louisiana',
-            'Maine',
-            'Maryland',
-            'Massachusetts',
-            'Michigan',
-            'Minnesota',
-            'Mississippi',
-            'Missouri',
-            'Montana',
-            'Nebraska',
-            'Nevada',
-            'New Hampshire',
-            'New Jersey',
-            'New Mexico',
-            'New York',
-            'North Carolina',
-            'North Dakota',
-            'Ohio',
-            'Oklahoma',
-            'Oregon',
-            'Pennsylvania',
-            'Rhode Island',
-            'South Carolina',
-            'South Dakota',
-            'Tennessee',
-            'Texas',
-            'Utah',
-            'Vermont',
-            'Virginia',
-            'Washington',
-            'West Virginia',
-            'Wisconsin',
-            'Wyoming']), {}, class: "form-control", autofocus: true %>
+      <%= subregion_select(:user, :state, Carmen::Country.coded('US'), {include_blank: true}, class: "form-control", autofocus: true) %>
     </div>
 </div>
 
@@ -179,7 +128,7 @@
 
 <% @skills.each do |skill|
 
- if @user_skills.has_key?(skill.id)    
+ if @user_skills.has_key?(skill.id)
     user_skill = @user_skills[skill.id]
   else
     user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: UserSkill::NO_EXPERIENCE)
