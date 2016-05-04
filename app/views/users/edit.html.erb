@@ -45,7 +45,8 @@
 <div class="form-group">
     <%= f.label :State, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-      <%= f.select :state, options_for_select(['',
+        <%= f.text_field :state, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :state, options_for_select(['',
             'Alabama',
             'Alaska',
             'Arizona',
@@ -95,7 +96,7 @@
             'Washington',
             'West Virginia',
             'Wisconsin',
-            'Wyoming'], @user.state), {}, class: "form-control", autofocus: true %>
+            'Wyoming']), {}, class: "form-control", autofocus: true %>
     </div>
 </div>
 
@@ -117,8 +118,9 @@
 <div class="form-group">
     <%= f.label :education, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-      <%= f.select :education, options_for_select(['',
-'High School Diploma', 'Bachelors', 'Masters', 'PhD'], @user.education),
+        <%= f.text_field :education, class: "form-control",autofocus: true, :readonly => true %>
+                <%= f.select :education, options_for_select(['',
+'High School Diploma', 'Bachelors', 'Masters', 'PhD']),
  {}, class: "form-control", autofocus: true %>
     </div>
 </div>
@@ -177,7 +179,7 @@
 
 <% @skills.each do |skill|
 
- if @user_skills.has_key?(skill.id)
+ if @user_skills.has_key?(skill.id)    
     user_skill = @user_skills[skill.id]
   else
     user_skill = resource.user_skills.create(skill_id: skill.id, experience_level: UserSkill::NO_EXPERIENCE)

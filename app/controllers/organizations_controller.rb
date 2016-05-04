@@ -15,7 +15,7 @@ class OrganizationsController < Devise::RegistrationsController
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to :root, notice: 'Organizaiton was successfully created.' }
+        format.html { redirect_to :root, notice: 'You have signed up successfully but your account has not been approved.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: 'new' }
