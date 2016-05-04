@@ -20,8 +20,8 @@ Scenario: Create a user account
 	  And I fill in "user_phonenumber" with "555-555-5555"
 
 	  And I press "Sign up"
-	  Then I should be on the homepage
-	  And I should see "signed up successfully."
+	  Then I should be on the user profile page
+	  And I should see "You have successfully signed up as a prospective board member"
 
 
 Scenario: Sign up with conflicting passwords
