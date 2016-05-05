@@ -1,0 +1,56 @@
+<div id = 'content' class='container' >
+   <div class= 'span9 main' >
+      <div class="col-md-8 col-md-offset-2">
+         <div class="row">
+            <div class="col-md-12">
+               <%= form_tag search_users_path, method: :get do%>
+               <div class="input-group">    
+                  <%= text_field_tag(:q, params[:q], class: 'form-control') %>
+                  <span class="input-group-btn">
+                  <%= button_tag(type: 'submit', class: "btn btn-success") do %> Go!
+                  <% end %>
+                  </span>
+               </div>
+               <% end %>
+            </div>
+         </div>
+         <%= render 'filter' %>
+      <div class="row">
+         <h2>List of Users</h2>
+         <% if user_signed_in? %>
+            <h3> You do not have access to this area </h3>
+         <% elsif organization_signed_in? %>
+               <div class="list-group">
+                  <% if @users.empty?%>
+                     <a href="#" class="list-group-item active">
+                       <h4 class="list-group-item-heading">Users Not Found.</h4>
+                     </a>
+                  <% else %>
+                     <% @users.each do |user| %>
+                        <% @id = user.id %>
+                        <% @name = user.firstname.to_s + " " + user.lastname.to_s %>
+                        <a href=<%="profile/user/#{@id}"%> class="list-group-item">
+                           <h3 class="list-group-item-heading">
+                              <% if user.firstname && user.lastname %><%= @name %><% else %>Name of user not provided.<% end %>
+                           </h3>
+                           <p class="list-group-item-text">
+                              <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
+                              <% if user.city %><%= user.city %><% else %>City not provided.<% end %>
+                           </p>
+                           <p class="list-group-item-text">
+                              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
+                              <% if user.email %><%= user.email %><% else %>Email not provided.<% end %>
+                           </p>
+                           <p class="list-group-item-text">
+                              <span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;
+                              <% if user.education %><%= user.education %><% else %>Education not provided.<% end %>
+                           </p>
+                        </a>
+                     <% end %>
+                  <% end %>
+               </div>
+            <% end %>
+         </div>
+      </div>
+   </div>
+</div>
