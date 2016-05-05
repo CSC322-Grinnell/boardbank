@@ -19,35 +19,35 @@
 <div class="form-group">
     <%= f.label :Organization_name, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :orgname, autofocus: true, class: 'form-control'  %>
+        <%= f.text_field :name, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Contact_Name, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :org_contactname, autofocus: true, class: 'form-control'  %>
+        <%= f.text_field :contact_name, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :About, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_area :orgabout, cols: 10, rows: 8, autofocus: true, class: 'form-control'  %>
+        <%= f.text_area :about, cols: 10, rows: 8, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Address, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :org_address, autofocus: true, class: 'form-control'  %>
+        <%= f.text_field :address, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :City, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :org_city, autofocus: true, class: 'form-control'  %>
+        <%= f.text_field :city, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 
@@ -57,7 +57,7 @@
       <!--- someone dry out this goddamn list of states. We can make a separate
         list of US states and call it us_states or something instead of listing
         everything here --->
-        <%= f.select :org_state, options_for_select(['',
+        <%= f.select :state, options_for_select(['',
             'Alabama',
             'Alaska',
             'Arizona',
@@ -114,14 +114,14 @@
 <div class="form-group">
     <%= f.label :Zip_Code, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :org_zipcode, autofocus: true, class: 'form-control'  %>
+        <%= f.text_field :zipcode, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Phone_Number, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :org_telephone, autofocus: true, class: 'form-control'  %>
+        <%= f.text_field :telephone, autofocus: true, class: 'form-control'  %>
     </div>
 </div>
 

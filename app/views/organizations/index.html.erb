@@ -31,15 +31,15 @@
 
                            <a href=<%="profile/organization/#{@id}"%> class="list-group-item">
                               <h3 class="list-group-item-heading">
-                                 <% if org.orgname %><%= org.orgname %><% else %>Name or organization not provided.<% end %>
+                                 <% if org.name %><%= org.name %><% else %>Name or organization not provided.<% end %>
                               </h3>
                                <p class="list-group-item-text">
                                  <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
-                                 <% if org.org_city.present? %>
-                                  <%= org.org_city %>
+                                 <% if org.city.present? %>
+                                  <%= org.city %>
                                  <% else %>
-                                  <% if org.org_state %>
-                                    <% org.org_state %>
+                                  <% if org.state %>
+                                    <% org.state %>
                                   <% else %>
                                     Location not provided.
                                   <% end %>
@@ -47,7 +47,7 @@
                               </p>
                                <p class="list-group-item-text">
                                  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;
-                                 <% if org.orgabout %><%= org.orgabout %><% else %>Info not provided.<% end %>
+                                 <% if org.about %><%= org.about %><% else %>Info not provided.<% end %>
                               </p>
                                <p class="list-group-item-text">
                                  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
