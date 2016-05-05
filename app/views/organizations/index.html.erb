@@ -35,7 +35,7 @@
                               </h3>
                                <p class="list-group-item-text">
                                  <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
-                                 <% if !org.org_city.blank? %>
+                                 <% if org.org_city.present? %>
                                   <%= org.org_city %>
                                  <% else %>
                                   <% if org.org_state %>
