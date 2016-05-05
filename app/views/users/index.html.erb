@@ -35,7 +35,15 @@
                            </h3>
                            <p class="list-group-item-text">
                               <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
-                              <% if user.city %><%= user.city %><% else %>City not provided.<% end %>
+                              <% if !user.city.blank? %>
+                               <%= user.city %>
+                              <% else %>
+                               <% if user.state %>
+                                 <% user.state %>
+                               <% else %>
+                                 Location not provided.
+                               <% end %>
+                             <% end %>
                            </p>
                            <p class="list-group-item-text">
                               <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;
