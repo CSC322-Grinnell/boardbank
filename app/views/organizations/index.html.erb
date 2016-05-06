@@ -14,7 +14,6 @@
                <% end %>
             </div>
          </div>
-         <%= render 'layouts/filter' %>
          <div class="row">
             <div class="span9"><%= yield %></div>
             <div class="span3">
@@ -35,7 +34,15 @@
                               </h3>
                                <p class="list-group-item-text">
                                  <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
-                                 <% if org.org_city %><%= org.org_city %><% else %>City not provided.<% end %>
+                                 <% if org.org_city.present? %>
+                                  <%= org.org_city %>
+                                 <% else %>
+                                  <% if org.org_state %>
+                                    <% org.org_state %>
+                                  <% else %>
+                                    Location not provided.
+                                  <% end %>
+                                <% end %>
                               </p>
                                <p class="list-group-item-text">
                                  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;

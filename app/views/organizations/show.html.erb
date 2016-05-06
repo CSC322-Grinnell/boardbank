@@ -27,6 +27,9 @@
           <% if @org.org_city.blank? && @org.org_state.blank? %>
             Not provided.
           <% else %>
+            <% if !@org.org_address.blank? %>
+              <%= @org.org_address+", " %>
+            <% end %>
             <%= @org.org_city+", "+@org.org_state %>
           <% end %>
         </li>
