@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Devise::RegistrationsController
   # GET /users
   # GET /users.json
 
@@ -15,8 +15,17 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+
     @interests = Interest.all
+    @skills = Skill.all
+
+    #only show profile for the current user if user is logged in
+    if current_user
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -36,51 +45,64 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
     @interests = Interest.all
+    @skills = Skill.all
+    @user_skills = Hash[resource.user_skills.map { |user_skill| [user_skill.skill_id, user_skill] }]
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    if @user.save
+      sign_in(:user, @user)
+      redirect_to user_path, notice: 'You have successfully signed up as a prospective board member'
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    else
+      render action: 'new'
     end
+    
   end
 
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
+    user_params = params.require(:user).permit(:firstname, :lastname, :address,
+ :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability,
+ :additional_comments, :password, :password_confirmation, :financial_contribution, :fundraise, :previous_experience)
+    #passwords not allowed to be updated as blank
+    if user_params[:password].empty? and user_params[:password_confirmation].empty?
+      user_params.extract!(:password, :password_confirmation)
+    end
 
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if user_params[:state].empty?
+      user_params.extract!(:state)
+    end
+    if user_params[:education].empty?
+      user_params.extract!(:education)
+    end
+    if @user.update(user_params)
+      sign_in(@user, :bypass => true)
+      #only update skills if user update went through => password supplied was correct
+      skill_params = params.require(:user)[:user_skills_attributes]
+      if skill_params
+        skill_params.each do |num, skill|
+          if skill.has_key?("experience_level")
+              skill_to_update = @user.user_skills.find_or_create_by(skill_id: skill[:skill_id])
+              skill_to_update.update!(experience_level:skill[:experience_level])
+          end
+        end
       end
+      redirect_to user_path
+      flash[:notice] = "Your account has been updated successfully."
+    else
+      redirect_to :root
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
+  def index
+    @users = User.search params[:q] if params[:q].present?
+    @users = User.all if !(params[:q]).present?
   end
+
 end

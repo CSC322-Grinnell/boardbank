@@ -5,6 +5,7 @@ class UserlistController < ApplicationController
     
     @users = User.search params[:q] if params[:q].present?
     @users = User.all if !(params[:q]).present?
+    @skills = Skill.all
     
     #go to error view if @users.empty?
     #@orgs ||= Organization.search "Happy"
