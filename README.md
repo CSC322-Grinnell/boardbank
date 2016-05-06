@@ -1,4 +1,4 @@
-boardbank
+Boardbank
 =========
 
 This repository contains the class project of Grinnell College CSC-322 Team Software Development class. In collaboration with Greater Poweshiek Community Foundation, this web application connects community members with nonprofit board opportunities.
@@ -54,7 +54,8 @@ To restart Elasticsearch on Linux, run:
 
 ## Contributors
 
-Spring 2016 CSC-322 members: Mira Hall '16, Noah Schlager '16, Ashwin Sivaramakrishnan '16, David Chang '18, Sooji Son '18
+Spring 2016 CSC-322 members:
+* Mira Hall '16, Noah Schlager '16, Ashwin Sivaramakrishnan '16, David Chang '18, Sooji Son '18
 
 ## License
 
