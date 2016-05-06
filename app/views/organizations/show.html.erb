@@ -2,8 +2,8 @@
   <div class= 'span9 main' >
     <div class = "col-md-8 col-md-offset-2" >
       <h2>
-        <% if @org.orgname %>
-          <%= @org.orgname %>
+        <% if @org.name %>
+          <%= @org.name %>
         <% else %>
           Name not provided.
         <% end %>
@@ -13,8 +13,8 @@
         <h4>About:</h4>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;
-          <% if @org.orgabout %>
-            <%= @org.orgabout %>
+          <% if @org.about %>
+            <%= @org.about %>
           <% else %>
             About not provided.
           <% end %>
@@ -24,13 +24,13 @@
         <h4>Location:</h4>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
-          <% if @org.org_city.blank? && @org.org_state.blank? %>
+          <% if @org.city.blank? && @org.state.blank? %>
             Not provided.
           <% else %>
-            <% if !@org.org_address.blank? %>
-              <%= @org.org_address+", " %>
+            <% if @org.address.present? %>
+              <%= @org.address+", " %>
             <% end %>
-            <%= @org.org_city+", "+@org.org_state %>
+            <%= @org.city+", "+@org.state %>
           <% end %>
         </li>
       </ul>
@@ -38,8 +38,8 @@
         <h4>Contact:</h4>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
-          <% if @org.org_contactname %>
-            <%= @org.org_contactname %>
+          <% if @org.contact_name %>
+            <%= @org.contact_name %>
           <% else %>
             Contact name not provided.
           <% end %>
@@ -49,8 +49,8 @@
         </li>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
-          <% if @org.org_telephone %>
-            <%= number_to_phone(@org.org_telephone, area_code: true) %>
+          <% if @org.telephone %>
+            <%= number_to_phone(@org.telephone, area_code: true) %>
           <% else %>
             Not provided.
           <% end %>

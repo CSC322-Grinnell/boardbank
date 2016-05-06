@@ -17,7 +17,7 @@ class OrganizationsController < Devise::RegistrationsController
 
   #updates the edits from the edit profile page
   def update
-    org_params = params.require(:organization).permit(:password, :password_confirmation, :orgname, :orgabout, :org_address, :org_city, :org_state, :org_zipcode, :org_telephone, :org_contactname, :email)
+    org_params = params.require(:organization).permit(:password, :password_confirmation, :name, :about, :address, :city, :state, :zipcode, :telephone, :contact_name, :email)
     #password cannot be blank, so what if the org doesn't want to update the password?
     #we make sure nothing gets updated in the password field then.
     if org_params[:password].empty? and org_params[:password_confirmation].empty?
@@ -25,8 +25,8 @@ class OrganizationsController < Devise::RegistrationsController
     end
 
     # Prevent the state field from getting cleared everytime a user goes to the edit page
-    if org_params[:org_state].empty?
-      org_params.extract!(:org_state)
+    if org_params[:state].empty?
+      org_params.extract!(:state)
     end
 
     #otherwise update the attributes
