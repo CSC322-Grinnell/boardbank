@@ -61,7 +61,6 @@ class UsersController < Devise::RegistrationsController
     else
       render action: 'new'
     end
-
   end
 
   # PUT /users/1
