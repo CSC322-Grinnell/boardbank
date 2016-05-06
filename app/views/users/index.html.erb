@@ -14,7 +14,7 @@
                <% end %>
             </div>
          </div>
-         <%= render 'layouts/filter' %>
+         <%= render 'filter' %>
       <div class="row">
          <h2>List of Users</h2>
          <% if user_signed_in? %>
@@ -36,7 +36,7 @@
                            <p class="list-group-item-text">
                               <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;
                               <% if user.city.present? %>
-                               <%= user.city %>
+                                <%= user.city %>
                               <% else %>
                                <% if user.state %>
                                  <% user.state %>
