@@ -25,7 +25,7 @@ module NavigationHelpers
     when /^the organization profile page/
       org_path
 
-    when /^the login page/
+    when /^the user login page/
       '/users/sign_in'
 
     when /^the organization login page/

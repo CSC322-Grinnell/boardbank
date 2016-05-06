@@ -127,7 +127,6 @@
 
 
 <% @skills.each do |skill|
-
  if @user_skills.has_key?(skill.id)
     user_skill = @user_skills[skill.id]
   else
@@ -192,7 +191,7 @@
 
 
 <div class="form-group">
-    <%= f.label :New_password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.label :new_password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
     <div class="col-sm-6">
         <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
     </div>
