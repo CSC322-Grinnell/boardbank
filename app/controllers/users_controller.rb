@@ -61,7 +61,6 @@ class UsersController < Devise::RegistrationsController
     else
       render action: 'new'
     end
-    
   end
 
   # PUT /users/1
@@ -116,6 +115,7 @@ class UsersController < Devise::RegistrationsController
   def index
     @users = User.search params[:q] if params[:q].present?
     @users = User.all if !(params[:q]).present?
+    @skills = Skill.all
   end
 
 end

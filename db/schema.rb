@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504191325) do
+ActiveRecord::Schema.define(version: 20160505185044) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "resource_id",   null: false
@@ -66,14 +66,14 @@ ActiveRecord::Schema.define(version: 20160504191325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "approved",               default: false, null: false
-    t.string   "orgname"
-    t.string   "orgabout"
-    t.string   "org_address"
-    t.string   "org_city"
-    t.string   "org_state"
-    t.string   "org_zipcode"
-    t.string   "org_telephone"
-    t.string   "org_contactname"
+    t.string   "name"
+    t.string   "about"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "telephone"
+    t.string   "contact_name"
   end
 
   add_index "organizations", ["approved"], name: "index_organizations_on_approved"
