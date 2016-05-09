@@ -5,7 +5,7 @@ Feature: login as a User
   I want to be able to login to BoardBank with my email and password.
 
 Background:I am on the Sign In page
-	Given I am on the login page
+	Given I am on the user login page
 	  And an account exists with email: "user@exam.com" and password: "password"
 Scenario: Login with correct credentials
 	Given I login as a User
@@ -17,5 +17,5 @@ Scenario: Login with incorrect credentials
 	When I fill in "Email" with "badUser"
 	  And I fill in "Password" with "openSesame"
 	  And I press "Sign in"
-	  Then I should be on the login page.
+	  Then I should be on the user login page.
 

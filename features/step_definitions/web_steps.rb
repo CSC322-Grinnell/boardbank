@@ -109,6 +109,7 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
+
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
 
@@ -265,3 +266,5 @@ When /^(?:|I )dismiss (?:|the )popup$/ do
   # page.driver.browser.switch_to.alert.dismiss
   pending
 end
+
+
