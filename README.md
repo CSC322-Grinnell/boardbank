@@ -24,6 +24,14 @@ cucumber
 ```
 Currently, all the tests pass except for unimplemented features!
 
+## Admins
+To login as an admin, go to 
+```
+/admin
+```
+Here, you can approve organizations' profiles.
+
+
 ## Particularities
 
 This project uses Elasticsearch for the search features. If you are having errors related to Faraday, timeout, port 9200, restarting Elasticsearch usually takes care of the problem.
