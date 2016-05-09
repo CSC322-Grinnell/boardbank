@@ -55,3 +55,6 @@ gem 'test-unit'
 
 # for the list of U.S. States
 gem 'carmen-rails'
+
+# for Heroku deployment
+gem 'rails_12factor'

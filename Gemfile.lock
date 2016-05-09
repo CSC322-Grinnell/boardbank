@@ -293,6 +293,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
     rails_best_practices (1.16.0)
       activesupport
       code_analyzer (>= 0.4.3)
@@ -301,6 +304,8 @@ GEM
       json
       require_all
       ruby-progressbar
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.5.1)
       actionpack (= 4.2.5.1)
       activesupport (= 4.2.5.1)
@@ -430,6 +435,7 @@ DEPENDENCIES
   protected_attributes
   pry-byebug
   rails (= 4.2.5.1)
+  rails_12factor
   rspec-rails (= 2.14)
   rubocop (~> 0.37.2)
   sass-rails

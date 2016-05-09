@@ -73,5 +73,5 @@ Boardbank::Application.configure do
   end
   config.assets.precompile << %r{bootstrap/glyphicons-halflings-regular\.(?:eot|svg|ttf|woff)$}
   config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css']
-  config.serve_static_assets = true
+  config.serve_static_files = true
 end
