@@ -8,7 +8,7 @@ Background:
 	Given  I login as a User
 	And I am on the home page
 	
-Scenario: Edit profile happy case
+Scenario: Edit profile happy case, no password provided
 	  When I follow "Profile"
 	  And I follow "Edit Profile"
 	   And I fill in "user_firstname" with "User"
@@ -58,6 +58,7 @@ Scenario: Change password
 			And I fill in "user_current_password" with "password2"
 			And I press "Update"
 			Then I should see "Your account has been updated successfully."
+
 
 	
 

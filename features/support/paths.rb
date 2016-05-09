@@ -23,7 +23,7 @@ module NavigationHelpers
       user_path
 
     when /^the organization profile page/
-      org_path
+      '/profile/organization'
 
     when /^the user login page/
       '/users/sign_in'
