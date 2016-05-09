@@ -22,6 +22,12 @@ This project employs Cucumber tests. To run the tests, do:
 rake db:migrate RAILS_ENV=test
 cucumber
 ```
+
+## Admins
+To login as an admin, go to 
+```/admin
+```
+
 Currently, all the tests pass except for unimplemented features!
 
 ## Particularities
