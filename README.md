@@ -25,8 +25,10 @@ cucumber
 
 ## Admins
 To login as an admin, go to 
-```/admin
 ```
+/admin
+```
+Here, you can approve organizations' profiles.
 
 Currently, all the tests pass except for unimplemented features!
 
