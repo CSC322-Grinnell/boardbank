@@ -18,8 +18,9 @@ Scenario: Search List of Users
 	  When I follow "Users"
 	  Then I should be on the Users page
 	  And I should see "List of Users"
-	  When I type "Enuj" in the Search Box
-	  And I press the "Search" button
+	  And I should see "Leo"
+	  When I fill in "search" with "Enuj"
+	  And I press "search"
 	  Then I should see "enuj@lemon.com"
 	  And I should not see "l0vely@nerd.com"
 	  

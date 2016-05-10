@@ -79,15 +79,12 @@ class UsersController < Devise::RegistrationsController
       user_params.extract!(:education)
     end
 
-    
-
-
     require_password = true
     if user_params[:current_password].empty? and user_params[:password_confirmation].empty? and user_params[:password].empty?
       user_params.extract!(:current_password, :password_confirmation, :password)
       require_password = false
     end
- 
+    
     #debugger
     if (require_password and @user.update_with_password(user_params)) or ((not require_password) and @user.update_without_password(user_params))
       sign_in(@user, :bypass => true)
@@ -113,8 +110,8 @@ class UsersController < Devise::RegistrationsController
   end
 
   def index
-    @users = User.search params[:q] if params[:q].present?
-    @users = User.all if !(params[:q]).present?
+    @users = User.search params[:search] if params[:search].present?
+    @users = User.all if !(params[:search]).present?
     @skills = Skill.all
   end
 
