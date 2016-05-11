@@ -1,0 +1,12 @@
+<div class="dropdown hidden-md hidden-lg hidden-xl">
+  <button class="btn btn-default btn-hamburger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="glyphicon glyphicon-menu-hamburger"></span>
+  </button>
+  <ul class="dropdown-menu hamburger-dropdown" aria-labelledby="dropdownMenu1">
+    <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
+    <li><a href="/organizations">Organizations</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><%= link_to 'Profile', controller: "organizations", action: "show", id: @id %></li>
+    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
+  </ul>
+</div>
