@@ -1,4 +1,4 @@
-Boardbank
+Boardbank [![Build Status](https://travis-ci.org/CSC322-Grinnell/boardbank.svg?branch=dev)](https://travis-ci.org/CSC322-Grinnell/boardbank)
 =========
 
 This repository contains the class project of Grinnell College CSC-322 Team Software Development class. In collaboration with Greater Poweshiek Community Foundation, this web application connects community members with nonprofit board opportunities.
