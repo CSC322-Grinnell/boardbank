@@ -10,22 +10,10 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="hidden-sm"><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
         <% if user_signed_in? %>
-          <li class="hidden-sm-down"><a href="/organizations">Organizations</a></li>
-          <li class="hidden-sm-down"><%= link_to 'Profile', controller: "users", action: "show" %></li>
-          <li class="hidden-sm-down"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
-          <div class="dropdown">
-            <button class="btn btn-default btn-hamburger dropdown-toggle hidden-md-up" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Dropdown
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div>
+          <li class="hidden-sm"><a href="/organizations">Organizations</a></li>
+          <li class="hidden-sm"><%= link_to 'Profile', controller: "users", action: "show" %></li>
+          <li class="hidden-sm"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
+          <%= render 'layouts/dropdown' %>
         <% else %>
         <% end %>
         <% if organization_signed_in? %>
