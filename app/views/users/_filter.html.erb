@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-12 filter-options">
                     <% if organization_signed_in? && !user_signed_in? %>
-                        <% @skills.each_with_index do |skill, index| %>
+                        <% Skill.all.each_with_index do |skill, index| %>
                             <% if index == 1 %>
                                 <div class="checkbox col-md-6 top-padding">
                                    <label><input type="checkbox" value=""><%= skill.name %></label>
