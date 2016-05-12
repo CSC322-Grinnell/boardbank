@@ -1,13 +1,19 @@
   Given(/^an account exists with email: "(.*?)" and password: "(.*?)"$/) do |email, password|
-    user = User.create(email: email, password: password)
+    User.create(email: email, password: password)
+    User.reindex
+    User.searchkick_index.refresh
   end
 
   Given(/^an organization exists with email: "(.*?)" and password: "(.*?)"$/) do |email, password|
-    user = Organization.create(email: email, password: password, approved: true)
+    Organization.create(email: email, password: password, approved: true)
+    Organization.reindex
+    Organization.searchkick_index.refresh
   end
 
   Given(/^an unapproved organization exists with email: "(.*?)" and password: "(.*?)"$/) do |email, password|
-    user = Organization.create(email: email, password: password, approved: false)
+    Organization.create(email: email, password: password, approved: false)
+    Organization.reindex
+    Organization.searchkick_index.refresh
   end
 
   When (/^I login with email "([^"]*)" and password "([^"]*)"$/) do |email, password|

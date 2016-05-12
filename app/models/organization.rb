@@ -22,6 +22,4 @@ class Organization < ActiveRecord::Base
     end
   end
 
-  #Searchkick
-  #Organization.reindex
 end

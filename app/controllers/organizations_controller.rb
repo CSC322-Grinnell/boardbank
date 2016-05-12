@@ -48,8 +48,9 @@ class OrganizationsController < Devise::RegistrationsController
   end
 
   def index
-    @orgs = Organization.search params[:q] if params[:q].present?
-    @orgs = Organization.all if !(params[:q]).present?
+
+    @orgs = Organization.search params[:search] if params[:search].present?
+    @orgs = Organization.all if !(params[:search]).present?
     @categories = ['']
     @all_categories = ['Arts/Musuem', 'Early Childhood', 'Literacy', 'Animal Rights', 'Environmental', 'Mental Health', 'Children/Youth', 'Health Care', 'Recreation', 'Civic/Community', 'Historical', 'Preservation', 'Senior Services', 'Disabilities', 'Homeless/Emergency', 'Substance Abuse', 'Education', 'Housing Development']
   end

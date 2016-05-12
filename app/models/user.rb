@@ -22,13 +22,5 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_skills
   
-  #Searchkick
-  #User.reindex
-  
-  #Testing searchkick to see if it works
-  #products = User.search "Bob"
-  #products.each do |product|
-  #  puts product.name
-  #end
   
 end

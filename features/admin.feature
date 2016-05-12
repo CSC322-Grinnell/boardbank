@@ -19,7 +19,7 @@ Scenario: Create organization
           And I should see "Organization was successfully created"
 
 Scenario: Create user
-          When I follow "Users"
+          When I follow default "Users"
           Then I should be on the user admin page
           And I follow "New User"
           And I fill in "Email" with "create@user.com"
