@@ -53,6 +53,11 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
+  # click_link(link)
+  first(:link, link).click
+end
+
+When /^(?:|I )follow default "([^"]*)"$/ do |link|
   click_link(link)
 end
 
