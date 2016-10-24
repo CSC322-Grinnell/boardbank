@@ -12,7 +12,7 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
-  # GET /users/1
+  # GET /users/1u
   # GET /users/1.json
   def show
 
@@ -36,11 +36,18 @@ class UsersController < Devise::RegistrationsController
   # GET /users/new.json
   def new
     @user = User.new
-
+    build_resource({})
+    self.resource.company = Company.new
+    respond_with self.resource
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
     end
+  end
+ 
+  def update_params
+    allow = [:email, :password, :password_confirmation, [company_attributes: [:cnpj]]]
+    params.require(resource_name).permit(allow)
   end
 
   # GET /users/1/edit
@@ -70,7 +77,7 @@ class UsersController < Devise::RegistrationsController
     user_params = params.require(:user).permit(:firstname, :lastname, :address,
  :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability,
  :additional_comments, :password, :password_confirmation, :financial_contribution, :fundraise, :previous_experience, :current_password)
-    
+    puts params
 
     if user_params[:state].empty?
       user_params.extract!(:state)
