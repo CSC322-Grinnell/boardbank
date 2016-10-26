@@ -58,6 +58,19 @@
       </ul>
       <br/>
       <ul class="list-group">
+        <h4>Interests:</h4>
+        <% if !@user.user_interest.empty? %>
+          <%  @user.user_interest.each do |user_inte| %>
+          <% unless user_inte[:has_interest] == false %>
+            <li class="list-group-item"><%= @interests.find(user_inte.interest_id).name %></li>
+            <%end %>
+          <% end %>
+        <% else %>
+          <li class="list-group-item">None Listed</li>
+        <% end %>
+      </ul>
+      <br/>
+      <ul class="list-group">
         <h4>Skills:</h4>
         <% if !@user.user_skills.empty? %>
           <%  @user.user_skills.each do |user_skill| %>

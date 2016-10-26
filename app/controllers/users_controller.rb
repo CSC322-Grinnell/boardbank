@@ -12,7 +12,7 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
-  # GET /users/1u
+  # GET /users/1
   # GET /users/1.json
   def show
 
@@ -36,18 +36,11 @@ class UsersController < Devise::RegistrationsController
   # GET /users/new.json
   def new
     @user = User.new
-    build_resource({})
-    self.resource.company = Company.new
-    respond_with self.resource
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
     end
-  end
- 
-  def update_params
-    allow = [:email, :password, :password_confirmation, [company_attributes: [:cnpj]]]
-    params.require(resource_name).permit(allow)
   end
 
   # GET /users/1/edit
@@ -77,7 +70,6 @@ class UsersController < Devise::RegistrationsController
     user_params = params.require(:user).permit(:firstname, :lastname, :address,
  :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability,
  :additional_comments, :password, :password_confirmation, :financial_contribution, :fundraise, :previous_experience, :current_password)
-    puts params
 
     if user_params[:state].empty?
       user_params.extract!(:state)
@@ -91,6 +83,7 @@ class UsersController < Devise::RegistrationsController
       user_params.extract!(:current_password, :password_confirmation, :password)
       require_password = false
     end
+    
     
     #debugger
     if (require_password and @user.update_with_password(user_params)) or ((not require_password) and @user.update_without_password(user_params))
@@ -106,7 +99,19 @@ class UsersController < Devise::RegistrationsController
           end
         end
       end
-
+      
+      user_interests_params = params.require(:interests)
+      interests_all = Interest.all
+      if user_interests_params
+        interests_all.each do |each_interest|
+          interest_to_update = @user.user_interest.find_or_create_by(interest_id: each_interest[:id])
+          interest_to_update.update!(has_interest: user_interests_params.member?(each_interest[:id].to_s))
+        end
+      end
+      #user_interests_params.each do |interest_i|
+       #     interest_to_update = @user.user_interest.find_or_create_by(interest_id: interest_i)
+        #    interest_to_update.update!(has_interest: true)
+        
       redirect_to user_path
       flash[:notice] = "Your account has been updated successfully."
     else
