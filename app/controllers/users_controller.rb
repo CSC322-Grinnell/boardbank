@@ -126,16 +126,23 @@ class UsersController < Devise::RegistrationsController
     puts "PARAMS"
     puts params
     puts params[:skill_ids].present?
-    
     if params[:search].present?
       @users = User.search params[:search]
+      puts @users[0].user_skills
     elsif params[:skill_ids].present?
-      #@users = User.search where city: "Grinnell"
+      @users = []
+      params[:skill_ids].each do |id|
+        results = User.search where: {user_skills_id: id, or: [[{user_skills_experience_level: UserSkill::SOME_EXPERIENCE},
+                                                                  {user_skills_experience_level: UserSkill::SIGNIFICANT_EXPERIENCE}]]}
+        @users << results
+      end
+      @users = User.search where: {user_skills_id: 1}
+      puts "really?"
+    else
+       @users = User.all
     end
-    @users = User.search params[:search] if params[:search].present?
-    @users = User.all if !(params[:search]).present?
+    #@users = User.search params[:search] if params[:search].present?
     @skills = Skill.all
-    @user = User.new
   end
 
 end

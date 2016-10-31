@@ -3,7 +3,12 @@ class User < ActiveRecord::Base
   include Elasticsearch::Model
   searchkick
   
-
+  def search_data
+    {
+      user_skills_id: user_skills.pluck(:skill_id),
+      user_skills_experience_level: user_skills.pluck(:experience_level)
+    }
+  end
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,7 +17,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :firstname, :lastname, :address, :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :previous_experience, :email, :password, :password_confirmation, :remember_me, :fundraise, :financial_contribution, :availability, :additional_comments
+  attr_accessible :firstname, :lastname, :address, :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :previous_experience, :email, :password, :password_confirmation, :remember_me, :fundraise, :financial_contribution, :availability, :additional_comments, :user_skills
   has_many :user_skills
   has_many :skills, through: :user_skills
 
