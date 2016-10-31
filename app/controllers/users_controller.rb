@@ -122,11 +122,20 @@ class UsersController < Devise::RegistrationsController
   end
 
   def index
+    
     puts "PARAMS"
     puts params
+    puts params[:skill_ids].present?
+    
+    if params[:search].present?
+      @users = User.search params[:search]
+    elsif params[:skill_ids].present?
+      #@users = User.search where city: "Grinnell"
+    end
     @users = User.search params[:search] if params[:search].present?
     @users = User.all if !(params[:search]).present?
     @skills = Skill.all
+    @user = User.new
   end
 
 end

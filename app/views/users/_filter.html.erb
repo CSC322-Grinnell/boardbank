@@ -15,18 +15,19 @@
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
     </button>
     <div id="filter" class="filter">
-        <form action="search_users" method="get" id="filter-boxes" class="filter-boxes">
+        <form id="filter-boxes" class="filter-boxes" action="search_users" method="get">
+
             <div class="row">
                 <div class="col-md-12 filter-options">
                     <% if organization_signed_in? && !user_signed_in? %>
                         <% @skills.each_with_index do |skill, index| %>
                             <% if index == 1 %>
                                 <div class="checkbox col-md-6 top-padding">
-                                   <label> <%= check_box_tag skill.id %><%= skill.name %></label>
+                                   <label> <%= check_box_tag 'skill_ids[]', skill.id %><%= skill.name %></label>
                                 </div>
                             <% else %>
                                 <div class="checkbox col-md-6">
-                                   <label><%= check_box_tag skill.id %><%= skill.name %></label>
+                                   <label><%= check_box_tag 'skill_ids[]', skill.id %><%= skill.name %></label>
                                 </div>
                             <% end %>
                         <% end %>
