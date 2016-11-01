@@ -130,7 +130,15 @@ class UsersController < Devise::RegistrationsController
       ids = params.require(:skill_ids)
       @users = User.find_by_sql ["SELECT * FROM users
                WHERE id IN
-               (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
+               (SELECT user_id FROM
+                 (SELECT COUNT(skill_id) AS count, user_id FROM
+                  (SELECT user_id, skill_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))
+                  GROUP BY user_id)
+                  WHERE count = ?)", ids, ids.length]
+               
+              # ["SELECT * FROM users
+              # WHERE id IN
+              # (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
 
     else
        @users = User.all
