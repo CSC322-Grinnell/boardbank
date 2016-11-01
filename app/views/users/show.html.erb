@@ -75,7 +75,7 @@
         <% if !@user.user_skills.empty? %>
           <%  @user.user_skills.each do |user_skill| %>
           <% unless user_skill.experience_level== UserSkill::NO_EXPERIENCE %>
-            <li class="list-group-item"><%= @skills.find(user_skill.id).name %></li>
+            <li class="list-group-item"><%= @skills.find(user_skill.skill_id).name %></li>
             <%end %>
           <% end %>
         <% else %>

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound do |e|
     if current_user
       puts "DADADADUM"
+      puts e
       redirect_to current_user
     else
       puts "OISAJKDIAULSDJ"
