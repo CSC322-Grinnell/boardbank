@@ -21,6 +21,8 @@ class UsersController < Devise::RegistrationsController
 
     #only show profile for the current user if user is logged in
     if current_user
+      puts "HERE"
+      puts params
       @user = current_user
     else
       @user = User.find(params[:id])
@@ -28,7 +30,9 @@ class UsersController < Devise::RegistrationsController
 
     respond_to do |format|
       format.html # show.html.erb
+      puts "RENDER HERE"
       format.json { render json: @user }
+      puts "AND HERE"
     end
   end
 
@@ -141,8 +145,6 @@ class UsersController < Devise::RegistrationsController
                 (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
       #end
 
-      #Product.search "wingtips", aggs: {size: {where: {color: "brandy"}}}
-      puts "REALLY?"
     else
        @users = User.all
        puts "NO ENTER"
