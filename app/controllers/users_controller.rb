@@ -112,9 +112,6 @@ class UsersController < Devise::RegistrationsController
           interest_to_update.update!(has_interest: user_interests_params.member?(each_interest[:id].to_s))
         end
       end
-      #user_interests_params.each do |interest_i|
-       #     interest_to_update = @user.user_interest.find_or_create_by(interest_id: interest_i)
-        #    interest_to_update.update!(has_interest: true)
         
       redirect_to user_path
       flash[:notice] = "Your account has been updated successfully."
@@ -127,29 +124,17 @@ class UsersController < Devise::RegistrationsController
 
   def index
     
-    puts "PARAMS"
-    puts params
-    puts params[:skill_ids].present?
     if params[:search].present?
       @users = User.search params[:search]
-      puts @users[0].user_skills
     elsif params[:skill_ids].present?
       ids = params.require(:skill_ids)
-      @users = {}
-      #params[:skill_ids].each do |uid|
-      #    @users = User.search where: {user_skills_id: id, or: [[{user_skills_experience_level: UserSkill::SOME_EXPERIENCE},
-      #                                                             {user_skills_experience_level: UserSkill::SIGNIFICANT_EXPERIENCE}]]}
-      #   @users << results
-        @users = User.find_by_sql ["SELECT * FROM users
-                WHERE id IN
-                (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
-      #end
+      @users = User.find_by_sql ["SELECT * FROM users
+               WHERE id IN
+               (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
 
     else
        @users = User.all
-       puts "NO ENTER"
     end
-    #@users = User.search params[:search] if params[:search].present?
     @skills = Skill.all
   end
 
