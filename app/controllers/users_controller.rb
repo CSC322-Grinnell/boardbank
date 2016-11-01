@@ -130,16 +130,22 @@ class UsersController < Devise::RegistrationsController
       @users = User.search params[:search]
       puts @users[0].user_skills
     elsif params[:skill_ids].present?
-      @users = []
-      params[:skill_ids].each do |id|
-        results = User.search where: {user_skills_id: id, or: [[{user_skills_experience_level: UserSkill::SOME_EXPERIENCE},
-                                                                  {user_skills_experience_level: UserSkill::SIGNIFICANT_EXPERIENCE}]]}
-        @users << results
-      end
-      @users = User.search where: {user_skills_id: 1}
-      puts "really?"
+      ids = params.require(:skill_ids)
+      @users = {}
+      #params[:skill_ids].each do |uid|
+      #    @users = User.search where: {user_skills_id: id, or: [[{user_skills_experience_level: UserSkill::SOME_EXPERIENCE},
+      #                                                             {user_skills_experience_level: UserSkill::SIGNIFICANT_EXPERIENCE}]]}
+      #   @users << results
+        @users = User.find_by_sql ["SELECT * FROM users
+                WHERE id IN
+                (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
+      #end
+
+      #Product.search "wingtips", aggs: {size: {where: {color: "brandy"}}}
+      puts "REALLY?"
     else
        @users = User.all
+       puts "NO ENTER"
     end
     #@users = User.search params[:search] if params[:search].present?
     @skills = Skill.all
