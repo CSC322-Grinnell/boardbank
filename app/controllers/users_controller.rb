@@ -100,14 +100,14 @@ class UsersController < Devise::RegistrationsController
         end
       end
       
-      user_interests_params = params.require(:interests)
-      interests_all = Interest.all
-      if user_interests_params
-        interests_all.each do |each_interest|
-          interest_to_update = @user.user_interest.find_or_create_by(interest_id: each_interest[:id])
-          interest_to_update.update!(has_interest: user_interests_params.member?(each_interest[:id].to_s))
-        end
-      end
+      # user_interests_params = params.require(:interests)
+      # interests_all = Interest.all
+      # if user_interests_params
+      #   interests_all.each do |each_interest|
+      #     interest_to_update = @user.user_interest.find_or_create_by(interest_id: each_interest[:id])
+      #     interest_to_update.update!(has_interest: user_interests_params.member?(each_interest[:id].to_s))
+      #   end
+      # end
       #user_interests_params.each do |interest_i|
        #     interest_to_update = @user.user_interest.find_or_create_by(interest_id: interest_i)
         #    interest_to_update.update!(has_interest: true)
