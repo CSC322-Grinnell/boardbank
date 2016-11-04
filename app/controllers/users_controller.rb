@@ -21,6 +21,8 @@ class UsersController < Devise::RegistrationsController
 
     #only show profile for the current user if user is logged in
     if current_user
+      puts "HERE"
+      puts params
       @user = current_user
     else
       @user = User.find(params[:id])
@@ -28,7 +30,9 @@ class UsersController < Devise::RegistrationsController
 
     respond_to do |format|
       format.html # show.html.erb
+      puts "RENDER HERE"
       format.json { render json: @user }
+      puts "AND HERE"
     end
   end
 
@@ -100,17 +104,15 @@ class UsersController < Devise::RegistrationsController
         end
       end
       
-      # user_interests_params = params.require(:interests)
-      # interests_all = Interest.all
-      # if user_interests_params
-      #   interests_all.each do |each_interest|
-      #     interest_to_update = @user.user_interest.find_or_create_by(interest_id: each_interest[:id])
-      #     interest_to_update.update!(has_interest: user_interests_params.member?(each_interest[:id].to_s))
-      #   end
-      # end
-      #user_interests_params.each do |interest_i|
-       #     interest_to_update = @user.user_interest.find_or_create_by(interest_id: interest_i)
-        #    interest_to_update.update!(has_interest: true)
+
+      user_interests_params = params.require(:interests)
+      interests_all = Interest.all
+      if user_interests_params
+        interests_all.each do |each_interest|
+          interest_to_update = @user.user_interest.find_or_create_by(interest_id: each_interest[:id])
+          interest_to_update.update!(has_interest: user_interests_params.member?(each_interest[:id].to_s))
+        end
+      end
         
       redirect_to user_path
       flash[:notice] = "Your account has been updated successfully."
@@ -122,8 +124,26 @@ class UsersController < Devise::RegistrationsController
   end
 
   def index
-    @users = User.search params[:search] if params[:search].present?
-    @users = User.all if !(params[:search]).present?
+    
+    if params[:search].present?
+      @users = User.search params[:search]
+    elsif params[:skill_ids].present?
+      ids = params.require(:skill_ids)
+      @users = User.find_by_sql ["SELECT * FROM users
+               WHERE id IN
+               (SELECT user_id FROM
+                 (SELECT COUNT(skill_id) AS count, user_id FROM
+                  (SELECT user_id, skill_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))
+                  GROUP BY user_id)
+                  WHERE count = ?)", ids, ids.length]
+               
+              # ["SELECT * FROM users
+              # WHERE id IN
+              # (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
+
+    else
+       @users = User.all
+    end
     @skills = Skill.all
   end
 

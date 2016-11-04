@@ -15,18 +15,20 @@
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
     </button>
     <div id="filter" class="filter">
-        <form id="filter-boxes" class="filter-boxes">
+        
+        <form id="filter-boxes" class="filter-boxes" action="search_users" method="get">
+
             <div class="row">
                 <div class="col-md-12 filter-options">
                     <% if organization_signed_in? && !user_signed_in? %>
-                        <% Skill.all.each_with_index do |skill, index| %>
+                        <% @skills.each_with_index do |skill, index| %>
                             <% if index == 1 %>
                                 <div class="checkbox col-md-6 top-padding">
-                                   <label><input type="checkbox" value=""><%= skill.name %></label>
+                                   <label> <%= check_box_tag 'skill_ids[]', skill.id %><%= skill.name %></label>
                                 </div>
                             <% else %>
                                 <div class="checkbox col-md-6">
-                                   <label><input type="checkbox" value=""><%= skill.name %></label>
+                                   <label><%= check_box_tag 'skill_ids[]', skill.id %><%= skill.name %></label>
                                 </div>
                             <% end %>
                         <% end %>
@@ -35,6 +37,7 @@
             </div>
             <div class="row">
                 <div class="right-align">
+                    <%= link_to "Advanced search" %>   
                     <input type="submit" value="Filter" class="btn btn-default apply-filter" aria-label="Right Align"></input>
                 </div>
             </div>

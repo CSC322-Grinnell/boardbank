@@ -3,6 +3,7 @@
       <div class="col-md-8 col-md-offset-2">
          <div class="row">
             <div class="col-md-12">
+               
                <%= form_tag search_users_path, method: :get do%>
                <div class="input-group">
                   <%= text_field_tag(:search, params[:search], class: 'form-control') %>
@@ -12,9 +13,11 @@
                   </span>
                </div>
                <% end %>
+               
             </div>
          </div>
          <%= render 'filter' %>
+        
       <div class="row">
          <h2>List of Users</h2>
          <% if user_signed_in? %>
