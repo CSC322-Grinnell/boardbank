@@ -21,11 +21,16 @@ Scenario: Edit profile happy case, no password provided
 	   And I select "Bachelors" from "user_education"
 	   And I fill in "user_areaofstudy" with "Magic"
 	   And I check "user_previous_experience"
+	   And I check "user_financial_contribution"
+	   And I select "user_user_skills_attributes_7_experience_level_some"
 	   And I press "Update"
 	   Then I should see "Your account has been updated successfully."
 		And I should be on the user profile page
 		And I should see "User Joe"
 		And I should see ""
+		And I should see "Other:"
+		And I should see "Information Technology"
+		And I should see "Comfortable financially contributing to board."
 Scenario: Change password with incorrect current password
 	When I follow "Profile"
 	   And I follow "Edit Profile"
