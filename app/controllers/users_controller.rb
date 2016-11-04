@@ -104,7 +104,12 @@ class UsersController < Devise::RegistrationsController
         end
       end
       
-      user_interests_params = params.require(:interests)
+      if params[:interests].present?
+        user_interests_params = params.require(:interests)
+      else
+         user_interests_params = []
+      end
+      puts user_interests_params
       interests_all = Interest.all
       if user_interests_params
         interests_all.each do |each_interest|
