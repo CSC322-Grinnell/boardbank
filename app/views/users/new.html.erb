@@ -61,7 +61,7 @@
 <div class="form-group">
     <%= f.label :Phone_Number, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.telephone_field :phonenumber, class: "form-control",autofocus: true %>
+        <%= f.telephone_field :phonenumber, class: "form-control",autofocus: true, :required => true, :pattern => '^(\s{1,}|)(\(|)\d{3}(\)|)(\s{1,}|)(-|)(\s{1,}|)\d{3}(\s{1,}|)(-|)(\s{1,}|)\d{4}$', :oninvalid => "setCustomValidity('Please type only digits, parentheses and dashes, e.g. 777-777-7777 or (777) 777-7777, or simply 7777777777. Make sure you are entering 10 digits.')", :oninput => "setCustomValidity('')" %> <!-- http://stackoverflow.com/questions/13541983/html5-required-validation-in-ruby-on-rails-forms, http://stackoverflow.com/questions/16867407/html5-why-does-my-oninvalid-attribute-let-the-pattern-fail -->
     </div>
 </div>
 

@@ -20,5 +20,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :user_skills
   accepts_nested_attributes_for :user_interest
   
+  def phonenumber=(phonenumber)
+    self[:phonenumber] = phonenumber.gsub(/\D/, '')
+  end #http://stackoverflow.com/questions/10214950/how-to-format-values-before-saving-to-database-in-rails-3
   
 end
