@@ -21,8 +21,6 @@ class UsersController < Devise::RegistrationsController
 
     #only show profile for the current user if user is logged in
     if current_user
-      puts "HERE"
-      puts params
       @user = current_user
     else
       @user = User.find(params[:id])
@@ -30,9 +28,7 @@ class UsersController < Devise::RegistrationsController
 
     respond_to do |format|
       format.html # show.html.erb
-      puts "RENDER HERE"
       format.json { render json: @user }
-      puts "AND HERE"
     end
   end
 
@@ -109,7 +105,6 @@ class UsersController < Devise::RegistrationsController
       else
          user_interests_params = []
       end
-      puts user_interests_params
       interests_all = Interest.all
       if user_interests_params
         interests_all.each do |each_interest|
