@@ -144,6 +144,7 @@ class UsersController < Devise::RegistrationsController
        @users = User.all
     end
     @skills = Skill.all
+    User.paginate(:page => params[:page], :per_page => 20)
   end
 
 end
