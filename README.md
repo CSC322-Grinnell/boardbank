@@ -6,9 +6,9 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 
 ##Table of Contents
 1. Boardbank from a User Perspective
-..1.1 Volunteer
-..1.2 Organization
-..1.3 Admins
+⋅⋅1.1. Volunteer
+⋅⋅1.2 Organization
+⋅⋅1.3 Admin
 2. Boardbank from a Developer Perspective
 ..2.1 Overview
 ..2.2 Installation
