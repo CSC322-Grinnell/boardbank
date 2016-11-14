@@ -60,4 +60,4 @@ gem 'carmen-rails'
 gem 'rails_12factor'
 
 #paginating
-gem 'will_paginate', '~> 3.1.0'
+gem 'kaminari'

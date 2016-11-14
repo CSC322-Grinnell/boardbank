@@ -17,7 +17,6 @@
             </div>
          </div>
          <%= render 'filter' %>
-         <%= will_paginate @users %>
       <div class="row">
          <h2>List of Users</h2>
          <% if user_signed_in? %>
@@ -62,6 +61,7 @@
                </div>
             <% end %>
          </div>
+         <%= paginate @users %>
       </div>
    </div>
 </div>

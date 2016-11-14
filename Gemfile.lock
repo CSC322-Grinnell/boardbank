@@ -407,7 +407,6 @@ GEM
       procto (~> 0.0.2)
     warden (1.2.6)
       rack (>= 1.0)
-    will_paginate (3.1.5)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -431,6 +430,7 @@ DEPENDENCIES
   font-awesome-rails
   jasmine-rails
   jquery-rails
+  kaminari
   metric_fu
   pg
   protected_attributes
@@ -447,7 +447,6 @@ DEPENDENCIES
   toastr-rails
   travis-lint
   uglifier
-  will_paginate (~> 3.1.0)
 
 BUNDLED WITH
    1.12.5

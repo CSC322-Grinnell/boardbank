@@ -144,7 +144,14 @@ class UsersController < Devise::RegistrationsController
        @users = User.all
     end
     @skills = Skill.all
-    User.paginate(:page => params[:page], :per_page => 20)
+    @users = Kaminari.paginate_array(@users)
+    if params[:page].present?
+      @users = @users.page(params[:page])
+    else
+      @users = @users.page(1)
+    end
+    
+    
   end
 
 end
