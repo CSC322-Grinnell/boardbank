@@ -6,17 +6,23 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 
 ##Table of Contents
 1. Boardbank from a User Perspective
+<<<<<<< HEAD
 ⋅⋅1.1. Volunteer
 ⋅⋅1.2 Organization
 ⋅⋅1.3 Admin
+=======
+  1. Volunteer
+  2. Organization
+  3. Admin
+>>>>>>> d80f633... Fix ToC and add user perspectives
 2. Boardbank from a Developer Perspective
-..2.1 Overview
-..2.2 Installation
-..2.3 Test Suite
-..2.4 Common Issues
-..2.5 Implementation Details
-....2.5.1 Volunteer Skills
-....2.5.2 Volunteer Interests
+  1. Overview
+  2. Installation
+  3. Test Suite
+  4. Common Issues
+  5. Implementation Details
+    1. Volunteer Skills
+    2. Volunteer Interests
 3. Contributors
 4. Liscence
 
@@ -28,25 +34,48 @@ Boardbank serves three types of users:
 3. Admins - GPCF employees who manage how volunteers and organizations use the website.
 
 ##1.1 Using Boardbank as a Volunteer
-Volunteers are able to create a profile and search for organizations. Once a volunteer creates an
-account and profile, they can either wait for an organization to contact them or search for organizations
-and reach out to organizations that interest them. We recommend that volunteers fill out the profiles
-with as much information as they are comfortable doing - the more information a volunteer provides,
-the easier it will be for organizations to find volunteers that fit the organization's needs.
-Volunteers can include the following information about themselves:
+As a volunteer, the first thing you need to do is sign up and create a profile. You can do so from the front page
+of the website by clicking on the green "user" button. On the sign up page, you can provide information 
+about yourself, your skills, and your interests. You can provide as much or as little information as 
+you like, but we'd recommend filling out the profile with as much information as you are comfortable with - 
+the more information a volunteer provides, the easier it will be for organizations to find volunteers that 
+fit the organization's needs. Organizations will contact you through the information you provide on the page.
+You can always edit the information you provide later.
 
+Once you have signed up, you can log in to your profile through the white "user sign in" button on the front page.
+After logging in, you can search for organizations by clicking on the "organizations" tab at the top the screen
+and using the search function to find organizations that might interest you. Alternatively, you can wait for
+organizations to find and contact you. You can also view and edit your profile from the profile tab.
 
 ##1.2 Using Boardbank as an Organization
-Coming soon
+As an organization representative, the first thing to do is sign up your organization and create a profile
+for it. You can do so from the front page of the website by clicking on the green "organization" button. 
+On the sign up page, you can provide information the organization, including its location and description.
+After signing up, you will have to wait for an administrator to approve your organization before you can use
+the website.
 
-##1.3 Using Boardbank as an Admin
-Coming soon
+Once you have signed up and an administrator approves the organization, you can log in to the organization profile 
+through the white "organization sign in" button on the front page.
+After logging in, you can search for volunteers by clicking on the "volunteers" tab at the top the screen.
+The search allows you to filter by skills and interests to find volunteers who meet the qualifictions necessary
+for the organization board. Once you find volunteers who seem suitable for the board, you wil need to contact them
+based on the information they provide in their profile. You can also view and edit your organization profile from the profile tab.
 
-To login as an admin, go to 
+##1.3 Using Boardbank as an Administrator (Admin)
+The only way to become an admin is to have an existing admin create an admin
+profile for you. Once you have been made an admin, you can log in at 
+
 ```
 /admin
 ```
-Here, you can approve organizations' profiles.
+
+Once you sign in, you can 
+* View unapproved organizations from the **Dashboard** tab
+* Add or remove other admins from the **Admin Users** tab
+* View, edit, and delete organizations from the **Organizations** tab
+* View, edit, and delete users from the **Users** tab
+The main job of an admin is to approve organizations and make sure that 
+volunteers and organizations are using the website appropriately.
 
 #2. Boardbank from a Developer Perspective
 Coming soon
