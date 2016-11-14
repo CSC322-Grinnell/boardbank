@@ -18,15 +18,13 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 2. Boardbank from a Developer Perspective
   1. Installation
   2. Test Suite
+    1. Running Tests
   3. Common Issues
   4. Resources
     1. ElasticSearch
     2. ActiveAdmin
-  5. Implementation Details
-    1. Volunteer Skills
-    2. Volunteer Interests
 3. Contributors
-4. Liscence
+4. Lisence
 
 #1. Boardbank from a User Perspective
 
@@ -142,7 +140,7 @@ Start new workspace with github link
 https://github.com/CSC322-Grinnell/boardbank
 
 Do:
-```
+```bash
 bundle install
 wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
@@ -156,13 +154,39 @@ rake db:seed
 
 ##2.2 Test Suite
 
+We break up tests by type of user (volunteer, organization, admin), and then
+again within those categories.
+
+Volunteer:
+* Navigation: logging in/out, moving from page to page
+* Editing: changing different fields in the profile
+* Searching: making sure searches turn up correct organizations
+
+Organization:
+* Navigation: logging in/out, moving from page to page
+* Editing: changing different fields in the profile
+* Searching: filtering and seeing correct volunteer
+
+Admin:
+* Navigation: logging in/out, moving from page to page
+* Managing Users: view, add, edit, delete
+* Managing Admins: view, add, edit, delete
+* Managing Organizations: view, approve, reject, add, edit, delete
+
+Currently, all the tests pass except for unimplemented features!
+
+####2.2.1 Running Tests
+
 This project employs Cucumber tests. To run the tests, do:
 ```bash
 rake db:migrate RAILS_ENV=test
-cucumber
+cucumber features/
 ```
-Currently, all the tests pass except for unimplemented features!
 
+To run individual test files, do:
+```bash
+cucumber features/*filename*
+```
 ##2.3 Common Issues
 
 One of the most common issues we run into is forgetting to restart ElasticSearch.
@@ -182,7 +206,7 @@ To restart Elasticsearch on Linux, run:
 ```
 
 To restart and reindex ElasticSearch on Cloud9, run:
-```
+```bash
 rake searchkick:reindex:all
 sudo /etc/init.d/elasticsearch restart
 ```
@@ -191,21 +215,23 @@ sudo /etc/init.d/elasticsearch restart
 
 ####2.4.1 ElasicSearch
 
-##2.5 Implementation Details
-Coming Soon
+SearchKick: http://searchkick.org/
+elasticsearch-rails: https://github.com/elastic/elasticsearch-rails
 
-####2.5.1 User Skills
-Coming Soon
+The searchkick gem handles interacting with ElasticSearch, but if you would like 
+a more in-depth overview of how ElasticSearch works, here is an introductory 
+webinar video: https://www.elastic.co/webinars/get-started-with-elasticsearch?baymax=rtp&elektra=downloads&iesrc=ctr
 
-####2.5.2 User Interests
-Comoing Soon
+####2.4.2 ActiveAdmin
 
+Documentation for customizing ActiveAdmin index pages: 
+//github.com/activeadmin/activeadmin/blob/master/docs/3-index-pages/index-as-table.md
 
 #3. Contributors
 
-Fall 2016 CSC-322 Members
-* Giang Nguyen '17, Ying Long '17, Zachary Segall '18, Marios Tsekisidis '17, Elizabeth Zak '18
-
+Fall 2016 CSC-322 
+* Members: Giang Nguyen '17, Ying Long '17, Zachary Segall '18, Marios Tsekisidis '17, Elizabeth Zak '18
+* Mentor: Cassie Schmitz
 Spring 2016 CSC-322 members:
 * Mira Hall '16, Noah Schlager '16, Ashwin Sivaramakrishnan '16, David Chang '18, Sooji Son '18
 
