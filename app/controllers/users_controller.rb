@@ -77,14 +77,20 @@ class UsersController < Devise::RegistrationsController
     if user_params[:education].empty?
       user_params.extract!(:education)
     end
+    
     message = "Incorrect current password or new password is shorter than 6 characters."
     require_password = true
-    if user_params[:current_password].empty? and (not user_params[:password_confirmation].empty?) and (not user_params[:password].empty?)
-      require_password = true
-      message = "Please enter current password."
+    
+    if not user_params[:password].empty?
+      if user_params[:current_password].empty?
+        message = "Please enter current password."
+      elsif user_params[:password_confirmation].empty?
+        message = "Please enter password confirmation."
+      end
     elsif user_params[:current_password].empty? and user_params[:password_confirmation].empty? and user_params[:password].empty?
       user_params.extract!(:current_password, :password_confirmation, :password)
       require_password = false
+      # problems unrelated to password
       message = "Update unsuccessful."
     end
     
