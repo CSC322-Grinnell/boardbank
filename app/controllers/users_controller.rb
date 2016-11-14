@@ -79,7 +79,9 @@ class UsersController < Devise::RegistrationsController
     end
 
     require_password = true
-    if user_params[:current_password].empty? and user_params[:password_confirmation].empty? and user_params[:password].empty?
+    if user_params[:current_password].empty? and (not user_params[:password_confirmation].empty?) and (not user_params[:password].empty?)
+      # 
+    elsif user_params[:current_password].empty? and user_params[:password_confirmation].empty? and user_params[:password].empty?
       user_params.extract!(:current_password, :password_confirmation, :password)
       require_password = false
     end
@@ -117,7 +119,7 @@ class UsersController < Devise::RegistrationsController
       flash[:notice] = "Your account has been updated successfully."
     else
       redirect_to user_path
-      flash[:notice] = "Update unsuccessful."
+      flash[:alert] = "Update unsuccessful."
     end
 
   end
