@@ -16,10 +16,12 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
   3. Admin
 >>>>>>> d80f633... Fix ToC and add user perspectives
 2. Boardbank from a Developer Perspective
-  1. Overview
-  2. Installation
-  3. Test Suite
-  4. Common Issues
+  1. Installation
+  2. Test Suite
+  3. Common Issues
+  4. Resources
+    1. ElasticSearch
+    2. ActiveAdmin
   5. Implementation Details
     1. Volunteer Skills
     2. Volunteer Interests
@@ -28,7 +30,9 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 
 #1. Boardbank from a User Perspective
 
-Boardbank serves three types of users:
+The Boardbank website is designed to connect volunteers who are interested in 
+serving on the board of a nonprofit organization with organizations who need
+board members. The website serves three types of users:
 1. Volunteers - individuals who are interested in being on the boards of nonprofits. 
 2. Organizations - nonprofit organizations looking for people to serve on their administrative boards.  
 3. Admins - GPCF employees who manage how volunteers and organizations use the website.
@@ -78,12 +82,34 @@ The main job of an admin is to approve organizations and make sure that
 volunteers and organizations are using the website appropriately.
 
 #2. Boardbank from a Developer Perspective
-Coming soon
 
-##2.1 Overview
-Coming soon
+The Boardbank website is designed to connect volunteers who are interested in 
+serving on the board of a nonprofit organization with organizations who need
+boardmembers. The website is built using Ruby on Rails and is hosted on 
+Heroku. We manage our test suite with Cucumber. In the last semester, we 
+have done all of our development on Cloud9, which means that some advice 
+might not apply in other contexts. 
 
-##2.2 Installation
+The framework for the website is built under the Model-View-Controller
+paradigm:
+* **Models**: The models are fairly straightforward. The main models are for volunteers,
+organizations, administrators. There are also models for volunteer skils and intersts.
+* **Views**: The views use a standard html.erb format. The views are the most
+detailed part of the website that we have written: most of the substantive parts
+of the website heavily depend on preexisting Gems. 
+* **Controllers**: There are controllers for the application, front page, 
+volunteer, and organization. The application and front mostly handle URL direction.
+The voluneer and organization controller are the important controllers because 
+they handle most of the data management and transfer user edits to the database. 
+
+There are two main Gems that are worth mentioning that add important features 
+beyond the Rails framework: ElasticSearch and ActiveAdmin. They do pretty much
+exactly what they sound like. ElasticSearch provides the code for the searching
+function of the website and ActiveAdmin provides the code for the admin portions
+of the website. We highly recommend furture developers become familiar with 
+these packages (see resources section).
+
+##2.1 Installation
 
 In order to clone the project to your local machine, do:
 ```bash
@@ -94,28 +120,10 @@ Make sure to migrate and seed the database as well:
 rake db:migrate
 rake db:seed
 ```
-
-##2.3 Test Suite
-
-This project employs Cucumber tests. To run the tests, do:
-```bash
-rake db:migrate RAILS_ENV=test
-cucumber
-```
-Currently, all the tests pass except for unimplemented features!
-
-##2.4 Common Issues
-
-This project uses Elasticsearch for the search features. If you are having errors related to Faraday, timeout, port 9200, restarting Elasticsearch usually takes care of the problem.
-
 To install Elasticsearch for Mac users, run:
 ```bash
 brew install elasticsearch
 rake searchkick:reindex:all
-```
-To restart Elasticsearch on Mac, run
-```bash
-/usr/local/bin/elasticsearch -p --restart
 ```
 
 To install Elasticsearch for Linux users (Cloud 9), run:
@@ -127,10 +135,61 @@ sudo update-rc.d elasticsearch defaults 95 10
 rake searchkick:reindex:all
 ```
 
+For quickly starting a new copy of the project on Cloud 9, run the following 
+commands:
+
+Start new workspace with github link
+https://github.com/CSC322-Grinnell/boardbank
+
+Do:
+```
+bundle install
+wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
+sudo apt-get update && sudo apt-get install elasticsearch
+sudo update-rc.d elasticsearch defaults 95 10
+rake searchkick:reindex:all
+sudo /etc/init.d/elasticsearch restart
+rake db:migrate
+rake db:seed
+```
+
+##2.2 Test Suite
+
+This project employs Cucumber tests. To run the tests, do:
+```bash
+rake db:migrate RAILS_ENV=test
+cucumber
+```
+Currently, all the tests pass except for unimplemented features!
+
+##2.3 Common Issues
+
+One of the most common issues we run into is forgetting to restart ElasticSearch.
+If you are having errors related to Faraday, timeout, port 9200, restarting 
+ElasticSearch usually takes care of the problem. If you just opened the project
+and the website won't work properly, try reindexing and restarting ElasticSearch
+
+
+To restart Elasticsearch on Mac, run
+```bash
+/usr/local/bin/elasticsearch -p --restart
+```
+
 To restart Elasticsearch on Linux, run:
 ```bash
 /etc/init.d/elasticsearch restart
 ```
+
+To restart and reindex ElasticSearch on Cloud9, run:
+```
+rake searchkick:reindex:all
+sudo /etc/init.d/elasticsearch restart
+```
+
+##2.4 Resources
+
+####2.4.1 ElasicSearch
 
 ##2.5 Implementation Details
 Coming Soon
