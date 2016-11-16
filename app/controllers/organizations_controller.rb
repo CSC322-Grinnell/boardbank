@@ -42,8 +42,8 @@ class OrganizationsController < Devise::RegistrationsController
       redirect_to org_path()
       flash[:notice] = "Your account has been updated successfully."
     else
-      redirect_to org_path()
-      flash[:notice] = "Update unsuccessful."
+      redirect_to edit_organization_registration_path
+      flash[:alert] = @organization.errors.full_messages.join(" and ").html_safe
     end
   end
 

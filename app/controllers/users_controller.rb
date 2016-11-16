@@ -78,25 +78,17 @@ class UsersController < Devise::RegistrationsController
       user_params.extract!(:education)
     end
     
-    message = "Incorrect current password or new password is shorter than 6 characters."
     require_password = true
-    
-    if not user_params[:password].empty?
-      if user_params[:current_password].empty?
-        message = "Please enter current password."
-      elsif user_params[:password_confirmation].empty?
-        message = "Please enter password confirmation."
-      end
-    elsif user_params[:current_password].empty? and user_params[:password_confirmation].empty? and user_params[:password].empty?
+    if user_params[:current_password].empty? and user_params[:password_confirmation].empty? and user_params[:password].empty?
       user_params.extract!(:current_password, :password_confirmation, :password)
       require_password = false
-      # problems unrelated to password
-      message = "Update unsuccessful."
     end
     
     
     #debugger
-    if (require_password and @user.update_with_password(user_params)) or ((not require_password) and @user.update_without_password(user_params))
+    
+    is_updatable = (require_password and @user.update_with_password(user_params)) or ((not require_password) and @user.update_without_password(user_params))
+    if is_updatable
       sign_in(@user, :bypass => true)
       #only update skills if password not required or supplied correctly 
       
@@ -127,7 +119,7 @@ class UsersController < Devise::RegistrationsController
       flash[:notice] = "Your account has been updated successfully."
     else
       redirect_to edit_user_registration_path
-      flash[:alert] = message
+      flash[:alert] = @user.errors.full_messages.join(" and ").html_safe
     end
 
   end
