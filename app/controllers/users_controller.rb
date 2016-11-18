@@ -87,8 +87,7 @@ class UsersController < Devise::RegistrationsController
     
     #debugger
     
-    is_updatable = (require_password and @user.update_with_password(user_params)) or ((not require_password) and @user.update_without_password(user_params))
-    if is_updatable
+    if (require_password and @user.update_with_password(user_params)) or ((not require_password) and @user.update_without_password(user_params))
       sign_in(@user, :bypass => true)
       #only update skills if password not required or supplied correctly 
       
@@ -118,8 +117,13 @@ class UsersController < Devise::RegistrationsController
       redirect_to user_path
       flash[:notice] = "Your account has been updated successfully."
     else
-      redirect_to edit_user_registration_path
-      flash[:alert] = @user.errors.full_messages.join(" and ").html_safe
+       @interests = Interest.all
+       @skills = Skill.all
+      @user_skills = Hash[resource.user_skills.map { |user_skill| [user_skill.skill_id, user_skill] }]
+      render action: 'edit'
+      
+      #redirect_to edit_user_registration_path
+      #flash[:alert] = @user.errors.full_messages.join(" and ").html_safe
     end
 
   end

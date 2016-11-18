@@ -6,3 +6,11 @@
   border-top-right-radius: 4px !important;
   border-top-left-radius: 4px !important;
 }
+
+.field_with_errors input {
+  border: 1px solid red;
+}
+
+#error_explanation {
+  color: red;
+}
