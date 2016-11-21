@@ -6,15 +6,9 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 
 ##Table of Contents
 1. Boardbank from a User Perspective
-<<<<<<< HEAD
-⋅⋅1.1. Volunteer
-⋅⋅1.2 Organization
-⋅⋅1.3 Admin
-=======
   1. Volunteer
   2. Organization
   3. Admin
->>>>>>> d80f633... Fix ToC and add user perspectives
 2. Boardbank from a Developer Perspective
   1. Installation
   2. Test Suite
@@ -174,6 +168,8 @@ Admin:
 * Managing Organizations: view, approve, reject, add, edit, delete
 
 Currently, all the tests pass except for unimplemented features!
+
+Note: In cucumber tests, you can't put comments on the same line as code.
 
 ####2.2.1 Running Tests
 
