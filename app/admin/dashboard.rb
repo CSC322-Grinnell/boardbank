@@ -20,8 +20,7 @@ ActiveAdmin.register_page 'Dashboard' do
         panel 'Unapproved Organizations' do
           @organization.each do |org|
             # para org.email
-            li link_to "Approve #{org.name} (#{org.email})", approve_org_path(org.id)
-            div link_to "View profile", org_path(org.id)
+            li link_to "View #{org.name} (#{org.email})", adminorg_path(org.id)
           end
         end
       end
