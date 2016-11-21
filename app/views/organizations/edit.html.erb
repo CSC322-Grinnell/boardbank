@@ -79,6 +79,15 @@
 
 <hr />
 
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h3>Change password</h3>
+</div>
+</div>
+</div>
+<hr />
 <div class="form-group">
     <%= f.label :New_Password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
     <div class="col-sm-6">
@@ -93,17 +102,6 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
     </div>
 </div>
-
-
-<div class="container">
-      <div class="row">
-        <div class="span9"><%= yield %></div>
-        <div class="span3">
-<h3>Confirm changes?</h3>
-</div>
-</div>
-</div>
-<hr />
 <div class="form-group">
     <%= f.label :current_password, class: 'col-sm-2 control-label' %>
     <div class="col-sm-6">
