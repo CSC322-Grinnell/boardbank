@@ -2,7 +2,13 @@
    $(document).ready(function(){
       $("div#filter").hide();
       $("button#filter-button").click(function(){
+          $("div#filter-interest").hide();
           $("div#filter").toggle();
+      });
+      $("div#filter-interest").hide();
+      $("button#filter-button-interest").click(function(){
+          $("div#filter").hide();
+          $("div#filter-interest").toggle();
       });
    });
    $("form#filter-boxes").submit(function() {
@@ -12,7 +18,10 @@
 </script>
 <div class="row filter-box">
     <button type="button" id="filter-button" class="btn btn-default filter-button" aria-label="Left Align">
-      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+      <span aria-hidden="true">Skills</span>
+    </button>
+    <button type="button" id="filter-button-interest" class="btn btn-default filter-button" aria-label="Left Align">
+      <span aria-hidden="true">Interest</span>
     </button>
     <div id="filter" class="filter">
         
@@ -37,7 +46,33 @@
             </div>
             <div class="row">
                 <div class="right-align">
-                    <%= link_to "Advanced search" %>   
+                    <input type="submit" value="Filter" class="btn btn-default apply-filter" aria-label="Right Align"></input>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="filter-interest" class="filter">
+        
+        <form id="filter-boxes-interest" class="filter-boxes" action="search_users" method="get">
+            <div class="row">
+                <div class="col-md-12 filter-options">
+                    <% if organization_signed_in? && !user_signed_in? %>
+                        <% @interests.each_with_index do |interest, index| %>
+                            <% if index == 1 %>
+                                <div class="checkbox col-md-6 top-padding">
+                                   <label> <%= check_box_tag 'interest_ids[]', interest.id %><%= interest.name %></label>
+                                </div>
+                            <% else %>
+                                <div class="checkbox col-md-6">
+                                   <label><%= check_box_tag 'interest_ids[]', interest.id %><%= interest.name %></label>
+                                </div>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="right-align">
                     <input type="submit" value="Filter" class="btn btn-default apply-filter" aria-label="Right Align"></input>
                 </div>
             </div>

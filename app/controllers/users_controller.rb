@@ -145,11 +145,20 @@ class UsersController < Devise::RegistrationsController
               # ["SELECT * FROM users
               # WHERE id IN
               # (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
-
+    elsif params[:interest_ids].present?
+      ids = params.require(:interest_ids)
+      @users = User.find_by_sql ["SELECT * FROM users
+               WHERE id IN
+               (SELECT user_id FROM
+                 (SELECT COUNT(interest_id) AS count, user_id FROM
+                  (SELECT user_id, interest_id FROM user_interests WHERE interest_id IN (?) AND (has_interest = 't'))
+                  GROUP BY user_id)
+                  WHERE count = ?)", ids, ids.length]
     else
        @users = User.all
     end
     @skills = Skill.all
+    @interests = Interest.all
     @users = Kaminari.paginate_array(@users)
     if params[:page].present?
       @users = @users.page(params[:page])
