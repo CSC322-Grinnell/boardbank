@@ -2,7 +2,6 @@ class FrontpageController < ApplicationController
   def index
     if user_signed_in?
       @user = current_user
-      puts @user.user_interest
     elsif organization_signed_in?
       @org = current_organization
     end

@@ -56,7 +56,7 @@ class UsersController < Devise::RegistrationsController
     @user = User.new(params[:user])
     if @user.save
       sign_in(:user, @user)
-      redirect_to user_path, notice: 'You have successfully signed up as a prospective board member'
+      redirect_to "/", notice: 'You have successfully signed up as a prospective board member'
 
     else
       render action: 'new'
