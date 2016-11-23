@@ -15,7 +15,7 @@ class UsersController < Devise::RegistrationsController
   # GET /users/1
   # GET /users/1.json
   def show
-
+    
     @interests = Interest.all
     @skills = Skill.all
 
@@ -25,7 +25,7 @@ class UsersController < Devise::RegistrationsController
     else
       @user = User.find(params[:id])
     end
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -68,8 +68,7 @@ class UsersController < Devise::RegistrationsController
   def update
 
     user_params = params.require(:user).permit(:firstname, :lastname, :address,
- :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability,
- :additional_comments, :password, :password_confirmation, :financial_contribution, :fundraise, :previous_experience, :current_password)
+ :city, :state, :zipcode, :phonenumber, :education, :areaofstudy, :email, :availability, :additional_comments, :password, :password_confirmation, :financial_contribution, :fundraise, :previous_experience, :current_password, :shownumber)
 
     if user_params[:state].empty?
       user_params.extract!(:state)

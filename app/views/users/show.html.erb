@@ -27,7 +27,7 @@
         </li>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
-          <% if @user.phonenumber %>
+          <% if @user.phonenumber && @user.shownumber %>
             <%= number_to_phone(@user.phonenumber, area_code: true) %>
           <% else %>
             None provided.
