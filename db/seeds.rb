@@ -14,6 +14,12 @@ User.create(firstname: 'Aaa', lastname: 'Bbb', email: 'aaabbb@example.com', pass
 User.create(firstname: 'Bob', lastname: 'Smith', email: 'bobsmith@example.com', password: 'password')
 User.create(firstname: 'Jane', lastname: 'Doe', email: 'janedoe@example.com', password: 'password')
 
+(1..30).each do |ind|
+	User.create!(firstname: 'First ' + ind.to_s, lastname: 'Last ' + ind.to_s, email: ind.to_s + 'first_last@example.com', password: 'password')
+	puts ind
+end
+
+
 Organization.create!(name: 'Org', about: 'An organization for organizations', email: 'org@example.com', password: 'password')
 Organization.create!(name: 'Happy Makers', about: 'We make people happy', email: 'happy@example.com', password: 'password')
 Organization.create!(name: 'Animal Shelter', about: 'Rescuing stray animals', email: 'animals@example.com', password: 'password')
