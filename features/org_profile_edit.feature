@@ -29,8 +29,8 @@ Scenario: Change password with incorrect current password
 	   And I fill in "organization_password" with "password2"
 	   And I fill in "organization_password_confirmation" with "password2"
 	   And I press "Update"
-	   Then I should see "Update unsuccessful."
-	   		And I should be on the organization profile page
+	   Then I should see "error"
+	   And I should be on the organization edit page
 Scenario: Change password with not matching passwords
     When I follow "Profile"
 	   And I follow "Edit Profile"
@@ -38,8 +38,8 @@ Scenario: Change password with not matching passwords
 	   And I fill in "organization_password" with "password3"
 	   And I fill in "organization_password_confirmation" with "password4"
 	   And I press "Update"
-	   Then I should see "Update unsuccessful."
-	   		And I should be on the organization profile page.
+	   Then I should see "error"
+	   And I should be on the organization edit page.
 Scenario: Change password
 	When I follow "Profile"
 	   And I follow "Edit Profile"

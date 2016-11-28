@@ -42,8 +42,9 @@ class OrganizationsController < Devise::RegistrationsController
       redirect_to org_path()
       flash[:notice] = "Your account has been updated successfully."
     else
-      redirect_to org_path()
-      flash[:notice] = "Update unsuccessful."
+      render action: 'edit'
+      #redirect_to edit_organization_registration_path
+      #flash[:alert] = @organization.errors.full_messages.join(" and ").html_safe
     end
   end
 
@@ -51,8 +52,16 @@ class OrganizationsController < Devise::RegistrationsController
 
     @orgs = Organization.search params[:search] if params[:search].present?
     @orgs = Organization.all if !(params[:search]).present?
+    @orgs = @orgs.to_a.delete_if {|x| x.approved == false}
     @categories = ['']
     @all_categories = ['Arts/Musuem', 'Early Childhood', 'Literacy', 'Animal Rights', 'Environmental', 'Mental Health', 'Children/Youth', 'Health Care', 'Recreation', 'Civic/Community', 'Historical', 'Preservation', 'Senior Services', 'Disabilities', 'Homeless/Emergency', 'Substance Abuse', 'Education', 'Housing Development']
+    
+    @orgs = Kaminari.paginate_array(@orgs)
+    if params[:page].present?
+      @orgs = @orgs.page(params[:page])
+    else
+      @orgs = @orgs.page(1)
+    end
   end
 
 end

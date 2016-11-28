@@ -27,7 +27,7 @@
         </li>
         <li class="list-group-item">
           <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;
-          <% if @user.phonenumber %>
+          <% if @user.phonenumber && @user.shownumber %>
             <%= number_to_phone(@user.phonenumber, area_code: true) %>
           <% else %>
             None provided.
@@ -58,11 +58,24 @@
       </ul>
       <br/>
       <ul class="list-group">
+        <h4>Interests:</h4>
+        <% if !@user.user_interest.empty? %>
+          <%  @user.user_interest.each do |user_inte| %>
+          <% unless user_inte[:has_interest] == false %>
+            <li class="list-group-item"><%= @interests.find(user_inte.interest_id).name %></li>
+            <%end %>
+          <% end %>
+        <% else %>
+          <li class="list-group-item">None Listed</li>
+        <% end %>
+      </ul>
+      <br/>
+      <ul class="list-group">
         <h4>Skills:</h4>
         <% if !@user.user_skills.empty? %>
           <%  @user.user_skills.each do |user_skill| %>
           <% unless user_skill.experience_level== UserSkill::NO_EXPERIENCE %>
-            <li class="list-group-item"><%= @skills.find(user_skill.id).name %></li>
+            <li class="list-group-item"><%= @skills.find(user_skill.skill_id).name %></li>
             <%end %>
           <% end %>
         <% else %>

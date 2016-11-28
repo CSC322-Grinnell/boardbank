@@ -7,7 +7,9 @@ Background:
   Given an unapproved organization exists with email: "test@test.com" and password: "password"
     And I login as an Admin
 Scenario: Approve an Organization
-  When I follow "Approve (test@test.com)"
+  When I follow "View (test@test.com)"
+    Then I should see "Approve"
+  When I follow "Approve"
     Then I should see "approved"
   Given I am on the organization login page
     And I fill in "Email" with "test@test.com"

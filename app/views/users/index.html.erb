@@ -3,6 +3,7 @@
       <div class="col-md-8 col-md-offset-2">
          <div class="row">
             <div class="col-md-12">
+               
                <%= form_tag search_users_path, method: :get do%>
                <div class="input-group">
                   <%= text_field_tag(:search, params[:search], class: 'form-control') %>
@@ -12,8 +13,10 @@
                   </span>
                </div>
                <% end %>
+               
             </div>
          </div>
+         <h4>Filter by:</h4>
          <%= render 'filter' %>
       <div class="row">
          <h2>List of Users</h2>
@@ -59,6 +62,7 @@
                </div>
             <% end %>
          </div>
+         <%= paginate @users %>
       </div>
    </div>
 </div>

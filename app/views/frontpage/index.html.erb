@@ -4,18 +4,29 @@
 
       <% if user_signed_in? && !organization_signed_in? %>
       <div class="page-header">
+        <% if @user.sign_in_count <= 1 %>
+          <h1 style="font-size:4em">Welcome to Boardbank!</h1>
+        <% else %>
         <h1 style="font-size:4em">Welcome back!</h1>
+        <% end %>
       </div>
       <br/>
-      <p class="lead">
+      <!-- <p class="lead">
         This should be a feed of information from organizations or users the account has interest in or contact with.
         <br/>
+      </p> 
+      -->
+      <p class="lead">
+        <% if @user.sign_in_count <= 1 %>
+          Get started with Boardbank by filling out your interests and skills so organizations can find you more easily. <br/><br/>
+          <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %><br/><br/>
+        <% elsif @user.user_interest.empty? %>
+          It seems you have not filled out your interests and skills! Please update them so organizations can find you more easily. <br/><br/>
+          <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %><br/><br/>
+        <% end %>
+        Find compatible organizations through our organization search. <br/><br/>
+        <%= link_to "Search organizations", organizations_path, :method => :get, :class => 'btn btn-large btn-success' %>
       </p>
-      
-      <% if false %>
-        <%= link_to "Edit Profile", edit_user_registration_path, :method => :get, :class => 'btn btn-large btn-success' %>
-        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
-      <% end %>
       
       <% elsif organization_signed_in? %>
       <h1>Welcome back!</h1>
