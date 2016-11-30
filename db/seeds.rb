@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+AdminUser.create!(email: 'admin1@example.com', password: 'password', password_confirmation: 'password')
 user = User.create(firstname: 'User', lastname: 'Man', email: 'user@exam.com',
 	password: 'password', address: '123 Main Street', city: 'Grinnell',
 	state: 'Iowa', zipcode: '50112', phonenumber: '1234567891',
@@ -14,12 +15,10 @@ User.create(firstname: 'Aaa', lastname: 'Bbb', email: 'aaabbb@example.com', pass
 User.create(firstname: 'Bob', lastname: 'Smith', email: 'bobsmith@example.com', password: 'password')
 User.create(firstname: 'Jane', lastname: 'Doe', email: 'janedoe@example.com', password: 'password')
 
-(1..30).each do |ind|
-	User.create!(firstname: 'First ' + ind.to_s, lastname: 'Last ' + ind.to_s, email: ind.to_s + 'first_last@example.com', password: 'password')
-	puts ind
-end
-
-
+# (1..30).each do |ind|
+# 	User.create!(firstname: 'First ' + ind.to_s, lastname: 'Last ' + ind.to_s, email: ind.to_s + 'first_last@example.com', password: 'password')
+# 	puts ind
+# end
 Organization.create!(name: 'Org', about: 'An organization for organizations', email: 'org@example.com', password: 'password')
 Organization.create!(name: 'Happy Makers', about: 'We make people happy', email: 'happy@example.com', password: 'password')
 Organization.create!(name: 'Animal Shelter', about: 'Rescuing stray animals', email: 'animals@example.com', password: 'password')

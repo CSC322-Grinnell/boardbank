@@ -137,8 +137,8 @@ class UsersController < Devise::RegistrationsController
                WHERE id IN
                (SELECT user_id FROM
                  (SELECT COUNT(skill_id) AS count, user_id FROM
-                  (SELECT user_id, skill_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))
-                  GROUP BY user_id)
+                  (SELECT user_id, skill_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant')) AS needsalias2
+                  GROUP BY user_id) AS needsalias
                   WHERE count = ?)", ids, ids.length]
                
               # ["SELECT * FROM users
@@ -150,8 +150,8 @@ class UsersController < Devise::RegistrationsController
                WHERE id IN
                (SELECT user_id FROM
                  (SELECT COUNT(interest_id) AS count, user_id FROM
-                  (SELECT user_id, interest_id FROM user_interests WHERE interest_id IN (?) AND (has_interest = 't'))
-                  GROUP BY user_id)
+                  (SELECT user_id, interest_id FROM user_interests WHERE interest_id IN (?) AND (has_interest = 't')) AS needsalias2
+                  GROUP BY user_id) AS needsalias
                   WHERE count = ?)", ids, ids.length]
     else
        @users = User.all
