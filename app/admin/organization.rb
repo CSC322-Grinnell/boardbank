@@ -1,10 +1,10 @@
 ActiveAdmin.register Organization do
   
   index do
+    column :name
     column :email
-    column :current_sign_in_at
-    column :last_sign_in_at
-    column :sign_in_count
+    column :contact_name
+    column :approved
     actions
   end
 
@@ -21,15 +21,8 @@ ActiveAdmin.register Organization do
     
   end
   
-  # Hides encrypted password:
   show do
-    attributes_table do
-      default_attribute_table_rows.each do |field|
-        if (field!=:encrypted_password) then
-          row field
-        end
-      end
-    end
+    attributes_table :name, :email, :approved, :contact_name, :address, :city, :state, :zipcode, :telephone, :about
   end
   
   # Adds "Approve" button, if organization isn't approved yet

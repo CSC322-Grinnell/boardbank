@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :skills, through: :user_skills
 
   has_many :user_interest
-  has_many :interests, through: :user_interest
+  has_many :interests, through: :user_inuterest
 
   accepts_nested_attributes_for :user_skills
   accepts_nested_attributes_for :user_interest
