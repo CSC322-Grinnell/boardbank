@@ -29,10 +29,11 @@
       </p>
       
       <% elsif organization_signed_in? %>
-      <h1>Welcome back!</h1>
+      <h1>Welcome to Boardbank!</h1>
       <br/>
       <p class="lead">
-        This should be a feed of information from organizations or users the account has interest in or contact with.
+        Find compatible prospective board members through our user search. <br/><br/>
+        <%= link_to "Search users", users_path, :method => :get, :class => 'btn btn-large btn-success' %>
         <br/>
       </p>
       
