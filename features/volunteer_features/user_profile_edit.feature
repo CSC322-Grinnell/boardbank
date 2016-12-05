@@ -8,6 +8,12 @@ Background:
 	Given  I login as a User
 	And I am on the home page
 	
+Scenario: Correct edit profile display
+	  When I follow "Profile"
+	  And I follow "Edit Profile"
+	    Then I should see "Informtion Technology"
+	  
+	  
 Scenario: Edit profile happy case, no password provided
 	  When I follow "Profile"
 	  And I follow "Edit Profile"
@@ -22,7 +28,7 @@ Scenario: Edit profile happy case, no password provided
 	   And I fill in "user_areaofstudy" with "Magic"
 	   And I check "user_previous_experience"
 	   And I check "user_financial_contribution"
-	   And I choose hidden "user_user_skills_attributes_7_experience_level_some" 
+	   And I choose "user_user_skills_attributes_7_experience_level_some" 
 	   #Information Technology
 	   And I check "interest_14" 
 	   #Disabilities

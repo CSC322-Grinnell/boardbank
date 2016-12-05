@@ -106,7 +106,7 @@
       <div class="form-group">
         <%= label_tag 'interests', interest.name, class: 'col-sm-2 control-label'  %>
         <div class="col-sm-6">
-                 <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id) && resource.user_interest.find(){|inte| inte[:interest_id].to_s == interest.id.to_s}.has_interest, {class: 'form-control', id: "interest_#{interest.id}"} %>
+                 <%= check_box_tag 'interests[]', interest.id, resource.interest_ids.include?(interest.id) & resource.user_interest.find(){|inte| inte[:interest_id].to_s == interest.id.to_s}.has_interest, {class: 'form-control', id: "interest_#{interest.id}"} %>
         </div>
       </div>
     <% end %>

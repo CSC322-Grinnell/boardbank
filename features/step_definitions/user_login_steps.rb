@@ -1,3 +1,4 @@
+
   Given(/^an account exists with email: "(.*?)" and password: "(.*?)"$/) do |email, password|
     User.create(email: email, password: password)
     User.reindex
@@ -28,6 +29,7 @@
   Given(/^I login as a User$/) do
     steps %(
     Given I am on the user login page
+        And skills exist
         And an account exists with email: "user@example.com" and password: "password"
         And I login with email "user@example.com" and password "password")
   end
