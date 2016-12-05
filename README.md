@@ -13,8 +13,9 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
   1. Installation
   2. Test Suite
     1. Running Tests
-  3. Common Issues
-  4. Resources
+  3. Implementation Details
+  4. Common Issues
+  5. Resources
     1. ElasticSearch
     2. ActiveAdmin
 3. Contributors
@@ -85,7 +86,9 @@ might not apply in other contexts.
 The framework for the website is built under the Model-View-Controller
 paradigm:
 * **Models**: The models are fairly straightforward. The main models are for volunteers,
-organizations, administrators. There are also models for volunteer skils and intersts.
+organizations, administrators. There are also models for volunteer skils and interests.
+It's important to note that if you add fields to models, you have to re-migrate the 
+database (see Common Issues)
 * **Views**: The views use a standard html.erb format. The views are the most
 detailed part of the website that we have written: most of the substantive parts
 of the website heavily depend on preexisting Gems. 
@@ -183,7 +186,57 @@ To run individual test files, do:
 ```bash
 cucumber features/*filename*
 ```
-##2.3 Common Issues
+##2.3 Implementation Detais
+
+In order to verify that phone numbers and other fields are in the correct 
+format, we used regular expressions (regexes). The code for verifying user phone
+numbers is in the sign-up page (app/views/users/new.html.erb) and the edit page 
+(app/views/users/edit.html.erb)
+
+Required/not:
+We thought we would also offer the user the option of omitting phone-number entry. 
+This could be achieved by simply adding:
+:required => false
+to the phone-number field in the .erb files. We made no alterations to the 
+organizations-equivalents, so a phone number is still required for organization 
+registration. However, it is easy enough to avoid people seeing a phone number or 
+email address if 	they opt out of the visibility. 
+
+####Admin-page:
+
+Adding links to the admin dashboard:
+To create links from the Admin dashboard to view unapproved organizations, we 
+added the following code to (app/admin/dashboard.rb):
+@organization.each do |org|
+    li link_to "View #{org.name} (#{org.email})", adminorg_path(org.id)
+end
+
+Hiding the encrypted password field in single-org:
+To hide the encrypted password in the admin view, in 
+app/admin/organization.rb we added the conditional:
+if (field!=:encrypted_password) then
+    row field
+end
+along with the entire show function in which it is contained. 
+
+Action items in single-org:
+In order to add the options of 
+1) viewing any particular organization as a user, 
+2) approving any particular unapproved organization, we added “action items”:
+action_item :view_as_user, only: :show do
+    link_to "View As User", org_path(params[:id])
+end
+	and
+action_item :approve, only: :show do #only in the show page!
+    if !Organization.find(params[:id]).approved? then
+        link_to "Approve", approve_org_path(params[:id])
+    end
+end
+to app/admin/organization.rb. The “only: :show” tag ensures that these 
+action items (buttons at the top of the page) are only displayed on pages of 
+views (‘show’-pages) of particular organizations.
+
+##2.4 Common Issues
 
 One of the most common issues we run into is forgetting to restart ElasticSearch.
 If you are having errors related to Faraday, timeout, port 9200, restarting 
@@ -207,9 +260,16 @@ rake searchkick:reindex:all
 sudo /etc/init.d/elasticsearch restart
 ```
 
-##2.4 Resources
+If you add a field to a model, you have to migrate the change
+to the database. To do so, run the following commands:
+```bash
+rails generate migration add_shownumber__to_users shownumber:boolean
+rake db:migrate
+```
 
-####2.4.1 ElasicSearch
+##2.5 Resources
+
+####2.5.1 ElasicSearch
 
 SearchKick: http://searchkick.org/
 elasticsearch-rails: https://github.com/elastic/elasticsearch-rails
@@ -218,7 +278,7 @@ The searchkick gem handles interacting with ElasticSearch, but if you would like
 a more in-depth overview of how ElasticSearch works, here is an introductory 
 webinar video: https://www.elastic.co/webinars/get-started-with-elasticsearch?baymax=rtp&elektra=downloads&iesrc=ctr
 
-####2.4.2 ActiveAdmin
+####2.5.2 ActiveAdmin
 
 Documentation for customizing ActiveAdmin index pages: 
 //github.com/activeadmin/activeadmin/blob/master/docs/3-index-pages/index-as-table.md
