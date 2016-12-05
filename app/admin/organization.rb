@@ -1,5 +1,5 @@
 ActiveAdmin.register Organization do
-  
+  config.comments = false
   index do
     column :name
     column :email
