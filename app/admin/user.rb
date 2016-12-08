@@ -28,15 +28,9 @@ ActiveAdmin.register User do
     f.actions
   end
   
-  show do
+  show :title =>  proc {|user|user.firstname + " " + user.lastname } do
+    #page_title user.firstname + " " + user.lastname
     attributes_table :email, :firstname, :lastname, :education, :areaofstudy, :previous_experience, :fundraise, :financial_contribution, :availability, :address, :city, :state, :zipcode, :phonenumber, :additional_comments
   end
   
-end
-
-
-def hide_fields (fields)
-  fields.each do |f|
-    
-  end
 end

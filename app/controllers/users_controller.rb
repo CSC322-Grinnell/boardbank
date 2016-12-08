@@ -128,7 +128,6 @@ class UsersController < Devise::RegistrationsController
   end
 
   def index
-    
     if params[:search].present?
       @users = User.search params[:search]
     elsif (params[:skill_ids].present? or params[:interest_ids].present?)
@@ -149,7 +148,6 @@ class UsersController < Devise::RegistrationsController
       if params[:interest_ids].present?
         if params[:skill_ids].present?
           users_temp = @users
-          puts "BOTH"
         end
         ids = params.require(:interest_ids)
         @users = User.find_by_sql ["SELECT * FROM users
