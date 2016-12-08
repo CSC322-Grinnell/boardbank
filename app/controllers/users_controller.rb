@@ -131,28 +131,36 @@ class UsersController < Devise::RegistrationsController
     
     if params[:search].present?
       @users = User.search params[:search]
-    elsif params[:skill_ids].present?
-      ids = params.require(:skill_ids)
-      @users = User.find_by_sql ["SELECT * FROM users
-               WHERE id IN
-               (SELECT user_id FROM
-                 (SELECT COUNT(skill_id) AS count, user_id FROM
-                  (SELECT user_id, skill_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant')) AS needsalias2
-                  GROUP BY user_id) AS needsalias
-                  WHERE count = ?)", ids, ids.length]
-               
-              # ["SELECT * FROM users
-              # WHERE id IN
-              # (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
-    elsif params[:interest_ids].present?
-      ids = params.require(:interest_ids)
-      @users = User.find_by_sql ["SELECT * FROM users
-               WHERE id IN
-               (SELECT user_id FROM
-                 (SELECT COUNT(interest_id) AS count, user_id FROM
-                  (SELECT user_id, interest_id FROM user_interests WHERE interest_id IN (?) AND (has_interest = 't')) AS needsalias2
-                  GROUP BY user_id) AS needsalias
-                  WHERE count = ?)", ids, ids.length]
+    elsif (params[:skill_ids].present? or params[:interest_ids].present?)
+      if params[:skill_ids].present?
+        ids = params.require(:skill_ids)
+        @users = User.find_by_sql ["SELECT * FROM users
+                 WHERE id IN
+                 (SELECT user_id FROM
+                   (SELECT COUNT(skill_id) AS count, user_id FROM
+                    (SELECT user_id, skill_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant')) AS needsalias2
+                    GROUP BY user_id) AS needsalias
+                    WHERE count = ?)", ids, ids.length]
+                 
+                # ["SELECT * FROM users
+                # WHERE id IN
+                # (SELECT user_id FROM user_skills WHERE skill_id IN (?) AND (experience_level = 'Some' OR experience_level = 'Significant'))", ids]
+      end
+      if params[:interest_ids].present?
+        if params[:skill_ids].present?
+          users_temp = @users
+          puts "BOTH"
+        end
+        ids = params.require(:interest_ids)
+        @users = User.find_by_sql ["SELECT * FROM users
+                 WHERE id IN
+                 (SELECT user_id FROM
+                   (SELECT COUNT(interest_id) AS count, user_id FROM
+                    (SELECT user_id, interest_id FROM user_interests WHERE interest_id IN (?) AND (has_interest = 't')) AS needsalias2
+                    GROUP BY user_id) AS needsalias
+                    WHERE count = ?)", ids, ids.length]
+        @users = @users.select {|user| users_temp.include? user} if not users_temp.nil?
+      end
     else
        @users = User.all
     end
