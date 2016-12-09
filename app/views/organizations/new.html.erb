@@ -98,7 +98,7 @@
 <div class="form-group">
     <%= f.label :Phone_Number, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.telephone_field :telephone, class: "form-control", :required => false, :pattern => '^(\s{1,}|)(\(|)\d{3}(\)|)(\s{1,}|)(-|)(\s{1,}|)\d{3}(\s{1,}|)(-|)(\s{1,}|)\d{4}$', :oninvalid => "setCustomValidity('Please type only digits, parentheses and dashes, e.g. 777-777-7777 or (777) 777-7777, or simply 7777777777. Make sure you are entering 10 digits.')", :oninput => "setCustomValidity('')" %>
+        <%= f.telephone_field :telephone, class: "form-control", :required => true, :pattern => '^(\s{1,}|)(\(|)\d{3}(\)|)(\s{1,}|)(-|)(\s{1,}|)\d{3}(\s{1,}|)(-|)(\s{1,}|)\d{4}$', :oninvalid => "setCustomValidity('Please type only digits, parentheses and dashes, e.g. 777-777-7777 or (777) 777-7777, or simply 7777777777. Make sure you are entering 10 digits.')", :oninput => "setCustomValidity('')" %>
     </div>
 </div>
 
