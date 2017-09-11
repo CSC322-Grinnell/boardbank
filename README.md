@@ -62,6 +62,8 @@ To restart Elasticsearch on Linux, run:
 
 ## Contributors
 
+Fall 2016 CSC-322 members:
+ * Ying Long '17, Giang Nguyen '17, Marios Tsedikis '17, Zachary Segall '18, Elizabeth Zak '18
 Spring 2016 CSC-322 members:
 * Mira Hall '16, Noah Schlager '16, Ashwin Sivaramakrishnan '16, David Chang '18, Sooji Son '18
 
