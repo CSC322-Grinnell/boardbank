@@ -38,3 +38,11 @@ bower.json
 
 #ignore debug files
 .byebug_history
+
+# For Emacs temporary files
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.\#*
