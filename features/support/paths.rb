@@ -24,6 +24,9 @@ module NavigationHelpers
 
     when /^the organization profile page/
       '/profile/organization'
+      
+    when /^the organization edit page/
+      '/organizations'
 
     when /^the user login page/
       '/users/sign_in'

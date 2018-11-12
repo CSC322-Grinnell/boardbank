@@ -1,31 +1,32 @@
 <div class="pager-header">
   <!-- Static navbar -->
-  <nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-collapse collapse">
-      <a class="navbar-brand" href="/">Boardbank</a>
-      <ul class="nav navbar-nav">
-        <!-- Put left align elements here! -->
-      </ul>
-
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle btn btn-default btn-hamburger" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">BoardBank</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="hidden-sm"><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
+        <li><a href="http://www.greaterpcf.org/">Greater Poweshiek Community Foundation</a></li>
         <% if user_signed_in? %>
-          <li class="hidden-sm"><a href="/organizations">Organizations</a></li>
-          <li class="hidden-sm"><%= link_to 'Profile', controller: "users", action: "show" %></li>
-          <li class="hidden-sm"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
-          <%= render 'layouts/dropdown' %>
-        <% else %>
+          <li><a href="/organizations">Organizations</a></li>
+          <li><%= link_to 'Profile', controller: "users", action: "show" %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
         <% end %>
         <% if organization_signed_in? %>
           <% @id = current_organization.id %>
-          <li class="hidden-sm"><a href="/organizations">Organizations</a></li>
-          <li class="hidden-sm"><a href="/users">Users</a></li>
-          <li class="hidden-sm"><%= link_to 'Profile', controller: "organizations", action: "show", id: @id %></li>
-          <li class="hidden-sm"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
-          <%= render 'layouts/dropdown' %>
-        <% else %>
+          <li><a href="/organizations">Organizations</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><%= link_to 'Profile', controller: "organizations", action: "show", id: @id %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
         <% end %>
       </ul>
-    </div><!--/.nav-collapse -->
-  </nav>
+    </div>
+  </div>
+</nav>
 </div>

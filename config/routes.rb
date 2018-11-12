@@ -13,6 +13,7 @@ Boardbank::Application.routes.draw do
   #organization related routes
   devise_scope :organization do
     get '/profile/organization(/:id)' => 'organizations#show', as: 'org'
+    get '/admin/organizations(/:id)' => 'organizations#show', as: 'adminorg' #added 2016-11-14 - marios
     get '/organizations'            => 'organizations#index'
     get 'search_orgs', :to          => 'organizations#index'
   end

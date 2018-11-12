@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 ActiveAdmin.setup do |config|
+  
   # == Site Title
   #
   # Set the title that is displayed on the main layout
@@ -107,6 +108,10 @@ ActiveAdmin.setup do |config|
   #   config.namespace :without_comments do |without_comments|
   #     without_comments.allow_comments = false
   #   end
+  config.comments = false
+  config.show_comments_in_menu = false
+  config.comments_registration_name = "ActiveComment"
+  
 
   # == Batch Actions
   #

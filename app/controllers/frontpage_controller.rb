@@ -1,5 +1,10 @@
 class FrontpageController < ApplicationController
   def index
+    if user_signed_in?
+      @user = current_user
+    elsif organization_signed_in?
+      @org = current_organization
+    end
   end
 
   def approve_org
