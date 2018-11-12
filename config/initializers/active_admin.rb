@@ -109,7 +109,7 @@ ActiveAdmin.setup do |config|
   #     without_comments.allow_comments = false
   #   end
   config.comments = false
-  config.show_comments_in_menu = false
+  config.comments_menu = false
   config.comments_registration_name = "ActiveComment"
   
 
