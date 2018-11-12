@@ -58,3 +58,6 @@ gem 'carmen-rails'
 
 # for Heroku deployment
 gem 'rails_12factor'
+
+#paginating
+gem 'kaminari'

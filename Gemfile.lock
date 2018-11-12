@@ -430,6 +430,7 @@ DEPENDENCIES
   font-awesome-rails
   jasmine-rails
   jquery-rails
+  kaminari
   metric_fu
   pg
   protected_attributes
@@ -448,4 +449,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

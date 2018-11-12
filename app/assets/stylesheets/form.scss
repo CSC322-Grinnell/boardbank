@@ -6,3 +6,18 @@
   border-top-right-radius: 4px !important;
   border-top-left-radius: 4px !important;
 }
+
+.field_with_errors input {
+  border: 1px solid red;
+}
+
+#error_explanation {
+  color: red;
+}
+
+.edit-interests input[type=checkbox]
+{
+  height: 1em;
+  width: 1em;
+  margin: 0.7em 0 0;
+}
