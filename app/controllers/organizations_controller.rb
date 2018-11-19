@@ -12,7 +12,7 @@ class OrganizationsController < Devise::RegistrationsController
 
   #creates a new organization - saves to the database
   def create
-    @organization = Organization.new(params[:organization])
+    @organization = Organization.new(org_params)
     if @organization.save
       redirect_to :root, notice: 'You have signed up successfully but your account has not been approved.'
     else
@@ -22,7 +22,6 @@ class OrganizationsController < Devise::RegistrationsController
 
   #updates the edits from the edit profile page
   def update
-    org_params = params.require(:organization).permit(:password, :password_confirmation, :current_password, :name, :about, :address, :city, :state, :zipcode, :telephone, :contact_name, :email)
     #password cannot be blank, so what if the org doesn't want to update the password?
     #we make sure nothing gets updated in the password field then.
     require_password = true
@@ -64,4 +63,12 @@ class OrganizationsController < Devise::RegistrationsController
     end
   end
 
+  private
+
+  def org_params
+    params.require(:organization)
+          .permit(:approved, :password, :password_confirmation,
+                  :current_password, :name, :about, :address, :city, :state,
+                  :zipcode, :telephone, :contact_name, :email, :remember_me)
+  end
 end

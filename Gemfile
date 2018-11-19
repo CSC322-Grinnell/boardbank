@@ -4,7 +4,6 @@ gem 'rails', '4.2.5.1'
 
 gem 'activeadmin'
 gem 'devise'
-gem 'protected_attributes'
 group :development, :test do
   gem 'sqlite3'
 end

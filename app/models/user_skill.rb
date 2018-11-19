@@ -1,8 +1,7 @@
 class UserSkill < ApplicationRecord
-	NO_EXPERIENCE = 'None'
-	SOME_EXPERIENCE = 'Some'
-	SIGNIFICANT_EXPERIENCE = 'Significant'
-  attr_accessible :skill_id, :experience_level
+  NO_EXPERIENCE = 'None'
+  SOME_EXPERIENCE = 'Some'
+  SIGNIFICANT_EXPERIENCE = 'Significant'
   belongs_to :user
   belongs_to :skill
 end
