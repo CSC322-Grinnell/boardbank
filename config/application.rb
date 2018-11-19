@@ -81,5 +81,8 @@ module Boardbank
     # in your application will each have their own CSRF token that is specified
     # to the action and method for that form.
     config.action_controller.per_form_csrf_tokens = true
+
+    # Configure site to check HTTP origin header against sites origin header for additional security
+    config.action_controller.forgery_protection_origin_check = true
   end
 end
