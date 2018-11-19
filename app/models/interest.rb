@@ -1,4 +1,4 @@
-class Interest < ActiveRecord::Base
+class Interest < ApplicationRecord
   attr_accessible :name, :id
   has_many :user_interest
   has_many :users, through: :user_interest

@@ -1,4 +1,4 @@
-class Skill < ActiveRecord::Base
+class Skill < ApplicationRecord
   attr_accessible :name
 
   has_many :user_skills

@@ -1,4 +1,4 @@
-class UserSkill < ActiveRecord::Base
+class UserSkill < ApplicationRecord
 	NO_EXPERIENCE = 'None'
 	SOME_EXPERIENCE = 'Some'
 	SIGNIFICANT_EXPERIENCE = 'Significant'
