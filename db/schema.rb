@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,17 +15,16 @@ ActiveRecord::Schema.define(version: 20161028185543) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "resource_id",   null: false
     t.string   "resource_type", null: false
-    t.integer  "author_id"
     t.string   "author_type"
+    t.integer  "author_id"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "namespace"
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -41,10 +39,9 @@ ActiveRecord::Schema.define(version: 20161028185543) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
-
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "interests", force: :cascade do |t|
     t.string   "name"
@@ -74,11 +71,10 @@ ActiveRecord::Schema.define(version: 20161028185543) do
     t.string   "zipcode"
     t.string   "telephone"
     t.string   "contact_name"
+    t.index ["approved"], name: "index_organizations_on_approved"
+    t.index ["email"], name: "index_organizations_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true
   end
-
-  add_index "organizations", ["approved"], name: "index_organizations_on_approved"
-  add_index "organizations", ["email"], name: "index_organizations_on_email", unique: true
-  add_index "organizations", ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true
 
   create_table "skills", force: :cascade do |t|
     t.string   "name"
@@ -93,10 +89,9 @@ ActiveRecord::Schema.define(version: 20161028185543) do
     t.boolean  "has_interest", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["interest_id"], name: "index_user_interests_on_interest_id"
+    t.index ["user_id"], name: "index_user_interests_on_user_id"
   end
-
-  add_index "user_interests", ["interest_id"], name: "index_user_interests_on_interest_id"
-  add_index "user_interests", ["user_id"], name: "index_user_interests_on_user_id"
 
   create_table "user_skills", force: :cascade do |t|
     t.integer  "user_id"
@@ -104,10 +99,9 @@ ActiveRecord::Schema.define(version: 20161028185543) do
     t.string   "experience_level"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["skill_id"], name: "index_user_skills_on_skill_id"
+    t.index ["user_id"], name: "index_user_skills_on_user_id"
   end
-
-  add_index "user_skills", ["skill_id"], name: "index_user_skills_on_skill_id"
-  add_index "user_skills", ["user_id"], name: "index_user_skills_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                            default: "",    null: false
@@ -137,9 +131,8 @@ ActiveRecord::Schema.define(version: 20161028185543) do
     t.float    "availability"
     t.string   "additional_comments"
     t.boolean  "shownumber"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
