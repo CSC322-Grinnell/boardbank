@@ -22,21 +22,22 @@ class OrganizationsController < Devise::RegistrationsController
 
   #updates the edits from the edit profile page
   def update
+    updated_info = org_params
     #password cannot be blank, so what if the org doesn't want to update the password?
     #we make sure nothing gets updated in the password field then.
     require_password = true
-    if org_params[:password].empty? and org_params[:password_confirmation].empty? and org_params[:current_password].empty?
-      org_params.extract!(:password, :password_confirmation, :current_password)
+    if updated_info[:password].empty? and updated_info[:password_confirmation].empty? and updated_info[:current_password].empty?
+      updated_info.extract!(:password, :password_confirmation, :current_password)
       require_password = false
     end
 
     # Prevent the state field from getting cleared everytime a user goes to the edit page
-    if org_params[:state].empty?
-      org_params.extract!(:state)
+    if updated_info[:state].empty?
+      updated_info.extract!(:state)
     end
 
     #otherwise update the attributes
-    if (require_password and @organization.update_with_password(org_params)) or ((not require_password) and @organization.update_without_password(org_params))      #handle successful update
+    if (require_password and @organization.update_with_password(updated_info)) or ((not require_password) and @organization.update_without_password(updated_info))      #handle successful update
       sign_in(@organization, :bypass => true)
       redirect_to org_path()
       flash[:notice] = "Your account has been updated successfully."
@@ -67,7 +68,7 @@ class OrganizationsController < Devise::RegistrationsController
 
   def org_params
     params.require(:organization)
-          .permit(:approved, :password, :password_confirmation,
+          .permit(:password, :password_confirmation,
                   :current_password, :name, :about, :address, :city, :state,
                   :zipcode, :telephone, :contact_name, :email, :remember_me)
   end
