@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:Studiosity/carmen-rails.git
+  revision: e0abee15cc2cd789fbab8bbf7ad498a8783aa3dd
+  specs:
+    carmen-rails (1.0.1)
+      carmen (~> 1.0.0)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -90,9 +98,6 @@ GEM
       xpath (~> 3.2)
     carmen (1.0.2)
       activesupport (>= 3.0.0)
-    carmen-rails (1.0.1)
-      carmen (~> 1.0.0)
-      rails
     chronic (0.10.2)
     churn (0.0.35)
       chronic (>= 0.2.3)
@@ -462,7 +467,7 @@ DEPENDENCIES
   autoprefixer-rails
   autotest-rails
   bootstrap-sass
-  carmen-rails
+  carmen-rails!
   coffee-rails
   cucumber-rails
   cucumber-rails-training-wheels

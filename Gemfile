@@ -53,7 +53,7 @@ gem 'autoprefixer-rails'
 gem 'test-unit'
 
 # for the list of U.S. States
-gem 'carmen-rails'
+gem 'carmen-rails', :git => 'https://github.com/Studiosity/carmen-rails.git'
 
 # for Heroku deployment
 gem 'rails_12factor'
