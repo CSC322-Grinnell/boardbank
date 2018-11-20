@@ -1,4 +1,5 @@
 ActiveAdmin.register Organization do
+  permit_params :email, :password, :password_confirmation
   config.comments = false
   index do
     column :name
