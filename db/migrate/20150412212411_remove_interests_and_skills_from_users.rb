@@ -1,4 +1,4 @@
-class RemoveInterestsAndSkillsFromUsers < ActiveRecord::Migration
+class RemoveInterestsAndSkillsFromUsers < ActiveRecord::Migration[5.1]
   def up
   end
 

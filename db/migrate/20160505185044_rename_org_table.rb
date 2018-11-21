@@ -1,4 +1,4 @@
-class RenameOrgTable < ActiveRecord::Migration
+class RenameOrgTable < ActiveRecord::Migration[5.1]
   def change
     rename_column :organizations, :org_contactname, :contact_name
     rename_column :organizations, :org_address, :address

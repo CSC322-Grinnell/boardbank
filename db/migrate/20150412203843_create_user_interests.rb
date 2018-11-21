@@ -1,4 +1,4 @@
-class CreateUserInterests < ActiveRecord::Migration
+class CreateUserInterests < ActiveRecord::Migration[5.1]
   def change
     create_table :user_interests do |t|
       t.string :user_id
