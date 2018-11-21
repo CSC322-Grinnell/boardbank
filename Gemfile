@@ -1,9 +1,10 @@
 source 'https://rubygems.org/'
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.1'
 
 gem 'activeadmin'
 gem 'devise'
+gem 'bootsnap', require: false
 group :development, :test do
   gem 'sqlite3'
 end
