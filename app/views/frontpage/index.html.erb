@@ -33,7 +33,7 @@
       <br/>
       <p class="lead">
         Find compatible prospective board members through our user search. <br/><br/>
-        <%= link_to "Search users", users_path, :method => :get, :class => 'btn btn-large btn-success' %>
+        <%= link_to "Search Individuals", users_path, :method => :get, :class => 'btn btn-large btn-success' %>
         <br/>
       </p>
       
@@ -43,16 +43,20 @@
       <% end %>
         
       <% else %>
-      <h1>Welcome!</h1>
-      <br/>
       <p class="lead">
-        This is the Greater Poweshiek Community Foundation's Boardbank website where we help match up interested users with organizations in need of board members. Please either sign in or sign up to access Boardbank.
+        <h1>Welcome to Boardbank!</h1>
+        Boardbank is the Greater Poweshiek Community Foundation's Boardbank website that matches interested individuals with organizations in need of board members. Please either sign in or sign up to access Boardbank.
+        <br/>
+        <br/>
+        An <b>Organization</b> is a group that has a managerial board to organize people to accomplish some goal or common interest. If you intend to seek out individuals to be a part of a board, use Boardbank as an organization. 
+        <br/>
+        An <b>Individual</b> is an independent persons who is interested in joining the managerial board of an organization. If you aim to join or become a member an organizational board, use Boardbank as an individual.
         <br/>
         <br/>
         Sign up as
         <span class="row-fluid">
           <span class="span6">
-            <%= link_to "User", new_user_registration_path, :class => "btn btn-large btn-success" %>
+            <%= link_to "Individual", new_user_registration_path, :class => "btn btn-large btn-success" %>
             or
             <%= link_to "Organization", new_organization_registration_path, :class => "btn btn-large btn-success" %>
 
@@ -61,7 +65,7 @@
         <br/>
         <hr/>
         <br/>
-        <%= link_to "User Sign In", new_user_session_path, :class => "btn btn-large
+        <%= link_to "Individual Sign In", new_user_session_path, :class => "btn btn-large
         btn-default" %>
         or
         <%= link_to "Organization Sign In", new_organization_session_path, :class => "btn btn-large
