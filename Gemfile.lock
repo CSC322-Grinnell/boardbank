@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:Studiosity/carmen-rails.git
+  remote: https://github.com/Studiosity/carmen-rails.git
   revision: e0abee15cc2cd789fbab8bbf7ad498a8783aa3dd
   specs:
     carmen-rails (1.0.1)
