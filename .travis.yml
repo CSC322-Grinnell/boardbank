@@ -1,14 +1,8 @@
 language: ruby
 rvm:
-  - "2.2.1"
-services:
-  - elasticsearch
-before_script:
-  - sleep 10
+  - "2.3.4"
+before_install:
+  - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.3.deb && sudo dpkg -i --force-confnew elasticsearch-6.4.3.deb
+  - sudo -i service elasticsearch start
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
-  - bundle exec rake cucumber
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
+  - bundle exec cucumber features/
