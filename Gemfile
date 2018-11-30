@@ -22,7 +22,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
 #Searchkick
-gem 'searchkick'
+gem 'searchkick', '2.5.0'
 
 # debugger is useful in development mode too
 group :development, :test do
