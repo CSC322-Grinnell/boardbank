@@ -1,4 +1,4 @@
-class AddExperienceToSkills < ActiveRecord::Migration
+class AddExperienceToSkills < ActiveRecord::Migration[5.1]
   def change
   end
 

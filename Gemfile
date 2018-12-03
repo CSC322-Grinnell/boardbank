@@ -1,10 +1,10 @@
 source 'https://rubygems.org/'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '5.2.1'
 
 gem 'activeadmin'
 gem 'devise'
-gem 'protected_attributes'
+gem 'bootsnap', require: false
 group :development, :test do
   gem 'sqlite3'
 end
@@ -54,7 +54,7 @@ gem 'autoprefixer-rails'
 gem 'test-unit'
 
 # for the list of U.S. States
-gem 'carmen-rails'
+gem 'carmen-rails', :git => 'https://github.com/Studiosity/carmen-rails.git'
 
 # for Heroku deployment
 gem 'rails_12factor'

@@ -1,4 +1,4 @@
-class RemoveInterestFromUser < ActiveRecord::Migration
+class RemoveInterestFromUser < ActiveRecord::Migration[5.1]
   def up
     # remove_column :users, :interest_1
     # remove_column :users, :interest_2

@@ -1,5 +1,4 @@
-class UserInterest < ActiveRecord::Base
-  attr_accessible :user_interest, :interest_id, :has_interest
-  belongs_to :user
-  belongs_to :interest
+class UserInterest < ApplicationRecord
+  belongs_to :user, optional: true
+  belongs_to :interest, optional: true
 end

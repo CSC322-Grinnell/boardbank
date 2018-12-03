@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  permit_params :email, :password, :password_confirmation, :firstname, :lastname
   config.comments = false
   index do
     column :firstname

@@ -1,4 +1,4 @@
-class OrgAuth < ActiveRecord::Migration
+class OrgAuth < ActiveRecord::Migration[5.1]
   def self.up
     add_column :organizations, :approved, :boolean, default: false, null: false
     add_index :organizations, :approved
