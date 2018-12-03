@@ -26,7 +26,7 @@ module NavigationHelpers
       '/profile/organization'
       
     when /^the organization edit page/
-      '/organizations'
+      '/organizations/edit'
 
     when /^the user login page/
       '/users/sign_in'
@@ -57,6 +57,9 @@ module NavigationHelpers
 
     when /^the Organizations page/i
       '/organizations'
+
+    when /^the user profile edit page/i
+      '/users/edit'
 
     else
       begin
