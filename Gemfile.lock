@@ -481,7 +481,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sass-rails
-  searchkick (= 2.5.0)
+  searchkick
   simplecov
   sqlite3
   test-unit
