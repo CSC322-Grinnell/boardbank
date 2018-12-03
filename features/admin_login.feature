@@ -16,15 +16,15 @@ Scenario: Login with incorrect credentials
 	  When I fill in "Email" with "badAdmin"
 	  And I fill in "Password" with "openSesame"
 	  And I press "Login"
-	  Then I should see "Invalid email or password."
+	  Then I should see "Invalid Email or password."
 
 Scenario: Attempt to login without typing an email
           When I fill in "Password" with "passwords"
           And I press "Login"
-          Then I should see "Invalid email or password."
+          Then I should see "Invalid Email or password."
 
 Scenario: Attempt to login without typing a password
           When I fill in "Email" with "badAdmin"
 	  And I press "Login"
-	  Then I should see "Invalid email or password."
+	  Then I should see "Invalid Email or password."
 

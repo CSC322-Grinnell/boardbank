@@ -1,4 +1,4 @@
-class Organization < ActiveRecord::Base
+class Organization < ApplicationRecord
 
   include Elasticsearch::Model
   searchkick
@@ -6,9 +6,6 @@ class Organization < ActiveRecord::Base
 
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :registerable
-
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :contact_name, :approved, :address, :telephone, :city, :state, :zipcode, :name, :about, :email, :password, :password_confirmation, :remember_me, :category1, :category2, :category3
 
   def active_for_authentication?
     super && approved?

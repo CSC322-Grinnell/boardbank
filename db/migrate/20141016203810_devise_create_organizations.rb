@@ -1,4 +1,4 @@
-class DeviseCreateOrganizations < ActiveRecord::Migration
+class DeviseCreateOrganizations < ActiveRecord::Migration[5.1]
   def migrate(direction)
     super
     # Create a default user

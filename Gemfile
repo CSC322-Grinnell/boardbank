@@ -1,15 +1,15 @@
 source 'https://rubygems.org/'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '5.2.1'
 
-gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'activeadmin'
 gem 'devise'
-gem 'protected_attributes'
+gem 'bootsnap', require: false
 group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'rubocop', '~> 0.37.2', require: false
+gem 'rubocop', require: false
 
 gem 'travis-lint'
 
@@ -31,13 +31,13 @@ group :development, :test do
 end
 # setup Cucumber, RSpec, autotest support
 group :test do
-  gem 'rspec-rails', '2.14'
+  gem 'rspec-rails'
   gem 'simplecov'
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels' # basic imperative step defs
   gem 'database_cleaner' # required by Cucumber
   gem 'autotest-rails'
-  gem 'factory_girl_rails' # if using FactoryGirl
+  gem 'factory_bot_rails' # if using FactoryBot
   gem 'metric_fu'        # collect code metrics
 end
 
@@ -54,7 +54,10 @@ gem 'autoprefixer-rails'
 gem 'test-unit'
 
 # for the list of U.S. States
-gem 'carmen-rails'
+gem 'carmen-rails', :git => 'https://github.com/Studiosity/carmen-rails.git'
 
 # for Heroku deployment
 gem 'rails_12factor'
+
+#paginating
+gem 'kaminari'

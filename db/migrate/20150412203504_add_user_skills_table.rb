@@ -1,4 +1,4 @@
-class AddUserSkillsTable < ActiveRecord::Migration
+class AddUserSkillsTable < ActiveRecord::Migration[5.1]
   def up
   end
 

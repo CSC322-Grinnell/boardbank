@@ -15,7 +15,8 @@ end
 
 module Boardbank
   class Application < Rails::Application
-    config.active_record.raise_in_transactional_callbacks = true
+    Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -72,5 +73,14 @@ module Boardbank
 
     # Precompile additional assets. Defaults to [application.js, application.css, non-JS/CSS]
     config.assets.precompile += ['active_admin.css.scss', 'active_admin.js']
+
+    # Rails 5 now supports per-form CSRF tokens to mitigate against code-injection
+    # attacks with forms created by JavaScript. With this option turned on, forms
+    # in your application will each have their own CSRF token that is specified
+    # to the action and method for that form.
+    config.action_controller.per_form_csrf_tokens = true
+
+    # Configure site to check HTTP origin header against sites origin header for additional security
+    config.action_controller.forgery_protection_origin_check = true
   end
 end

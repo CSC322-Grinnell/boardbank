@@ -7,6 +7,10 @@
 </div>
 </div>
 
+<div> Already a user? 
+    <%= link_to "Sign In", new_user_session_path, :class => "btn btn-large btn-default" %>
+</div>
+
 <hr>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
@@ -26,42 +30,48 @@
 <div class="form-group">
     <%= f.label :Last_Name, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :lastname, class: "form-control",autofocus: true %>
+        <%= f.text_field :lastname, class: "form-control" %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Address, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :address, class: "form-control",autofocus: true %>
+        <%= f.text_field :address, class: "form-control" %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :City, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :city, class: "form-control",autofocus: true %>
+        <%= f.text_field :city, class: "form-control" %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :State, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-      <%= subregion_select(:user, :state, Carmen::Country.coded('US'), {include_blank: true}, class: "form-control", autofocus: true) %>
+      <%= subregion_select(:user, :state, Carmen::Country.coded('US'), {include_blank: true}, class: "form-control") %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Zip_Code, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.text_field :zipcode, class: "form-control",autofocus: true %>
+        <%= f.text_field :zipcode, class: "form-control" %>
     </div>
 </div>
 
 <div class="form-group">
     <%= f.label :Phone_Number, class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
-        <%= f.telephone_field :phonenumber, class: "form-control",autofocus: true %>
+        <%= f.telephone_field :phonenumber, class: "form-control", :required => false, :pattern => '^(\s{1,}|)(\(|)\d{3}(\)|)(\s{1,}|)(-|)(\s{1,}|)\d{3}(\s{1,}|)(-|)(\s{1,}|)\d{4}$', :oninvalid => "setCustomValidity('Please type only digits, parentheses and dashes, e.g. 777-777-7777 or (777) 777-7777, or simply 7777777777. Make sure you are entering 10 digits.')", :oninput => "setCustomValidity('')" %> <!-- http://stackoverflow.com/questions/13541983/html5-required-validation-in-ruby-on-rails-forms, http://stackoverflow.com/questions/16867407/html5-why-does-my-oninvalid-attribute-let-the-pattern-fail -->
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-6 col-sm-offset-2">
+        <%= f.check_box :shownumber, :checked => 'checked' %> <%= f.label :make_phone_number_visible %>
     </div>
 </div>
 
@@ -106,7 +116,13 @@
 
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">
-        <%= link_to "Back", :back %>
+        <%= link_to "Back", :root %>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+        <%= link_to "Home", :root %>
     </div>
 </div>
 

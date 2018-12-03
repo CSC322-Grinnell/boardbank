@@ -1,4 +1,4 @@
-class RemoveIntrest1FromUsers < ActiveRecord::Migration
+class RemoveIntrest1FromUsers < ActiveRecord::Migration[5.1]
   def up
   end
 

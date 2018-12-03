@@ -65,7 +65,7 @@
 <div class="form-group">
     <%= f.label :Phone_Number, class: 'col-sm-2 control-label'  %>
     <div class="col-sm-6">
-        <%= f.text_field :telephone, autofocus: true, class: 'form-control'  %>
+        <%= f.telephone_field :telephone, class: "form-control",autofocus: true, :required => true, :pattern => '^(\s{1,}|)(\(|)\d{3}(\)|)(\s{1,}|)(-|)(\s{1,}|)\d{3}(\s{1,}|)(-|)(\s{1,}|)\d{4}$', :oninvalid => "setCustomValidity('Please type only digits, parentheses and dashes, e.g. 777-777-7777 or (777) 777-7777, or simply 7777777777. Make sure you are entering 10 digits.')", :oninput => "setCustomValidity('')" %>
     </div>
 </div>
 
@@ -79,6 +79,15 @@
 
 <hr />
 
+<div class="container">
+      <div class="row">
+        <div class="span9"><%= yield %></div>
+        <div class="span3">
+<h3>Change password</h3>
+</div>
+</div>
+</div>
+<hr />
 <div class="form-group">
     <%= f.label :New_Password, class: 'col-sm-2 control-label'  %> <i>(leave blank if you don't want to change it)</i>
     <div class="col-sm-6">
@@ -93,17 +102,6 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
     </div>
 </div>
-
-
-<div class="container">
-      <div class="row">
-        <div class="span9"><%= yield %></div>
-        <div class="span3">
-<h3>Confirm changes?</h3>
-</div>
-</div>
-</div>
-<hr />
 <div class="form-group">
     <%= f.label :current_password, class: 'col-sm-2 control-label' %>
     <div class="col-sm-6">
@@ -125,6 +123,6 @@
       <%= button_to "Cancel my account", registration_path(resource_name),
           data: { confirm: "Are you sure?" }, method: :delete, class: 'btn
           btn-danger' %> </p>
-    <%= link_to "Back", :back %>
+    <%= link_to "Back", :org %>
   </div>
 </div>

@@ -9,8 +9,8 @@ Boardbank::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_files = true
-
+  config.public_file_server.enabled = true
+  
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
@@ -73,5 +73,5 @@ Boardbank::Application.configure do
   end
   config.assets.precompile << %r{bootstrap/glyphicons-halflings-regular\.(?:eot|svg|ttf|woff)$}
   config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css']
-  config.serve_static_files = true
+  config.public_file_server.enabled = true
 end
