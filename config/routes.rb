@@ -1,7 +1,4 @@
 Boardbank::Application.routes.draw do
-
-  get 'password_resets/new'
-  get 'password_resets/edit'
   root 'frontpage#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -30,5 +27,5 @@ Boardbank::Application.routes.draw do
   get 'admin/organizations/:id/approve' => 'frontpage#approve_org', as: 'approve_org'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  resources :password_reset, only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
