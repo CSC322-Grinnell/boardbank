@@ -19,7 +19,12 @@ class Organization < ApplicationRecord
     end
   end
 
-  def Organizatoin.digest(string)
+  # Returns true if a password reset has expired.
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
+  def Organization.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
