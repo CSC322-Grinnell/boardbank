@@ -19,10 +19,19 @@ class Organization < ApplicationRecord
     end
   end
 
+  def Organizatoin.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+  
+  def Organization.new_token
+    SecureRandom.urlsafe_base64
+  end
+
   # Sets the password reset attributes.
   def create_reset_digest
-    self.reset_token = Organizations.new_token
-    update_attribute(:reset_digest,  Organizations.digest(reset_token))
+    self.reset_token = Organization.new_token
+    update_attribute(:reset_digest,  Organization.digest(reset_token))
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 
