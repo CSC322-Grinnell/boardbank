@@ -3,8 +3,9 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:password_reset][:email].downcase)
-    @org  = Organizations.find_by(email: params[:password_reset][:email].downcase)
+    email = params[:password_reset][:email].downcase
+    @user = User.find_by(email: email)
+    @org  = Organization.find_by(email: email)
     if @user
       process_request(@user)
     elsif  @org
