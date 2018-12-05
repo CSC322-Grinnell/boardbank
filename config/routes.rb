@@ -1,5 +1,7 @@
 Boardbank::Application.routes.draw do
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root 'frontpage#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
