@@ -22,6 +22,15 @@ class User < ApplicationRecord
     self[:phonenumber] = phonenumber.gsub(/\D/, '')
   end #http://stackoverflow.com/questions/10214950/how-to-format-values-before-saving-to-database-in-rails-3
 
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+  
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
