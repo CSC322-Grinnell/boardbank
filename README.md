@@ -4,7 +4,7 @@ Boardbank [![Build Status](https://travis-ci.org/CSC322-Grinnell/boardbank.svg?b
 This repository contains the class project of Grinnell College CSC-322 Team Software Development class. 
 In collaboration with Greater Poweshiek Community Foundation (GPCF), this web application connects community members with nonprofit board opportunities.
 
-##Table of Contents
+## Table of Contents
 1. Boardbank from a User Perspective
   1. Volunteer
   2. Organization
@@ -21,7 +21,7 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 3. Contributors
 4. Lisence
 
-#1. Boardbank from a User Perspective
+# 1. Boardbank from a User Perspective
 
 The Boardbank website is designed to connect volunteers who are interested in 
 serving on the board of a nonprofit organization with organizations who need
@@ -44,7 +44,7 @@ After logging in, you can search for organizations by clicking on the "organizat
 and using the search function to find organizations that might interest you. Alternatively, you can wait for
 organizations to find and contact you. You can also view and edit your profile from the profile tab.
 
-##1.2 Using Boardbank as an Organization
+## 1.2 Using Boardbank as an Organization
 As an organization representative, the first thing to do is sign up your organization and create a profile
 for it. You can do so from the front page of the website by clicking on the green "organization" button. 
 On the sign up page, you can provide information the organization, including its location and description.
@@ -58,7 +58,7 @@ The search allows you to filter by skills and interests to find volunteers who m
 for the organization board. Once you find volunteers who seem suitable for the board, you wil need to contact them
 based on the information they provide in their profile. You can also view and edit your organization profile from the profile tab.
 
-##1.3 Using Boardbank as an Administrator (Admin)
+## 1.3 Using Boardbank as an Administrator (Admin)
 The only way to become an admin is to have an existing admin create an admin
 profile for you. Once you have been made an admin, you can log in at 
 
@@ -74,7 +74,7 @@ Once you sign in, you can
 The main job of an admin is to approve organizations and make sure that 
 volunteers and organizations are using the website appropriately.
 
-#2. Boardbank from a Developer Perspective
+# 2. Boardbank from a Developer Perspective
 
 The Boardbank website is designed to connect volunteers who are interested in 
 serving on the board of a nonprofit organization with organizations who need
@@ -104,7 +104,7 @@ function of the website and ActiveAdmin provides the code for the admin portions
 of the website. We highly recommend furture developers become familiar with 
 these packages (see resources section).
 
-##2.1 Installation
+## 2.1 Installation
 
 In order to clone the project to your local machine, do:
 ```bash
@@ -149,7 +149,7 @@ rake db:migrate
 rake db:seed
 ```
 
-##2.2 Test Suite
+## 2.2 Test Suite
 
 We break up tests by type of user (volunteer, organization, admin), and then
 again within those categories.
@@ -174,7 +174,7 @@ Currently, all the tests pass except for unimplemented features!
 
 Note: In cucumber tests, you can't put comments on the same line as code.
 
-####2.2.1 Running Tests
+#### 2.2.1 Running Tests
 
 This project employs Cucumber tests. To run the tests, do:
 ```bash
@@ -186,7 +186,7 @@ To run individual test files, do:
 ```bash
 cucumber features/*filename*
 ```
-##2.3 Implementation Detais
+## 2.3 Implementation Detais
 
 In order to verify that phone numbers and other fields are in the correct 
 format, we used regular expressions (regexes). The code for verifying user phone
@@ -202,7 +202,7 @@ organizations-equivalents, so a phone number is still required for organization
 registration. However, it is easy enough to avoid people seeing a phone number or 
 email address if 	they opt out of the visibility. 
 
-####Admin-page:
+#### Admin-page:
 
 Adding links to the admin dashboard:
 To create links from the Admin dashboard to view unapproved organizations, we 
@@ -236,7 +236,7 @@ to app/admin/organization.rb. The “only: :show” tag ensures that these
 action items (buttons at the top of the page) are only displayed on pages of 
 views (‘show’-pages) of particular organizations.
 
-##2.4 Common Issues
+## 2.4 Common Issues
 
 One of the most common issues we run into is forgetting to restart ElasticSearch.
 If you are having errors related to Faraday, timeout, port 9200, restarting 
@@ -267,9 +267,9 @@ rails generate migration add_shownumber__to_users shownumber:boolean
 rake db:migrate
 ```
 
-##2.5 Resources
+## 2.5 Resources
 
-####2.5.1 ElasicSearch
+#### 2.5.1 ElasicSearch
 
 SearchKick: http://searchkick.org/
 elasticsearch-rails: https://github.com/elastic/elasticsearch-rails
@@ -278,12 +278,12 @@ The searchkick gem handles interacting with ElasticSearch, but if you would like
 a more in-depth overview of how ElasticSearch works, here is an introductory 
 webinar video: https://www.elastic.co/webinars/get-started-with-elasticsearch?baymax=rtp&elektra=downloads&iesrc=ctr
 
-####2.5.2 ActiveAdmin
+#### 2.5.2 ActiveAdmin
 
 Documentation for customizing ActiveAdmin index pages: 
 //github.com/activeadmin/activeadmin/blob/master/docs/3-index-pages/index-as-table.md
 
-#3. Contributors
+# 3. Contributors
 
 Fall 2016 CSC-322 
 * Members: Giang Nguyen '17, Ying Long '17, Zachary Segall '18, Marios Tsekisidis '17, Elizabeth Zak '18
@@ -291,7 +291,7 @@ Fall 2016 CSC-322
 Spring 2016 CSC-322 members:
 * Mira Hall '16, Noah Schlager '16, Ashwin Sivaramakrishnan '16, David Chang '18, Sooji Son '18
 
-#4. License
+# 4. License
 
 The MIT License (MIT)
 
