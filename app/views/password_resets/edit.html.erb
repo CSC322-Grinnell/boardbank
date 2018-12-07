@@ -1,19 +1,38 @@
 <% provide(:title, 'Reset password') %>
-<h1>Reset password</h1>
+<div class="container"
+     <div class="row">
+       <div class="span9"><%= yield %></div>
+       <div class="span3">
+         <h1>Reset Password</h1>
+       </div>
+     </div>
+</div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+<hr>
 
-      <%= hidden_field_tag :email, @user.email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+<%= form_for(@user, url: password_reset_path(params[:id]), html:
+    {class: 'form-horizontal'}) do |f| %>
+<div class="form-group">
+  <%= hidden_field_tag :email, @user.email %>
+  
+  <%= f.label :password, class: "col-sm-2 control-label" %>
+  <div class="col-sm-6">
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+  </div>
+</div>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+<div class="form-group">
+  <%= f.label :password_confirmation, "Confirmation", class: "col-sm-2
+  control-label" %>
+  <div class="col-sm-6">
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  </div>
+</div>
 
-      <%= f.submit "Update password", class: "btn btn-primary" %>
+<div class="form-group">
+  <div class="col-sm-6 col-sm-offset-2">
+      <%= f.submit "Update password", class: "btn btn-default" %>
     <% end %>
   </div>
 </div>
