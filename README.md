@@ -112,22 +112,12 @@ git clone https://github.com/CSC322-Grinnell/boardbank.git
 ```
 Make sure to migrate and seed the database as well:
 ```bash
-rake db:migrate
-rake db:seed
+rails db:reset
 ```
 To install Elasticsearch for Mac users, run:
 ```bash
 brew install elasticsearch
-rake searchkick:reindex:all
-```
-
-To install Elasticsearch for Linux users (Cloud 9), run:
-```bash
-wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
-sudo apt-get update && sudo apt-get install elasticsearch
-sudo update-rc.d elasticsearch defaults 95 10
-rake searchkick:reindex:all
+rails searchkick:reindex:all
 ```
 
 For quickly starting a new copy of the project on Cloud 9, run the following 
@@ -135,26 +125,20 @@ commands:
 
 Start new workspace with github link
 https://github.com/CSC322-Grinnell/boardbank
+and choose "Rails Tutorial" for the project template as this will make the workspace with 768MB of RAM
+as opposed to 512MB.
 
-Do:
+Then, execute the included installation script:
 ```bash
-bundle install
-wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
-sudo apt-get update && sudo apt-get install elasticsearch
-sudo update-rc.d elasticsearch defaults 95 10
-rake searchkick:reindex:all
-sudo /etc/init.d/elasticsearch restart
-rake db:migrate
-rake db:seed
+c9_install.sh
 ```
 
 ## 2.2 Test Suite
 
-We break up tests by type of user (volunteer, organization, admin), and then
+We break up tests by type of user (Individual, organization, admin), and then
 again within those categories.
 
-Volunteer:
+Individual:
 * Navigation: logging in/out, moving from page to page
 * Editing: changing different fields in the profile
 * Searching: making sure searches turn up correct organizations
@@ -178,7 +162,6 @@ Note: In cucumber tests, you can't put comments on the same line as code.
 
 This project employs Cucumber tests. To run the tests, do:
 ```bash
-rake db:migrate RAILS_ENV=test
 cucumber features/
 ```
 
@@ -285,6 +268,10 @@ Documentation for customizing ActiveAdmin index pages:
 
 # 3. Contributors
 
+Fall 2018 CSC-324
+* Members: Mujtaba Aslam '19, Anna Blinderman '19, Marli Remash '20, Lukas Resch '19, Zachary J. Susag '19
+* Alumni Mentor: Ian Young
+
 Fall 2016 CSC-322 
 * Members: Giang Nguyen '17, Ying Long '17, Zachary Segall '18, Marios Tsekisidis '17, Elizabeth Zak '18
 * Mentor: Cassie Schmitz
@@ -295,7 +282,7 @@ Spring 2016 CSC-322 members:
 
 The MIT License (MIT)
 
-Copyright (c) 2014 CSC322-Grinnell
+Copyright (c) 2014,2018 CSC322-Grinnell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
