@@ -15,9 +15,9 @@ Background:
 	|Alex   | Freecookies | alex@cookies.com | password |
 
 Scenario: Search List of Users
-	  When I follow "Users"
+	  When I follow "Individuals"
 	  Then I should be on the Users page
-	  And I should see "List of Users"
+	  And I should see "List of Individuals"
 	  And I should see "Leo"
 	  When I fill in "search" with "Enuj"
 	  And I press "search"
