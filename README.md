@@ -6,7 +6,7 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 
 ## Table of Contents
 1. Boardbank from a User Perspective
-  1. Volunteer
+  1. Individual
   2. Organization
   3. Admin
 2. Boardbank from a Developer Perspective
@@ -26,11 +26,11 @@ In collaboration with Greater Poweshiek Community Foundation (GPCF), this web ap
 The Boardbank website is designed to connect volunteers who are interested in 
 serving on the board of a nonprofit organization with organizations who need
 board members. The website serves three types of users:
-1. Volunteers - individuals who are interested in being on the boards of nonprofits. 
+1. Individuals - individuals who are interested in being on the boards of nonprofits. 
 2. Organizations - nonprofit organizations looking for people to serve on their administrative boards.  
 3. Admins - GPCF employees who manage how volunteers and organizations use the website.
 
-## 1.1 Using Boardbank as a Volunteer
+## 1.1 Using Boardbank as a Individual
 As a volunteer, the first thing you need to do is sign up and create a profile. You can do so from the front page
 of the website by clicking on the green "user" button. On the sign up page, you can provide information 
 about yourself, your skills, and your interests. You can provide as much or as little information as 
