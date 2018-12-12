@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2016_10_28_185543) do
+ActiveRecord::Schema.define(version: 2018_12_05_164937) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "resource_id", null: false
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2016_10_28_185543) do
     t.string "zipcode"
     t.string "telephone"
     t.string "contact_name"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["approved"], name: "index_organizations_on_approved"
     t.index ["email"], name: "index_organizations_on_email", unique: true
     t.index ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true
@@ -131,6 +133,8 @@ ActiveRecord::Schema.define(version: 2016_10_28_185543) do
     t.float "availability"
     t.string "additional_comments"
     t.boolean "shownumber"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
