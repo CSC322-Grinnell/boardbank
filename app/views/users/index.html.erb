@@ -19,14 +19,14 @@
          <h4>Search by:</h4>
          <%= render 'filter' %>
       <div class="row">
-         <h2>List of Users</h2>
+         <h2>List of Individuals</h2>
          <% if user_signed_in? %>
             <h3> You do not have access to this area </h3>
          <% elsif organization_signed_in? %>
                <div class="list-group">
                   <% if @users.empty?%>
                      <a href="#" class="list-group-item active">
-                       <h4 class="list-group-item-heading">No Users Found.</h4>
+                       <h4 class="list-group-item-heading">No Individuals Found.</h4>
                      </a>
                   <% else %>
                      <% @users.each do |user| %>
@@ -34,7 +34,7 @@
                         <% @name = user.firstname.to_s + " " + user.lastname.to_s %>
                         <a href=<%="profile/user/#{@id}"%> class="list-group-item">
                            <h3 class="list-group-item-heading">
-                              <% if user.firstname && user.lastname %><%= @name %><% else %>Name of user not provided.<% end %>
+                              <% if user.firstname && user.lastname %><%= @name %><% else %>Name of Individual not provided.<% end %>
                            </h3>
                            <p class="list-group-item-text">
                               <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;

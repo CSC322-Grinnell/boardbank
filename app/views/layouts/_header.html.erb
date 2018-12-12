@@ -21,7 +21,7 @@
         <% if organization_signed_in? %>
           <% @id = current_organization.id %>
           <li><a href="/organizations">Organizations</a></li>
-          <li><a href="/users">Users</a></li>
+          <li><a href="/users">Individuals</a></li>
           <li><%= link_to 'Profile', controller: "organizations", action: "show", id: @id %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'red' %></li>
         <% end %>
