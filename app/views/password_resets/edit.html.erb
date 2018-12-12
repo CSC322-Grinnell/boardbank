@@ -1,4 +1,4 @@
-<% provide(:title, 'Reset password') %>
+<% provide(:title, "Reset password") %>
 <div class="container"
      <div class="row">
        <div class="span9"><%= yield %></div>
@@ -9,7 +9,6 @@
 </div>
 
 <hr>
-
 
 <%= form_for(@user, url: password_reset_path(params[:id]), html:
     {class: 'form-horizontal'}) do |f| %>
